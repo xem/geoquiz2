@@ -1,0 +1,862 @@
+<meta charset=iso-8859-1>
+<body id=b>
+<canvas id=a width=1020 height=575>
+
+<script>
+// This file is encoded in ANSI, in order to encode every byte of the game's data on a 1-byte char.
+
+//onload = function(){
+
+// DATA
+// ====
+
+// See temp.txt for the raw data and concatenated data
+
+var data = [
+[
+"RuRussiaMoscowCnChinaBeijingCaCanadaOttawaFrFranceParisDzAlgeriaAlgiersArArgentinaBuenos airesAuAustraliaCanberraAtAustriaViennaBeBelgiumBrusselsBrBrazilBrasiliaBgBulgariaSofiaAeUnited arab emiratesAbu dhabiClChileSantiagoHrCroatiaZagrebCuCubaHavanaCzCzech republicPragueDkDenmarkCopenhagenEcEcuadorQuitoEgEgyptCairoEeEstoniaTallinnNoNorwayOsloFiFinlandHelsinkiDeGermanyBerlinGrGreeceAthensHuHungaryBudapestEsSpainMadridChSwitzerlandBerneGbUnited kingdomLondonIsIcelandReykjavikInIndiaNew delhiIdIndonesiaJakartaIrIranTehranIqIraqBaghdadIeIrelandDublinIlIsraelJerusalemItItalyRomeJmJamaicaKingstonJpJapanTokyoLbLebanonBeirutLtLithuaniaVilniusLuLuxembourgLuxembourgMkMacedoniaSkopjeMgMadagascarAntananarivoMxMexicoMexico cityMcMonacoMonacoMaMoroccoRabatGyGuyanaGeorgetownLyLibyaTripoliNpNepalKathmanduNlNetherlandsAmsterdamNzNew zealandWellingtonKpNorth koreaPyongyangPsPalestineJerusalemPyParaguayAsuncionPePeruLimaPhPhilippinesManilaPlPolandWarsawPtPortugalLisbonRoRomaniaBucharestQaQatarDohaSaSaudi arabiaRiyadhSgSingaporeSingaporeSkSlovakiaBratislavaSiSloveniaLjubljanaZaSouth africaPretoriaKrSouth koreaSeoulSeSwedenStockholmTwTaiwanTaipeiTnTunisiaTunisTrTurkeyAnkaraUaUkraineKievUyUruguayMontevideoUsUsaWashington dcVeVenezuelaCaracasVaVatican cityVatican cityVnVietnamHanoiAfAfghanistanKabulAdAndorraAndorra la vellaAlAlbaniaTiranaByBelarusMinskBaBosnia and herzegovinaSarajevoBfBurkina fasoOuagadougouCfCentral african republicBanguiCmCameroonYaoundeCdDemocratic republic of the congoKinshasaCiCote d'ivoireYamoussoukroCrCosta ricaSan joseCoColombiaSanta fe de bogotaBoBoliviaLa pazCvCape verdePraiaCyCyprusNicosiaBjBeninPorto novoKhCambodiaPhnom penhDmDominicaRoseauCgCongoBrazzavilleDoDominican republicSanto domingoGqEquatorial guineaMalaboGtGuatemalaGuatemala cityHtHaitiPort-au-princeHnHondurasTegucigalpaJoJordanAmmanKzKazakhstanAstanaXkKosovoPristinaKwKuwaitKuwait cityLaLaosVientianeKeKenyaNairobiMyMalaysiaKuala lumpurMlMaliBamakoMtMaltaVallettaMdMoldovaChisinauPkPakistanIslamabadPaPanamaPanama citySmSan marinoSan marinoSnSenegalDakarRsSerbiaBelgradeScSeychellesVictoriaSoSomaliaMogadishuLkSri lankaColomboSdSudanKhartoumTzTanzaniaDodomaThThailandBangkokYeYemenSan'aZwZimbabweHarareAgAntigua and barbudaSt john'sAmArmeniaYerevanAzAzerbaijanBakuAoAngolaLuandaBsThe bahamasNassauBhBahrainManamaBdBangladeshDhakaBbBarbadosBridgetownBzBelizeBelmopanBtBhutanThimphuBwBotswanaGaboroneBnBruneiBandar seri begawanBiBurundiBujumburaTdChadN'djamenaKmComorosMoroniDjDjiboutiDjiboutiSvEl salvadorSan salvadorErEritreaAsmaraEtEthiopiaAddis ababaFjFijiSuvaGaGabonLibrevilleGmGambiaBanjulGeGeorgiaTbilisiGhGhanaAccraGdGrenadaSt george'sGnGuineaConakryGwGuinea-bissauBissauKiKiribatiTarawaKgKyrgyzstanBishkekLvLatviaRigaLsLesothoMaseruLrLiberiaMonroviaLiLiechtensteinVaduzMwMalawiLilongweMvMaldivesMaleMhMarshall islandsMajuroMrMauritaniaNouakchottMuMauritiusPort louisFmMicronesiaPalikirMnMongoliaUlan batorMeMontenegroPodgoricaMzMozambiqueMaputoMmMyanmarNaypyidawNaNamibiaWindhoekNrNauruYarenNiNicaraguaManaguaNeNigerNiameyNgNigeriaAbujaOmOmanMuscatPwPalauMelekeokPgPapua new guineaPort moresbyRwRwandaKigaliKnSt kitts and nevisBasseterreLcSt luciaCastriesVcSt vincent and the grenadinesKingstownWsSamoaApiaStSao tome and principleSao tomeSlSierra leoneFreetownSbSolomon islandsHoniaraSsSouth sudanJubaSrSurinameParamariboSySyriaDamascusTjTajikistanDushanbeTlTimor-lesteDiliTgTogoLomeToTongaNuku'alofaTtTrinidad and tobagoPort of spainTmTurkmenistanAshgabatTvTuvaluFunafutiUgUgandaKampalaUzUzbekistanTashkentVuVanuatuPort vilaZmZambiaLusakaCkCook islandsAvaruaNuNiueAlofiSzSwazilandMbabane".split(/(?=[A-Z])/),
+"HawaiiHonoluluAlaskaJuneauWashingtonOlympiaNevadaCarson cityNew mexicoSanta feNew yorkAlbanyFloridaTallahasseeIllinoisSpringfieldOhioColumbusRhode islandProvidenceSouth carolinaColumbiaTexasAustinMarylandAnnapolisNorth carolinaRaleighUtahSalt lake cityVirginiaRichmondWest virginiaCharlestonPennsylvaniaHarrisburgMassachusettsBostonConnecticutHartfordAlabamaMontgomeryCaliforniaSacramentoColoradoDenverGeorgiaAtlantaMichiganLansingNorth dakotaBismarckMontanaHelenaNebraskaLincolnArizonaPhoenixArkansasLittle rockNew hampshireConcordNew jerseyTrentonDelawareDoverOklahomaOklahoma cityIdahoBoiseOregonSalemIndianaIndianapolisIowaDes moinesKansasTopekaSouth dakotaPierreKentuckyFrankfortTennesseeNashvilleLouisianaBaton rougeMaineAugustaVermontMontpelierMinnesotaSt paulMississippiJacksonWisconsinMadisonMissouriJefferson cityWyomingCheyenne".split(/(?=[A-Z])/),
+"GreenlandGibraltarGuadeloupeHong kongGuamCayman islandsMartiniqueSt martinFrench polynesiaSt helenaSt barthelemyReunionNew caledoniaPuerto ricoWallis and futunaFrench guianaGuernseyBritish indian ocean territoryMayotteSt pierre and miquelonAnguillaAmerican samoaFaroe islandsBermudaUs minor outlying islandsFrench southern territoriesBritish virgin islandsUs virgin islandsNetherlands antillesArubaAland islandsSouth georgiaBonaireBouvet islandCocos islandsCuracaoChristmas islandWestern saharaFalkland islandsHeard island and mcdonald islandsIsle of manJerseyMacauNorthern marianasMontserratNorfolk islandPitcairn islandsSvalbard and jan mayenTokelauAntarticaTurks and caicos islandsSvalbard".split(/(?=[A-Z])/),
+"Cape canaveralChrist the redeemerGreat chinese wallGreat sphinxEiffel towerTower of pisaSagrada familiaBig benStatue of libertyForbidden cityThe pyramids of gizaThe palace of versaillesAcropolisTrevi fountainKremlinAtomiumLascaux cavesMont st michelPiazza san marcoWashington dcGrand canyonMillau bridgeRock of gibraltarEmpire state buildingHollywood signTimes squareLouvre museumWhite houseFlorence cathedralLas vegasMadrid palaceCentral parkSistine chapelPiazza del campoMachu picchuBurj al arab hotelSt peter basilicaCapitol hillLuxor templeGolden gate bridgeBurj khalifaAlcatrazEphesusManneken pisMount eden craterNorth capeSt basil cathedralVictoria fallsGreat buddha of kamakuraLotus templeColosseumAbu simbelPetronas twin towersYellowstoneNiagara fallsTaj mahalMeccaAuschwitzStonehengeMount rushmorePentagonCape of good hopeOpera houseParc guellPompeiiWaterlooEaster islandEvergladesCloud gateRialto bridgeWillis towerLittle mermaidTower bridgeBlue mosqueNevado mismiTable mountainMinaret of jamAngkor watFaisal mosqueNeuschwanstein castleGolden temple of amritsarAl aqsa mosqueTemple of besakihChichen itzaBran castleHagia sophiaUluruBrandenburg gateBlue domed churchCheyenne mountainKiyomizu-deraPetraTombouctouKultury i nauki palaceNull island".split(/(?=[A-Z])/),
+"SuperiorLemanMichiganTiticacaVictoriaGreat bear lakeMalawiGreat slave lakeNicaraguaLoch nessTaal lakeBaikalOntarioPinatuboHuronTanganyikaErieWinnipegLadogaBalkhashOnegaCrater lakeReed flute caveEmerald lakeMirror lakeSpotted lake".split(/(?=[A-Z])/),
+"AmazoneNileCongoNigerLoireZambezeIndusMississippiColoradoColumbiaUruguayYangtzeYellow riverXiUralDanubeRhinElbeMeuseRhoneSeineOrangeSenegalVoltaChariGambiaDraaBandamaTanaParanaYukonSao franciscoJubbaLimpopoRio grandeTocantinsOrinocoBrazosMackenzieMagdalenaFraserParnaibaSaint-laurentRio negroEssequiboLenaAmourMekongIenisseiObBrahmapoutreSalouenEuphratesAmou-dariaGangeSyr-dariaIrrawaddyKolymaTigrisIndiguirkaKouraGodavariKrishnaNarmadaRed riverAnadyrVolgaDnieperDonPechoraDniestrTagusVistuleDaugavaMurraySepik".split(/(?=[A-Z])/),
+"SaharaColorado plateauArabian desertGobiGreat victoriaSimpsonAtacamaSyrian desertGreat sandy desertNamibChihuahuan desertKalahariPatagonian desertKarakumSonoranKyzylkumTaklamakanTharGibsonDasht-e margoRegistanMojaveDasht-e kavirDasht-e loot".split(/(?=[A-Z])/),
+"EtnaVesuviusPiton de la fournaiseMount peleeEyjafjallajokullSt helensKilaueaStromboliSanta mariaPinatuboYasurTaalAmbrymMerapiErta alePacayaErebusSakurajimaNyiragongoUlawunMauna loaGalerasKrakatoaTamboraNevado del ruiz".split(/(?=[A-Z])/),
+"Mount everestK2AnnapurnaFujiKilimanjaroMont blancPopocatepetlOlympusBroad peakCookLhotseMakaluCho oyuDhaulagiriManasluNanga parbatGasherbrum iGasherbrum iiShishapangmaKangchenjungaDenaliKirkjufellFitz royHuaElbrusMatterhornEl capitanGrand tetonLicancaburTre cime de lavaredoBen nevisRainierKinabaluHuangKailashBanff".split(/(?=[A-Z])/),
+"Amazon rainforestSumatra rainforestTaigaGreat lakes st lawrenceSierra nevadaMiombo woodlandsCongo basin forestKinabaluThe sundarbansDaintree rainforestXishuangbannaBialowieza primeval forestThe black forestVirgin komi forestsLacandon jungleTongassBosawas biosphere reserveAtlantic forestValdivian rainforest".split(/(?=[A-Z])/),
+"Mediterranean seaGulf of mexicoEnglish channelBering seaAdriatic seaAegean seaBlack seaNorth seaRed seaSea of japanPhilippine seaEast china seaSouth china seaAral seaCaspian seaDead seaCoral seaGulf of alaskaCaribbean seaSargasso seaBaltic seaIrish seaCeltic seaLigurian seaTyrrhenian seaGulf of thailandJava seaTimor seaGulf of guineaPersian gulfArabian seaBarents seaGreenland seaGreat australian bightNorwegian seaHudson bayJames baySea of okhotskSeto inland seaBeibu gulfSulu seaCelebes seaBohol seaFlores seaBanda seaArafura seaTasman seaYellow seaBohai seaGulf of carpentariaBaffin bayGulf of st lawrenceGulf of bothniaSea of azovIonian seaMirtoon seaGulf of sidraMarmara seaSea of creteGulf of adenGulf of omanBay of bengalKara seaBeaufort seaAmundsen gulfChukchi seaLaptev seaEast siberian seaAmundsen seaWeddell seaRoss seaGulf st vincentSpencer gulfSalton sea".split(/(?=[A-Z])/),
+],
+
+[
+
+// countries 
+`›2—	aKz)	a9:lR
+<:1U	
+{q(kJWJZqa\\31[1\\BRJ]ai_1"R:2KiRAYJFiMQE:QCTiLARazQrXCI9!C1Q!1I+	A30©1AJVaÁÃQÇ	BæKë8Qæ5jqc.  GkJŽ5~ÓNÝJ!"R9@2ARqRa
+pT@bJPI8J9B)BaQhQqTi|iby)
+y#3AXA iÎp0	~KEQF1ZIYIpJ@I;YAOOMP:;!A19XAH/(
+
+0	!a9@9YP{	Xy"I9	Yy	B
+y	Y	Z9I{hBzD8PI 
+8EYqJYAyRAzQbp	az1)8 *
+iyzrqRXL[ipT!YY;hqPAI!(!IZI-9
+iQASCAJ*
+I.\rQJ6y87(9X9<yN8	OLQMIAIYRADa	3	Q@=I:G$XHLP@H%h$99I1P~‚?‚;phXhqXH@hPAP!1A	8	‡Jh0~ƒTƒn	09 *9"IPIHYiQYQh~W½W½#(YI!B0IZibjaobr	)19!PáB8~ê¾ë¾iR8PI2H)a:KSIYA!41	!!
+b")rt}kçÇr ~Œ@Š@pJ
+!A~„;‚;8~_¡OˆqiRjqixjhi[q!)!+)GIA2aIQ2YArI0~‘J‘L	x( @PIa~§g©ebB~O»Q¬1*Yqhajajbk!jZYqiz	!8I2#.!*"(~ŒDŒDXHy9(@H(~FiFi	PI0@H@XH~‹=‹;Qy
+~‰2‡4	Q)Qh~I‹IˆYhr! ~—_™]pa0rxqO.	x~’+’+Qxpx0 ~ˆ*ˆ*y(!1)x	 	pAKPIQZbTk~’)’)	3 1IhI@Pi[i~Š8…=)0x	rRXpK ~‘R‘Rh:	pIp8r~ŽBŽAPYI0 ~}NƒJXAP@Kh	jXy"~†B…Cp	0I~:}<I0H(@!axXzha{5	0P~q"q"A	Ax
+zS~·aµW	qi	Y	8h	 	yHYb19PqaX[Qic86+aAA	9 ~Ì“Ì“X	L@KØ™ Ö™HË’A2=yiyÎˆ!	ixZhK1Õ’)y1I0
+PIHhaÛ‡xh@Ý‹yq qX	+AY@1~¥V PsXyq	qy
+A01!9AQhI:HA~ Y¢[qQA9H0!	qX~|6|5qR00~š\\š\\i80 ~‰K‰K:X1	0Y{p@haP9	:ˆN@i~JpJpH~ãVãVx"29Zpax[IZi0Xh(hx~šX™ZX~“4“48Jhy~…=…=~KM8a~¢¥ §aq'1ZQ~:n<dkz	!yZHhHh9QF!>1HqyrA B	;1
+zyh~†H†H~|Xz\\hZ
+()I@~X€X€payI8 9~ŠZŒhXI90 *y	x0ohH~½b¹\`ypI~„8†7@Yh	~üÈüÈbHaI(! @!:pYa~ÚPÚLYxh	@!R~š\\š\\~X¯W²!B0!	xhhiQ~J›J›3@!q! y	hQjxyiXqPB9(~ÖuÖu0!iXqH9Xa2aY (	×€piPxH0~8‹;	0)J@R~zQzQq) I~“GDz	xH(9PHP~¥f¥g8p~¢f£ayhz	aRIhJX2@39(0z~ÊˆÊˆ~@Ž>	xIYA~‹DŒCIh	~•¯—ªIZhAa2kH@Xt		! @ ~ÚRÚR	phR~Ž+Ž+QpaQ 1)0)!iHaQb~×f×fPi~ˆT‡SxhXyXP9!(~˜O“L
+yixJPJ@hAXA10XH~–<™;aPHXpQ8Aa@AQB	80	 ~Y¾W¼"yhQ~KPKP~Q{Q{
+yHaxPAqhI8*P8H9!x~ŠKŠK~ÌlÍkYpzj[2	!2@ :
+~±W¬Vaqh
+(Q0HX@HZ~‚J‚J~LO8(xh~”6“4Qi		!2IP~ŽHŽG@Hpy ~x}{!zY@a8H~Ž„Ž†Ah01q{JXA~‰…‹xd@Xip
+(81(8~Œ‘Ž†apXaXHX
+q	ay	y @)	9+"8H@JXA~}ƒIQ 8!0	xpa~E|Dzh8~LƒO)1	*P8H1(RaPxiay	~Q¢PšjXxirp!	p)0H)C(@~pupuor~˜V˜VXH~‚‚)8 xpXi~ËyÊz1	ha~UtUt~‹‰‘8x)H)apXaX~OpOp	Bi~‡…‡…‡‰	(H~AuBqIxp@i P~MpNqA8	~CvBs	QXA~š[š[xXhXH~³;¾>BH<Y:ITaxLAQYhzi@Yh	p*yr	) ~JJX0~£\`¡\`q~ÉpÈkyhPqpI 1Q1~›Œ™Œ( 1aixXa:~È…È…2yxhqAÎˆ(A[Hh@~{x}fHjqiKXqp	!	 )@~‹U‹U~•B–BAHyp~´Y¬_
+(zPIr[HhyIX0K 0@~I}F|hH(HXA~‰G‰G~uuyxK0!	~FŽDzhPA ~¨‘¨‘¥˜¢˜~¡‡ž8)HB!h	
+b~¹€¹€!qhH~˜t›r2@NiHjYsx
+i)~š“™ŒX@Hpary@)0:~ÈvÊz1	(1I(8Qpqhphaqx18!0~ t x1PIhJX~–¤“¤iaI:~UqUqUr~ N N8yP~¤N¤N1XHpAyhx~Š—‰£p	8)!P8( IXH1Js~JfJfKgLi~¤d¤d~Áh¿eyqHQ!~WwWw~BqBqa!~Àb¿bpI~“®“®;PIkr!~ÒƒÒƒX~••b~‹yŒhXqiYhrXxh	!0*~Ÿ›Ÿ› œ~ŸzŸzPq~BwBwIy~œtŸx:1Yip~œ}ž„P	HA0@ H(AZahXi ~ÿ¥ÿ¥0Xxÿ¢X~‡Š‡‹ 	0	XiX@a9~uwuw	@~ L L0BIh~‚‚+HPia~UyUy~w|{€ 2JYyp~uywxpQ1~ûˆûˆü‹û†Ž‘‡™~µJ²L		YPHXJ~’01
+x)P8PX8~”µ”µxXH~yx€yqH~ˆBˆB~™ž˜ž )qhxphH0~µ„µ„µŠ´‡~ú€ú€÷}ú}÷zôz~up}fHjqiKX0I(2
+ )	(~©§©§~ð€ð€íƒì€ë}ä|â}~ÌAÓ>a
+xT@bJPI@J:A)B	)	~ŽJŽL0x~˜¯˜± )8 +YP@XrX8(@Qpiaih~ÄnÆ}!3XH)9"ybpXPhqip~«‹«4
+p@PIoAP2~÷‹÷‹~DyDz9aq~‚wƒy	!)1IRYIqaI~†}ƒy	 qd8PhQ9@~ªh¨j!py\\Q1~ààh0~é˜é˜9YA+yqyê’iIï”@(~–•ŽpQ~TqTq~VvVv~UwUw~žž~…Š…Š†ˆ~wx0Q~ò˜ò˜x0ó™Pó˜8ñ•x@ð–~—ƒ“{x
+jXhYI0P;!~Z‚Xaz )~šYšYX!HPJi~±Q±Q8 	Q
+yR HXP~Ù—Ù—	Q~‚)8~©©§¥~U{U{p ~ªRªR@Q20H!|HZH~ÿ—ÿ—ý“~˜Š˜ŠYH("	q~²L²LPH2XHBIj(ppy 8 
+@~ø¤ø¤÷ h0ø¥~• “¥A8)!p9)	yjQp@Y~©©\r™~	¥	¥
+§~—°—°xP(`.split("~"),
+
+// us states 
+`h‘q~,<0G!@1<XAI/+MAKBWQLRZIbzraT[8Qi0		zqzML
+KJ~7W6[+MhI~:k?t!-Mk~GrDom
+(
+,~ebf]lBJ!
+!~\\}\\}Y9(
+yra:~WiWo:#
+ak~]i[k*iZ~hghg Ph~^v[t[1~O}G{{zh1+AK)JkJ~ckbj	j~\`r_tK!qR~AgBdJm,I~bnbjyiN~^m]maQ~ch_i)qQI~hchcIh
+~gffea ~Yw[y2Il(	~9n:dKjyt	)?~HjDp,N~[v[y2qa0J~[_Ye$R:qzk~LYP[N+~AYISlMR5~PgPbNi	i~AwDpmIB*!~TtRw*xbJ~hah]jH~ehek!AqPy~dkdki!~OsRpOh
+i~>aBdL/u~7^6d,l~Zi[ejYH+~SeQg!AL~QkKjjN~L^I[k+~[m[kYRp0~YrVqYL~VVB+	b	x~i_hc*jx~g\`f]	bP~S]Pa.	Rjy~VyVs	lP0I~WaXc"H:Ijy~TmRq+8azh~HdIf,MXk`.split("~"),
+
+// territories 
+`UUIzrIzasz$!1AA
+MBONR~}U~Us~Ñj~çw~Gn~Vu~Tp~ ¡£¡¥¤~}¡~Tp~¨¨~÷ªP9~RpHP@x~š›ž~\\ƒaH)~=~´’´•~¡œ~YC~Tp~Ÿ~|&~S[~‹Š‰‚	rb~³ÖXH p~Sp~Sq~OxPx~Ox~)~gà@ymãnænèmê~Qy~ƒà~Åœ~Px~Ë™~tk
+ )	 JYh~WÚYVÛ h~µÝ~}5~>~Ðl~èr~Tr~÷´~%¯&®)®~{X~—~Lÿy#[||ÿ~Nk~ŒDKIA`.split("~"),
+
+// places 
+`HacªÓN—]‚?ˆG‚K€9LMÓN—]‚?’QŠK›1„;‚E€?ˆF??1UƒG}TLM-XMM‚?KQˆF/S~NMLŠKˆGN§fŠK+?˜d*R§f*R”P„;üÀ’›1•¡âW·\`ŠK˜hÉ…3FIH·\`kŽ;€:8FKQŽ»ë»‚K‹M„;4±GdCJ‰ECJŠ1€9•KMŸŽ»®XÊw´Xˆ?µ[š\\Ó–Bl’D•LÝ­Š8“S6OáVš]r8Š`,
+
+// lakes 
+`ECQ0K~…D~CFbpI~P¢8~—Ša	)~(
+QxI~™˜qi1~3$R8Y~Dyp~}/~Öt~Ê: paXQ~KGR
+~Ös~EDxi@~——9)~FLX~<:9iqX~–'yP~µF(
+XI~™"iy(8(~)I~Îe~.:~+R~,=`.split("~"),
+
+// streams 
+`_ŒQ@Q@TBRAbqiypMYAiqW[pQkzY9ZŽ[qai\\haxiapaS0JAH9~—\\iXziZqqYhqaHhqi˜txhr ~‰’)	zjpbhŒŽhq~…„!0@(;1HZQaP…„!0	p~B	php~š¦1@JYH9(0 ~±h(0(! ~A_9!(9"9A( ~0\\0 0~(By	()1y~W¼"	y~×\\@HZ@Q0IYIiH8@1(:HP~ÕRQaJ0 ( APbXIXpxI8@~Ñj8J0HQ(~¥B!1
+*~•K9K@H*IPAQ@(0~„8ipap~‡5hy~ƒ8ha~„I )~=yx~Œ´
+y	~urypaq~0@2X~Švxhyq~uw~xa	9~}ƒ0!@~Ž1HX~W¼@(#	"
+X±!2!@~'"	yq{~g™AQYpbiH~ŸŠ0*@~˜°2IX~<eA(9XA2"@~_ŒYqxXbiaX~V}Tay	~=a2@~ {	zq~Lzhqai~(@	*1~cŽYiX~OA[Q~V0BH0~Xaxh~Ûax[riQKRAYR[pÜ"	iZLZ~ä7h\\J;1JbP~Ì}910H1@ 0 8(3A~»q	qXyazrybi	¿yaqYÂ-xayj~±HaiyqZh±&ybZbP±.	Y}h~Âj9(0~Æv)1+2BH~£^B;H8~ªFr{~Àk2K9@(~¬Cyi~Äs*#~óiIUzaHQ8h@~£^9A)9~ëQiSqY~¤O9AIh~»s9@I@~ºt@PB~´i	~Ìm9A~þ!AP ~£E;"8 9Q9BaHX9~—D0B+~›DA3~§biyYq~–D:J~zQ	~Ž5i	pX~‘/y	~ã¾	y	xå¼!	~çQHx`.split("~"),
+
+// deserts 
+`ws3wWOOO~0X)zjQ~šav[U3~ÉN#[Ta~à¹DR:b~ß¯"c~M¡t\\*!1 ~ \\;Zk~ß°JG
+z~Œ³2 4{kr~4Zui;B:3~ªjcB~Qß9)1Elcs~ªR:|R~2_0Iq;*|i~¬MrM~¶NjT~µi;j	~Ú®[:~«d!:K~­ds~0WB)~§ViI~ª_2
+r`.split("~"),
+
+// volcanoes
+`‹R‹L¨¨Vus!*Bm‹OAtÖsù¥×v÷ Ï”wAuöÿÝZ•‹ì‘nK†Ë‘Ô–L€`,
+
+// mountains
+`½\`¶T¼\`ãU›Ž…D;oN¸WùÌ¾a¾a¾a»\`¼\`·V¸V¸W½a¿b"pNÓÏWŸH†D,R2FQ©‰C~0+@ÓÓ^º\\/7`,
+
+// forests 
+`\\†COVn;$~Ë‘A2:ry~\r
+
+|c{{,}RK^BI;OFOG<LET6‹c
+[<OMREOWOK[ODMWT4C~DH!xiCE0Kk
+~-W:2)jz~‹œ*ubUD4dJ~‡Œ"1i
+j[KCY~Ó‚Y~ÁjR!
+p~è¦1Zr~Æh!yi~7	yYA~†A!xi~©VI[}*~@q	b9~*zq!<~EtY~h’iYciYaSj[:#y5~P³Zkbi#*`.split("~"),
+
+// seas
+`D/ 3?}F#I)L$AM7o$o:m/i;T#R&L.wP\r$:+.G>=C$D'd?gImNADR2W<N:m\`A
+"#uo,f7j?kBl?kJmIpKycl,j(qP%* GM"F)I*F/J'I*Q<U4_;V	ky}	4}}}q\`p^,`
+
+]
+];
+
+  // Browser/OS detection
+  //mac = navigator.userAgent.indexOf("Mac OS") > -1;
+  //android = navigator.userAgent.indexOf("Android") > -1;
+  //ios = navigator.userAgent.indexOf("iPhone") > -1;
+  //if(!mac && !android && !ios){ ms = 1; b.classList.add("f"); }
+  
+  if(ms){
+    b.classList.add("f");
+  }
+    
+  // Canvas
+  var c = a.getContext("2d");
+
+  // Global vars
+  var screen = 2; // 0 = title screen
+  var question = 0; // current question number
+  var questions = 1123; // total questions (chosen by player)
+  var mode = 0; // 0 = highest score / 1 = "least errors"
+  var error = 0; // error counter (in mode 1)
+  var flags = 1; // enable flags
+  var item = 0; 
+  var itemname = ""; // thing to find
+
+  // Data arrays:
+
+  // 0: countries
+  // 1: us states
+  // 2: territories
+  // 3: places
+  // 4: lakes
+  // 5: streams
+  // 6: deserts
+  // 7: volcanoes
+  // 8: mountains
+  // 9: forests
+  // 10: seas
+
+  // Datasets info
+  var datasets = [
+
+    // 0: country
+    [
+      "COUNTRY",              // dataset name
+      0,                      // array of names and of polygons
+      3,                      // size of name group (flag,name,capital)
+      1,                      // position in name group
+      [...Array(199).keys()], // questions not asked yet (it's an array from 0 to 199, everytime a question is asked, its index is removed)
+      0,                      // size of a group of bytes representing the data of each item (0 if N/A)
+    ],
+
+    // 1: capital
+    [
+      "CAPITAL",
+      0,
+      3,
+      2,
+      [...Array(199).keys()],
+      2
+    ],
+
+    // 2: place
+    [
+      "PLACE",
+      3,
+      1,
+      0,
+      [...Array(95).keys()],
+      2
+    ],
+
+    // 3: us state 
+    [
+      "US STATE",
+      1,
+      2,
+      0,
+      [...Array(50).keys()],
+      0
+    ],
+
+    // 4: us capital
+    [
+      "US CAPITAL",
+      1,
+      2,
+      1,
+      [...Array(50).keys()],
+      2
+    ],
+
+    // 5: territory
+    [
+      "TERRITORY",
+      2,
+      1,
+      0,
+      [...Array(52).keys()],
+      0
+    ],
+
+    // 6: flag
+    [
+      "COUNTRY", // it's marked as a country but it's a FLAG,
+      0,
+      3,
+      0,
+      [...Array(199).keys()],
+      0
+    ],
+
+    // 7: sea
+    [
+      "SEA",
+      10,
+      1,
+      0,
+      [...Array(74).keys()],
+      3
+    ],
+
+    // 8: lake
+    [
+      "LAKE",
+      4,
+      1,
+      0,
+      [...Array(26).keys()],
+      0
+    ],
+
+    // 9: stream
+    [
+      "STREAM",
+      5,
+      1,
+      0,
+      [...Array(76).keys()],
+      0
+    ],
+
+    // 10; desert
+    [
+      "DESERT",
+      6,
+      1,
+      0,
+      [...Array(24).keys()],
+      0
+    ],
+
+    // 11: volcano
+    [
+      "VOLCANO",
+      7,
+      1,
+      0,
+      [...Array(25).keys()],
+      2
+    ],
+
+    // 12: mountain
+    [
+      "MOUNTAIN",
+      8,
+      1,
+      0,
+      [...Array(36).keys()],
+      2
+    ],
+
+    // 13: forest
+    [
+      "FOREST",
+      9,
+      1,
+      0,
+      [...Array(19).keys()],
+      2
+    ],
+
+  ];
+
+  // Remove Kosovo flag, because it can't be displayed properly on many browsers, even with a Web font.
+  datasets[6][4].splice(102,1);
+
+
+  // Current/previous dataset index
+  var dataset = 0;
+  var lastdataset = 0;
+
+  // Draw a screen
+  var draw = function(){
+
+    // Reset canvas, except for feedback
+    if(screen != 4){
+      a.width ^= 0;
+    }
+    
+    // Black background except on map and feedback
+    if(screen != 3 && screen != 4){
+      c.fillStyle = "#123";
+      c.fillRect(0, 0,1999, 999);
+    }
+
+    // Title screen (0)
+    if(screen == 0){
+    
+      // Black sky
+      c.fillRect(0, 0, 1024, 1024);
+      
+      // Stars
+      c.fillStyle = "#fff";
+      for(i = 500; i--;) c.beginPath(), c.arc(Math.random() * 1020, Math.random() * 600, Math.random() + .5, 0, 7), c.fill(); 
+      
+      // 2
+      //c.font = (android ? 500 : 600) + "px impact";
+      c.font = "600px impact";
+      c.fillStyle = "#07d";
+      //c.fillText(2, 630, android ? 500 : 550);
+      c.fillText(2, 660, 550);
+      
+      // Emojis
+      //c.font = (android ? 200 : 260) + "px impact";
+      c.font = "260px impact";
+      //c.fillText("\u{1f30d}", mac ? 240 : android ? 300 : ios ? 260 : 195, mac ? 480 : android ? 400 : 450);
+      c.fillText("\u{1f30d}", 195, 410);
+      c.font = "50px impact";
+      //c.fillText("\u{1f312}", mac ? 710 : android ? 820 : ios ? 760 : 700, android ? 230 : 270);
+      c.fillText("\u{1f312}", 700, 220);
+      
+      // GE + QUIZ
+      c.fillStyle = "#fff";
+      //c.font = (android ? 180 : ios ? 150 : 200) + "px impact";
+      c.font = "200px impact";
+      //c.fillText("GE       QUIZ", 50, android ? 400 : 450);
+      c.fillText("GE       QUIZ", 50, 405);
+      c.lineWidth = 6;
+      //if(!ios) c.strokeText("GE       QUIZ", 50, android ? 400 : 450);
+      c.strokeText("GE       QUIZ", 50, 405);
+      
+      // PLAY
+      //c.fillStyle = ios ? "#fff" : android ? "#fff" : "#000";
+      c.fillStyle = "#000";
+      c.font = "70px impact";
+      c.fillText("\u25b8PLAY\u25c2", 685, 540);
+    }
+    
+    // Flags on Windows and Linux (10)
+    else if(screen == 10){
+    
+      c.fillStyle = "#fff";
+      c.font = "110px impact,f";
+      
+      c.fillText("\u{1f1fa}\u{1f1f8}", 450, 350);
+      c.fillText("Enable flags?", 200, 150);
+      c.font = "80px impact";
+      c.fillText("\u25b8OK", 250, 500);
+      c.fillText("\u25b8no", 600, 500);
+    }
+    
+    // Menu (1)
+    else if(screen == 1){
+    
+      c.fillStyle = "#fff";
+      c.font = "110px impact";
+      
+      c.fillText("Choose a mode", 100, 130);
+      
+      c.font = "70px impact";
+      c.fillText("\u25b8Highest score", 50, 260);
+      c.fillText("\u25b8Minimum errors", 50, 460);
+      
+      c.font = "35px impact";
+      c.fillText("Answer 25 to 1000 questions", 110, 310);
+      c.fillText("Play until you reach 50,000km of errors", 110, 510);      
+    }
+    
+    // High score (11)
+    else if(screen == 11){
+    
+      c.fillStyle = "#fff";
+      c.font = "110px impact";
+      
+      c.fillText("Highest score", 200, 130);
+      
+      c.font = "60px impact";
+      c.fillText("\u25b825 questions", 50, 270);
+      c.fillText("\u25b850 questions", 50, 400);
+      c.fillText("\u25b8100 questions", 50, 530);
+      
+      c.fillText("\u25b8250 questions", 550, 270);
+      c.fillText("\u25b8500 questions", 550, 400);
+      c.fillText("\u25b81000 questions", 530, 530);
+      
+    }
+    
+    // Choose a question (2)
+    else if(screen == 2){
+    
+      // Pick a dataset
+      
+      // First 3 questions: country, capital, place, then random
+      if(question < 3){
+        lastdataset = dataset = question;
+      }
+      
+      else {
+        dataset = lastdataset;
+        
+        // Try 999 times to pick another dataset than the previous one, then abandon and take the same as the previous one
+        for(i = 0; i < 999; i++){
+        
+          var random = Math.random();
+          //console.log(random);
+          //console.log(random);
+        
+          // 30% chance to choose country, capital or place
+          if(random < .1) dataset = 0;
+          else if(random < .2) dataset = 1;
+          else if(random < .3) dataset = 2;
+          
+          // 70% chance to choose one of the 11 other datasets (or 10 if flags are disabled)
+          else {
+            
+            // flags: 70% / 11 = 6.4%
+            // No flags: 70% / 10 = 7%
+            dataset = 3 + (~~((random - .3) / (flags ? .064 : .07)));
+            
+          }
+
+          // Found a new dataset not empty
+          if(dataset != lastdataset && datasets[dataset][4].length > 0) break;
+          
+          // Not found, take the last one (it is not empty but it was avoided until now)
+          if(i == 998){
+            dataset = lastdataset;
+          }
+        }
+        
+        // Save
+        lastdataset = dataset;
+      }
+      
+      //console.log(datasets[dataset]);
+      
+      var items = datasets[dataset][4];
+      
+      //console.log("items", items, items.length);
+      
+      // If no question left: go to score screen
+      if(items.length == 0){
+        screen = 4;
+        draw();
+        return;
+      }
+      
+      // Pick one of the first N available answers, where N represents the proportion of questions asked vs the total, + 5
+      // This ensures a progressive difficulty).
+      // For the first 3 questions, pick between the first 30 (they're all easy, and it makes the games less repetitive)
+      item = ~~(Math.random() * Math.min(question < 3 ? 30 : 5 + ((items.length) * (question / questions)), items.length)); 
+      
+      itemindex = datasets[dataset][2] * items[item] + datasets[dataset][3];
+      itemname = data[0][datasets[dataset][1]][itemindex].toUpperCase();
+
+      items.splice(item, 1);
+      
+      c.fillStyle = "#fff";
+      c.textAlign = "left";
+      
+      c.font = "40px impact";
+      c.fillText("Question " + (question + 1) + (mode == 0 ? ("/" + questions) : ""), 50, 50);
+      if(mode == 1 && error > 0){
+        c.fillText("Error: " + error + "km", 50, 100);
+      }
+      
+      c.textAlign = "center";
+      c.font = "70px impact";
+      
+      // Find this
+      c.fillText("FIND THIS " + datasets[dataset][0] + ":", 512, 280);
+
+      // Arrow
+      c.fillText("\u25b8", 970, 580);
+      
+      // Called what?
+      
+      // Flag
+      if(dataset == 6){
+        c.font = "200px f";
+        c.fillText(itemname = String.fromCodePoint(0x1F1E6 + itemname.charCodeAt(0) - 65) + String.fromCodePoint(0x1F1E6 + itemname.charCodeAt(1) - 65), 512, 470);
+      }
+      
+      // Name
+      else {
+        c.font = "100px impact";
+        var words = itemname.split(" ");
+        var nameparts = ["",""];
+        var namepart = 0;
+        var letters = 0;
+        for(i in words){
+          nameparts[namepart] += words[i] + " ";
+          letters += words[i].length;
+          if(letters > 8 && itemname.length > 15) namepart = 1;
+        }
+        
+        //console.log(nameparts);
+        c.fillText(nameparts[0], 512, 400);
+        if(nameparts[1])c.fillText(nameparts[1], 512, 500);
+      }
+    }
+    
+    // Map (3)
+    else if(screen == 3){
+    
+      c.fillStyle = "#000";
+      c.fillRect(0,0,1024,60);
+      
+      c.fillStyle = "#fff";
+      c.font = "40px impact,f";
+      c.fillText(datasets[dataset][0] + ": " + itemname, 10, 45);
+
+
+      // Data:
+      // 0: countries
+      // 1: us states
+      // 2: territories
+      // 3: places
+      // 4: lakes
+      // 5: streams
+      // 6: deserts
+      // 7: volcanoes
+      // 8: mountains
+      // 9: forests
+      // 10: seas
+      
+      // trace(paths, diststep, fill, stroke, capital, close, scale, xoffset, yoffset, ice)
+      
+      // countries
+      trace(data[1][0], 8, "green", "black", 1, 1, 1, -4, -30, 1)
+      
+      // us states
+      trace(data[1][1], 6, "green", "black", 1, 1, 1, -2, -30, 1)
+      
+      // territories
+      trace(data[1][2], 8, "green", "black", 0, 1, 1, -4, -30, 1)
+      
+      // deserts
+      trace(data[1][6], 8, "rgba(255,255,255,.2)", 0, 0, 0, 1, -4, -30, 0)
+      
+      // forests
+      trace(data[1][9], 8, "rgbs(0,0,0,.1)", 0, 0, 0, 0, -4, -30, 0)
+      
+      // lakes
+      trace(data[1][4], 8, "#0af", "#000", 0, 1, 1, -4, -30, 0)
+      
+      // streams
+      trace(data[1][5], 8, 0, "#0df", 0, 0, 1, -4, -30, 0)
+      
+    }
+    
+    // Feedback (4)
+    else if(screen == 4){
+      // Trace the item in yellow
+      
+      // Country, state, territory, lake, forest, desert, stream => polygon
+      
+      //console.log(data[1][datasets[dataset][1]], item);
+      
+      tmp = traceitem(
+        data[1][datasets[dataset][1]][item],
+        dataset == 1 ? 6 : 8,
+        "yellow",
+        "orange",
+        dataset < 2 ? 1 : 0,
+        dataset == 5 ? 0 : 1,
+        1,
+        -4,
+        -30,
+        0,
+        4
+      );
+      
+      c.fillStyle = "#000";
+      c.font = "110px impact";
+      c.strokeStyle = "#fff";
+      c.lineWidth = 2;
+
+      if(tmp[0] < 5){
+        c.fillText("Perfect!", 350, 400);
+        c.strokeText("Perfect!", 350, 400);
+      }
+      else{
+      
+        // Scale: 80px = 3000km
+        // 1px = 37km
+        c.fillText(~~((tmp[0] * 37)/100) * 100 + "km away!", 200, 550);
+        c.strokeText(~~((tmp[0] * 37)/100) * 100 + "km away!", 200, 550);
+      }
+      
+      setTimeout(function(){
+        question++;
+        screen = 2;
+        draw();
+      }, 1500);
+    }
+  }
+
+  // Convert latin-1 char to int
+  var latin2int = function(i){
+    if(i){
+      J = i.charCodeAt();
+      J = (6E4 < J ? 0 : 255 < J ? "€‚ƒ„…†‡ˆ‰Š‹ŒŽ‘’“”•–—˜™š›œžŸ".indexOf(i) + 128 : J);
+      return J;
+    }
+  }
+  
+  // Draw an item and return the closest point to the click coordinates
+  var traceitem = function(path, diststep, fill, stroke, capital, close, scale, xoffset, yoffset, ice, linewidth){
+      var dist = 0;
+      var mindist = 99999;
+      var tmpx = 0;
+      var tmpy = 0;
+      var ret = [];
+      
+      c.beginPath();
+      //console.log(path);
+      for(i = capital ? 0 : -1; i < path.length; i++){
+        J = latin2int(path[i]);
+        if(i == (capital ? 0 : -2)) { /* wait... */ }
+        
+        else if(i == (capital ? 1 : -1) || J == 127){
+          if(J == 127){
+            if(close)c.lineTo(x0/2 + xoffset, y0/2 + yoffset + 95);
+            c.strokeStyle = stroke;
+            c.lineWidth = linewidth;
+            if(stroke)c.stroke();
+            if(fill)c.fillStyle = (ice && len < 50 && (y0 < 70 || y0 > 900)) ? "#fff" : fill;
+            if(fill && close)c.fill();
+            c.closePath();
+            if(c.isPointInPath(X,Y)){
+              ret = [mindist = 0];
+            }
+          }
+          c.beginPath();
+          x0 = x = (latin2int(path[i+1])*diststep);
+          y0 = y = (latin2int(path[i+2])*diststep/2);
+          len = 0;
+          c.moveTo(tmpx = x/2 + xoffset, tmpy = y/2 + yoffset + 95);
+          dist = Math.hypot(X - tmpx, Y - tmpy);
+          if(dist < mindist){
+            ret = [mindist = dist, tmpx, tmpy];
+          }
+          c.fillStyle = "#000";
+          if(stroke && fill)c.fillRect(x/2 + xoffset, y/2 + yoffset + 95, 1, 1);
+          i += 2;
+        }
+        
+
+        else {
+          A = -((J>>3)-1)* Math.PI/8,
+          D = (J&7)*diststep+diststep,
+          x = Math.floor(x+D*Math.cos(A))
+          y = Math.floor(y+D*Math.sin(A))
+          c.lineTo(tmpx = x/2 + xoffset, tmpy = y/2 + yoffset + 95);
+          dist = Math.hypot(X - tmpx, Y - tmpy);
+          if(dist < mindist){
+            ret = [mindist = dist, tmpx, tmpy];
+          }
+          len++;
+        }
+      }
+      if(close) c.lineTo(x0/2 + xoffset, y0/2 + yoffset + 95);
+      c.strokeStyle = stroke;
+      c.lineWidth = linewidth;
+      if(stroke)c.stroke();
+      if(fill)c.fillStyle = (ice && len < 50 && (y0 < 70 || y0 > 900)) ? "#fff" : fill;
+      if(fill && close)c.fill();
+      c.closePath();
+      if(c.isPointInPath(X,Y)){
+        ret = [mindist = 0];
+      }
+      
+      return ret;
+  }
+  
+
+  // Draw a dataset
+  var trace = function(paths, diststep, fill, stroke, capital, close, scale, xoffset, yoffset, ice){
+    var len = 0;
+    for(var item in paths){
+      //console.log(item, paths[item]);
+      traceitem(paths[item], diststep, fill, stroke, capital, close, scale, xoffset, yoffset, ice, close ? 2 : .5);
+
+    }
+  }
+
+  // Draw title screen
+  draw();
+  
+  // Events
+
+  // mousedown, touchstart
+  /*ontouchstart = onmousedown = function(e){
+    xy(e);
+    document.title = "down " + ~~X + " " + ~~Y;
+  }
+
+  // mousemove, touchmove
+  onmousemove = ontouchmove = function(e){
+    xy(e);
+    document.title = "move " + ~~X + " " + ~~Y;
+  }*/
+
+  // Mouseup, touchend
+  onmouseup = ontouchend = function(e){
+    xy(e);
+    document.title = "up " + ~~X + " " + ~~Y;
+    
+    // On title screen (0)
+    if(screen == 0){
+      if(ms){
+        screen = 10;
+      }
+      else {
+        screen = 1;
+      }
+      draw();
+    }
+    
+    // On flags screen (10)
+    else if(screen == 10){
+      if(Y > 370){
+        if(X > 520){
+          flags = 0;
+        }
+        screen = 1;
+        draw();
+      }
+    }
+    
+    // On mode screen (1)
+    else if(screen == 1){
+    
+      // Least errors
+      if(Y > 370) {
+        questions = flags ? 1123 : 925;
+        mode = 1;
+        screen = 2;
+      }
+      
+      else {
+        screen = 11;
+      }
+      
+      draw();
+    }
+    
+    // On Highest score screen (11)
+    else if(screen == 11){
+      if(Y > 450){
+        questions = 100;
+      }
+      else if(Y > 310){
+        questions = 50;
+      }
+      else{
+        questions = 25;
+      }
+      
+      if(X > 500){
+        questions *= 10;
+      }
+      
+      screen = 2;
+      
+      draw();
+    }
+    
+    // On question screen (2)
+    else if(screen == 2){
+          
+      screen = 3;
+      draw();
+    }
+    
+    // On map (3)
+    else if(screen == 3){
+      //question++;
+      screen = 4;
+      draw();
+    }
+  }
+  
+  // Helpers
+  var xy = function(e){
+    w = a.offsetWidth;
+    if(e.changedTouches){
+      X = e.changedTouches[0].pageX * 1024 / w;
+      Y = e.changedTouches[0].pageY * 1024 / w;
+    }
+    
+    else{
+      X = e.pageX * 1024 / w;
+      Y = e.pageY * 1024 / w;
+    }
+  }
+//}
+
+
+// music
+/*A=new AudioContext;
+G=A.createGain();
+for(i in D=[10,10,10,15,15,15,10,10,10,15,15,15,10,10,10,10,8,10,11,,,,,15,11,11,11,15,15,15,11,11,11,15,15,15,15,15,15,15,13,11,10,,,15,,15,10,10,10,15,15,15,10,10,10,15,15,15,10,10,10,10,8,10,11,,,,,15,11,11,11,15,15,15,11,11,11,15,15,15,3,1,3,5,6,8,10,,,3,,3,3,6,6,6,10,10,10,15,15,15,18,17,15,13,11,10,8,6,5,,,,5,5,5,8,8,8,11,11,11,15,15,15,3,3,3,1,3,5,6,8,10,6,3,15,,3,13,,3,11,,3]){
+  O=A.createOscillator();
+  if(D[i])
+      O.connect(G),
+      G.connect(A.destination);
+      O.start(i*.2);
+      O.frequency.setValueAtTime(415*1.06**(13-D[i]),i*.2),
+      G.gain.setValueAtTime(.5, i*.2); 
+      G.gain.setTargetAtTime(0.0001, i*.2+.18,.005)
+      O.stop(i*.2+.19);
+}*/
+
+</script>
+<style>
+
+/* Flags fonts for Windows: Noto (Chrome, Edge), Twemoji (Firefox) */
+@font-face{font-family:f;src:url(n.ttf),url(t.ttf)}
+@font-face{font-family:impact;src:url(i.ttf)}
+
+*{margin:0;background:#123;cursor:crosshair;width:100%;overflow:hidden;max-width:177vh}
+.f{font-family:f}
+#a{background:radial-gradient(#75D1FF 50%,#0af)

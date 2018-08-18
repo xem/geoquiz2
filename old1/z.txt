@@ -1,0 +1,201 @@
+"Ru,Russia,Moscow":`25$jX+)M[IR(BjJ\`RiPZB)Q1:\\a[bIYqs	xQsb\\j[jshajdxcI[lIUeSYo]jyZbIYcZdk\\i}k[M]e>!Ccwt}\r&wugj\\wcQuQ;*7<O}k}tl[ugyk&B'1'+&J':z''%$.tlr&&,&,%J'9\\#+Z#3L\\$3{\rq=K#$[2#+q/:5$J$\r^m&+QBQBS6[^Rp\\4©#wngkQ+!/-B[¢Yl¨d«k!®i!Ë3ÄlZÃd,æ&j[icæ5CND(`,
+"Cn,China,Beijing":`ÓO¿bp\nyoz\nc{brSZKbZSf]pdtyYlqc#zb~k\\M]dA<!C.3+z!5Rib5SKC2<2+-R*j",1{!,#A`,
+"Fr,France,Paris":`?>;)J1HZS0CZcxhaYrh)zhqpJiB`,
+"Dz,Algeria,Algiers":`T{bnycobjYC9RKF[A)7#`,
+"Ar,Argentina,Buenos aires":`X½X½w	:$r	%=B>KC1E:JF=RId\nws|\nZidt\nTà-by[`,
+"Au,Australia,Canberra":`ê¾ëÁ{s\n!;E)|)#+C7;+.COFQbjdqob\\KsCqM\\jZraçÆMi|+`,
+"At,Austria,Vienna":`@?A:$#dxj`,
+"Be,Belgium,Brussels":`;:ZAH`,
+"Br,Brazil,Brasilia":`_ ]LSa_jUaK;6JC>/3C2;3yv	 	"z\n)!,*1{l{kJm	ZjqJBckYr`,
+"Bg,Bulgaria,Sofia":`JG[jY9I)H#q`,
+"Ca,Canada,Ottawa":`LELEdrybCYb2Qsc{3	r!-ugn?e9jQ"|:1"KB1SC+L;$)\num|DRkZ9[td	_S2Q*2Yd]_[^t\n$	'+Kr+3Sg*<1ql&C:[A3\ni;&\\ij%q#0C&'<[kn3b+gZ'IcQej2c*&"i$2	1"/)"HGGJiSrW[DSLTbgggggcZlWd?Qud#5aK*gs04gkd1\ne	$6e\\'9eJ#:dJ*<\\#=\ne\\gcZ*'&\n*U''%.'/_e+dgo`,
+"Ae,United arab emirates,Abu dhabi":`§g§g)Scyh2`,
+"Cl,Chile,Santiago":`O»P£9GD;G<GI>Y;CJVd"j$|	qq{~{`,
+"Hr,Croatia,Zagreb":`DD*T[	bZ!`,
+"Cu,Cuba,Havana":`GiGic_1"*q`,
+"Cz,Czech republic,Prague":`=;!*IRici`,
+"Dk,Denmark,Copenhagen":`222H)	pk;Yj`,
+"Ec,Ecuador,Quito":`IK2:JpBYzjz`,
+"Eg,Egypt,Cairo":`^\\YbJ;KYAQ''bZ`,
+"Ee,Estonia,Tallinn":`++9a@aPYx	i#`,
+"Fi,Finland,Helsinki":`))evyy#:"8[LXH6CZ`,
+"De,Germany,Berlin":`8A#r#ajaZiZ9K *IQ8@`,
+"Gr,Greece,Athens":`RR(YH I	\`ridXI("Q!IZRS`,
+"Hu,Hungary,Budapest":`AAkZ(:*!s`,
+"Es,Spain,Madrid":`~NJ"($")IcA0ERibtzk`,
+"Ch,Switzerland,Berne":`BDzcQ2!`,
+"Gb,United kingdom,London":`9:jz"y*DJiJ)A1c3kYj|3XQ(!*i`,
+"Is,Iceland,Reykjavik":`q"q"q"j"rRidiS1-`,
+"In,India,New delhi":`·\`¸V*#JZ1H6)L+Qa)SiyJAOOIj|juva""r´x´y´{´|`,
+"Id,Indonesia,Jakarta":`ÌÌbZi\\H$%rÕZ(ÓÕÖHbkØjÄWISIUizxÎAMaHcPi{sq"<"1×\n(C{adi2$BkI)JÍÌpQÜ2Jz(ÚY0ÜaQ#ÝjbBQt]GA"q	8j"x`,
+"Ir,Iran,Tehran":`¥U¬Vy+A#h0)!BSB0QZAQZRReIcYya	r!`,
+"Iq,Iraq,Baghdad":` Y¡Xz"2J+J]Rbbx`,
+"Ie,Ireland,Dublin":`|6|3)2I9YjXy)`,
+"Il,Israel,Jerusalem":`\\\\ \``,
+"It,Italy,Rome":`KK\n!9!ybqcI9SI^A0I9)Iaj!PiI9`,
+"Jm,Jamaica,Kingston":`KpKp!Q`,
+"Jp,Japan,Tokyo":`äVäV}:C+:$2YjRraÝ\\qR9àY*iäJqhSjB)9)9`,
+"Lb,Lebanon,Beirut":`XX9j`,
+"Lt,Lithuania,Vilnius":`44q("1HYIc`,
+"Lu,Luxembourg,Luxembourg":`>`,
+"Mk,Macedonia,Skopje":`KKhQ01	`,
+"Mg,Madagascar,Antananarivo":`¢¥¢®)rksRJ0IA`,
+"Mx,Mexico,Mexico city":`;n@ua	bjq$B1+	 1x"@#(!AhKZ88QaIA[Hp\n	ZKZQAYTJ0QRZa]j`,
+"Mc,Monaco,Monaco":`H`,
+"Ma,Morocco,Rabat":`|X|X{RcM#9.B%kzr`,
+"Gy,Guyana,Georgetown":`XXQ9L#	0ziQA`,
+"Ly,Libya,Tripoli":`ZZI2P1F[IaQj_[a!1B"`,
+"Np,Nepal,Kathmandu":`½bº^:ZcRc`,
+"Nl,Netherlands,Amsterdam":`88jC!A`,
+"Nz,New zealand,Wellington":`üÇüÇiqXxIYiA8(A2üÁY@PüÇA2Q!1B10rjrrIp÷Òa`,
+"Kp,North korea,Pyongyang":`ÚPÙNQ:bpa	qiq*I`,
+"No,Norway,Oslo":`*,4zkwv+tRibnAk\\!Z+y#:"2+:)C)9BQ0A0`,
+"Ps,Palestine,Jerusalem":`\\\\B	h`,
+"Py,Paraguay,Asuncion":`X®X®	|[XCcI\`J2#`,
+"Pe,Peru,Lima":`JJRIR]Q{y	)1{l*!:2:!2Q@T`,
+"Ph,Philippines,Manila":`ÖuÖu	{aJ)BaYIaJ!	:iÔ~t93×{qØz:XÙ|(×ybqR9I	`,
+"Pl,Poland,Warsaw":`95%x-9KbSabYr\nh`,
+"Pt,Portugal,Lisbon":`zPzP{bI8E0!`,
+"Ro,Romania,Bucharest":`GG*	hzbXjIL9`,
+"Qa,Qatar,Doha":`¥e¥d0I\`y`,
+"Sa,Saudi arabia,Riyadh":`¢f[]SiZTKRbQ:+"*9%A\riXr`,
+"Sg,Singapore,Singapore":`Ê`,
+"Sk,Slovakia,Bratislava":`@@xjcY1+ )`,
+"Si,Slovenia,Ljubljana":`DDax$IY`,
+"Za,South africa,Pretoria":`¯ª"7A*yID8AM8Skdjv}A xi\n`,
+"Kr,South korea,Seoul":`ÛRÚRQ(IBqb!`,
+"Se,Sweden,Stockholm":`++*D)8)xpyxya{(jykqQZL";,DR`,
+"Tw,Taiwan,Taipei":`×f×f :Iz`,
+"Tn,Tunisia,Tunis":`TS*J:QKhxrry`,
+"Tr,Turkey,Ankara":`OKbZbjb\\bibKB*')*1qc!`,
+"Ua,Ukraine,Kiev":`<9YcjcIRa\\:1,I)i29yY\n*"qr`,
+"Uy,Uruguay,Montevideo":`Y½Y½bqy9E`,
+"Us,Usa,Washington dc":`LQLQ{m	qk*;$2#5~p$,'''''"C)JGBQKQK[XQb]dbRAZrTIZircZrdHZRKaysss	&'/2*_+-[fA,3UrBfB2/AotmvP;ldQd\n/rI26*q9"i::*"i\n#)b`,
+"Ve,Venezuela,Caracas":`R{R{!*I82LaYbEJmbjzi"h*`,
+"Va,Vatican city,Vatican city":`L`,
+"Vn,Vietnam,Hanoi":`ËkÉjlSj5KZKC+z{i	)`,
+"Aq,Antartica":`KÿKÿoeoo4?Lÿogg\\gognocm_gg_oogog_o_en\\m]g_gg]g\\`,
+"Af,Afghanistan,Kabul":`²W°ScsClH+?+A*$zrYu`,
+"Ad,Andorra,Andorra la vella":`J`,
+"Al,Albania,Tirana":`LL9Qq9`,
+"By,Belarus,Minsk":`55zj[JY1A*#*	hY`,
+"Ba,Bosnia and herzegovina,Sarajevo":`HJz#I`,
+"Bf,Burkina faso,Ouagadougou":`x~w9:YaQ\nehi	+9`,
+"Cg,Congo,Brazzaville":`|hz!1H#Aa9Q9!(:SaQ`,
+"Cm,Cameroon,Yaounde":`{\naB?1:YId[`,
+"Cf,Central african republic,Bangui":`q\\xkb	!:"A#;Lqb`,
+"Cd,Democratic republic of the congo,Kinshasa":`1!BeJbybCJi\\hSi	!j\ny~!+89D`,
+"Ci,Cote d'ivoire,Yamoussoukro":`}}{"DJAkb	z!`,
+"Cr,Costa rica,San jose":`F|F|"IZIy`,
+"Co,Colombia,Santa fe de bogota":`MP*#{rymX3LaYbE+K`,
+"Bo,Bolivia,La paz":`Q¢P£yy	mB_CcJ:!1:%A`,
+"Cv,Cape verde,Praia":`ququptor`,
+"Cy,Cyprus,Nicosia":`VVb1"`,
+"Bj,Benin,Porto novo":`r	!2KB`,
+"Kh,Cambodia,Phnom penh":`ËyË~ss)*KR`,
+"Dm,Dominica,Roseau":`Vt`,
+"Do,Dominican republic,Santo domingo":`PoPoYCj`,
+"Gq,Equatorial guinea,Malabo":`h@aI"`,
+"Gt,Guatemala,Guatemala city":`AuAvbxaXBa3`,
+"Ht,Haiti,Port-au-prince":`NoMpb*Y*`,
+"Hn,Honduras,Tegucigalpa":`CvCvqeY,`,
+"Jo,Jordan,Amman":`[[pXkI*I2(	`,
+"Kz,Kazakhstan,Astana":`³:µIA:2#*F*y0ja"*	qItb\\j[jshajdqbJc0lIVdSa2I*:+I:`,
+"Xk,Kosovo,Pristina":`JX)pXH`,
+"Kw,Kuwait,Kuwait city":`£_£_Ab`,
+"La,Laos,Vientiane":`ÉpÉp)z!YqJiQ1WA")`,
+"Ke,Kenya,Nairobi":`qq^ia9DQ2:`,
+"My,Malaysia,Kuala lumpur":`ÉÈJRZ\n8Ó<%aqiqPptS1`,
+"Ml,Mali,Bamako":`{x}{#\n*qgq		bZT\\QXC1++9(`,
+"Mt,Malta,Valletta":`U`,
+"Md,Moldova,Chisinau":`BEaZJ`,
+"Pk,Pakistan,Islamabad":`µYµYZ1@:3*S9*)#ya	cbyk~lY[*#`,
+"Pa,Panama,Panama city":`I}I}1H(!yYjZPBx`,
+"Sm,San marino,San marino":`G`,
+"Sn,Senegal,Dakar":`uuuuxxcZ8J*`,
+"Rs,Serbia,Belgrade":`FHhjIR8P91`,
+"Sc,Seychelles,Victoria":`¨¨¥¥¢`,
+"So,Somalia,Mogadishu":`¡¡6ylu"yYdlB?`,
+"Lk,Sri lanka,Colombo":`¹¹{QJ*`,
+"Sd,Sudan,Khartoum":`tmhggYCZ1:I:4)I2*!:\r|X`,
+"Tz,Tanzania,Dodoma":`]HYBJC-#\nqaIa`,
+"Th,Thailand,Bangkok":`ÈvÈv:jQXBdKI*J<V0!rz`,
+"Ye,Yemen,San'a":` tsyeyj[J9/+`,
+"Zw,Zimbabwe,Harare":`£¡[Ca<"at`,
+"Ag,Antigua and barbuda,St john's":`Uq`,
+"Am,Armenia,Yerevan":` N NPXYX	)`,
+"Az,Azerbaijan,Baku":`¤N¤N\n1IJQqQ0Q¡OQ `,
+"Ao,Angola,Luanda":`heJbqbCJiB!DR*"%*{iy`,
+"Bs,The bahamas,Nassau":`JfJfKfLgLhMj`,
+"Bh,Bahrain,Manama":`¥d¥d(H`,
+"Bd,Bangladesh,Dhaka":`ÁhÁhr"@Q(KAkIq	1`,
+"Bb,Barbados,Bridgetown":`Ww`,
+"Bz,Belize,Belmopan":`BqBqBr	1`,
+"Bt,Bhutan,Thimphu":`ÀbÀbpcmR4=1r"	`,
+"Bw,Botswana,Gaborone":`­¤bXiTS7A*ya`,
+"Bn,Brunei,Bandar seri begawan":`ÒÒA`,
+"Bi,Burundi,Bujumbura":`q!`,
+"Td,Chad,N'djamena":`yyxs\ni_[E A;R):"A#\n\``,
+"Km,Comoros,Moroni":` `,
+"Dj,Djibouti,Djibouti":`yyQ!qQ`,
+"Sv,El salvador,San salvador":`BvAv[q`,
+"Er,Eritrea,Asmara":`tpKZS0#0y`,
+"Et,Ethiopia,Addis ababa":`}udSAYA\\b6,$\nas`,
+"Fj,Fiji,Suva":`ÿ¤ÿ¤!qQ`,
+"Ga,Gabon,Libreville":`:Tyarq "I0(`,
+"Gm,Gambia,Banjul":`uwuw@f`,
+"Ge,Georgia,Tbilisi":` K¢M\n""RAca`,
+"Gh,Ghana,Accra":`*	zdKC`,
+"Gd,Grenada,St george's":`Ux`,
+"Gn,Guinea,Conakry":`w|w|bbQjKC(2`,
+"Gw,Guinea-bissau,Bissau":`vyvyd81`,
+"Ki,Kiribati,Tarawa":`ûûûüüü`,
+"Kg,Kyrgyzstan,Bishkek":`¶JµIeZ@/B#ikq[`,
+"Lv,Latvia,Riga":`//)BhchRj\n0 `,
+"Ls,Lesotho,Maseru":`´´iR*`,
+"Lr,Liberia,Monrovia":`yy](:`,
+"Li,Liechtenstein,Vaduz":`B`,
+"Mw,Malawi,Lilongwe":`zII@JXJ(A\n`,
+"Mv,Maldives,Male":`µµµµ´µ´´µµ`,
+"Mh,Marshall islands,Majuro":`úúú~ù|÷zöz÷}ùóy`,
+"Mr,Mauritania,Nouakchott":`vpvpe	idRZQ)DIIAI9'0#`,
+"Mu,Mauritius,Port louis":`ª§ª§(x`,
+"Fm,Micronesia,Palikir":`ð`,
+"Mn,Mongolia,Ulan bator":`Ì@¾>RZLcZJgYgtrQlyc#{(1*#"(!	"9I1!`,
+"Me,Montenegro,Podgorica":`JJyQ9`,
+"Mz,Mozambique,Maputo":`¯¯ktkr,+M)I+A[CX<JAY`,
+"Mm,Myanmar,Yangon":`ÅmÂkr|sb;MXI*BQBJJ2z2q\n`,
+"Na,Namibia,Windhoek":`ª£jPfHdc0#E!CID0A\n`,
+"Nr,Nauru,Yaren":`÷`,
+"Ni,Nicaragua,Managua":`DyDyqlE"`,
+"Ne,Niger,Niamey":`vuPSarZiZics\n(#7"D-`,
+"Ng,Nigeria,Abuja":`}r\nq[qZidB?1:*`,
+"Om,Oman,Muscat":`ªhªh(HA8PA9+Kiaixa\`r`,
+"Pw,Palau,Melekeok":`àà9`,
+"Pg,Papua new guinea,Port moresby":`éé19\\Z@YY1QZR"`,
+"Rw,Rwanda,Kigali":` iQ9`,
+"Kn,Saint kitts and nevis,Basseterre":`Uq`,
+"Lc,Saint lucia,Castries":`Vv`,
+"Vc,Saint vincent and the grenadines,Kingstown":`Vw`,
+"Ws,Samoa,Apia":`\`H`,
+"St,Sao tome and principle,Sao tome and principe dobra":``,
+"Sl,Sierra leone,Freetown":`x}x~ Sz	`,
+"Sb,Solomon islands,Honiara":`òòóAò!ó`,
+"Ss,South sudan,Juba":`kq	a()I2*:V`,
+"Sr,Suriname,Paramaribo":`ZZ:Lkyy`,
+"Tc,Turks and caicos islands,Cockburn town":`Nj`,
+"Sy,Syria,Damascus":`YYAhop)!):J`,
+"Tj,Tajikistan,Dushanbe":`²Q±SysY2cZJ#3`,
+"Tl,Timor-leste,Dili":`ÚÚ*aj`,
+"Tg,Togo,Lome":`!zXKB`,
+"To,Tonga,Nuku'alofa":`¨¨¥`,
+"Tt,Trinidad and tobago,Port of spain":`V{`,
+"Tm,Turkmenistan,Ashgabat":`ªRªR+j	RbzZAbI^A!38)`,
+"Tv,Tuvalu,Fongafale":`ÿÿÿ`,
+"Ug,Uganda,Kampala":`:"}qiL1`,
+"Uz,Uzbekistan,Tashkent":`²L²Lp[)!3R9!x:!j\\IdRB[`,
+"Vu,Vanuatu,Port vila":`ø£ø£÷¢÷ù¦`,
+"Zm,Zambia,Lusaka":` £"a\\hSi!jRbC:+I!4`,
+"Ck,Cook islands,Avarua":`©©¤¥`,
+"Nu,Niue,Alofi":`	¥`,
+}

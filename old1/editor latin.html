@@ -1,0 +1,287 @@
+<meta charset="iso-8859-1">
+<canvas id=a width=2048 height=1024></canvas>
+<br>
+<textarea id=o cols=99 rows=2></textarea>
+<style>
+* { margin: 0 }
+canvas { background: url(map.png) no-repeat 16px 0; background-size: 2032px auto }
+textarea { position: fixed; bottom: 0; }
+</style>
+<script>
+o.value = "";
+c = a.getContext("2d");
+
+started = 0;
+x = 0;
+y = 0;
+points = [];
+
+paths = {
+"Ad,Andorra,Andorra la vella":`?J?J`,
+"Ae,United arab emirates,Abu dhabi":`§g§g)Scyh2`,
+"Af,Afghanistan,Kabul":`²W°ScsClH+?+A*$zrYu`,
+"Ag,Antigua and barbuda,St john's":`UqUq`,
+"Ai,Anguilla,The valley":`TpTp`,
+"Al,Albania,Tirana":`LL9Qq9`,
+"Am,Armenia,Yerevan":` N NPXYX	)`,
+"Nl,Netherlands antilles,Willemstad":`PxPxQx`,
+"Ao,Angola,Luanda":`????heJbqbCJiB!DR*"%*{?iy`,
+"Aq,Antartica":`KÿKÿoe?oo4?L?ÿogg\\gognocm_gg_oogog_o_en\\m]g_gg]g\\`,
+"Ar,Argentina,Buenos aires":`X½X½?w	:$r	%=B>KC1E:JF=RId\nws|\nZi?dt\nTà-by[`,
+"As,American samoa,Pago pago":`	?	?`,
+"At,Austria,Vienna":`?@?A:$#dxj`,
+"Au,Australia,Canberra":`ê¾ëÁ?{s?\n?!;E)|)#+C7;+.COFQbjdqob\\KsCqM\\jZraçÆMi|+`,
+"Aw,Aruba,Oranjestad":`OxOx`,
+"Ax,Aland islands":`))@h`,
+"Az,Azerbaijan,Baku":`¤N¤N\n1IJQqQ0Q¡OQ `,
+"Ba,Bosnia and herzegovina,Sarajevo":`?H?Jz?#I`,
+"Bb,Barbados,Bridgetown":`WwWw`,
+"Bd,Bangladesh,Dhaka":`ÁhÁhr"@Q(KAkIq	1`,
+"Be,Belgium,Brussels":`?;?:ZAH`,
+"Bf,Burkina faso,Ouagadougou":`?x~w9:YaQ\nehi	+9`,
+"Bg,Bulgaria,Sofia":`?J?G[jY9I)H#q`,
+"Bh,Bahrain,Manama":`¥d¥d(H`,
+"Bi,Burundi,Bujumbura":`??q!`,
+"Bj,Benin,Porto novo":`???r	!2KB`,
+"Bl,Saint barthelemy":`UpUp`,
+"Bm,Bermuda,Hamilton":`S[S[`,
+"Bn,Brunei,Bandar seri begawan":`Ò?Ò?A`,
+"Bo,Bolivia,La paz":`Q¢P£yy	mB_CcJ:!1:%A`,
+"Bq,Bonaire, sint eustatius and saba":`QyQy`,
+"Br,Brazil,Brasilia":`_ ]?LSa_jUaK;6JC>/3C2;3yv	 	"?z\n)!??,*?1{l{kJm	ZjqJBckYr`,
+"Bs,The bahamas,Nassau":`JfJfKfLgLhMj`,
+"Bt,Bhutan,Thimphu":`ÀbÀbpcmR4=1r"	`,
+"Bv,Bouvet island":`?ß?ß`,
+"Bw,Botswana,Gaborone":`?­¤bXiTS7A*y?a`,
+"By,Belarus,Minsk":`?5?5zj[JY1A*#*	h?Y`,
+"Bz,Belize,Belmopan":`BqBqBr	1`,
+"Ca,Canada,Ottawa":`LELEdrybCYb2Qsc{3	r!-ugn?e9jQ?"|:1?"KB1SC+L;?$)\n?um|DRkZ9?[td	_S2Q*2Yd]_[?^t\n$	'+Kr+3Sg*<1ql&C:[A3\ni;&\\ij%q#0C&'<[kn3b+gZ'IcQej2c*&"i$2	1"/)"HGGJiSrW[DSLTbgggggcZlWd?Qud#5aK*gs04gkd1\ne	$6e\\'9eJ#:dJ*<\\#=\ne\\gcZ*'&\n*U''%.'/_e+dgo`,
+"Cc,Cocos islands":`C?C?`,
+"Cd,Democratic republic of the congo,Kinshasa":`??1!BeJbybCJi\\hSi	!?j\ny~!+89D`,
+"Cf,Central african republic,Bangui":`????q\\xkb	!:"A#;Lqb`,
+"Cg,Congo,Brazzaville":`??|hz?!1H#Aa9Q9!(:SaQ`,
+"Ch,Switzerland,Berne":`?B?DzcQ2!`,
+"Ci,Cote d'ivoire,Yamoussoukro":`}?}{"DJAkb	z!`,
+"Ck,Cook islands,Avarua":`©©¤¥`,
+"Cl,Chile,Santiago":`O»P£9GD;G<GI>Y;CJVd"j$|?	q?q{~?{`,
+"Cm,Cameroon,Yaounde":`????{\naB?1:YId[`,
+"Cn,China,Beijing":`ÓO¿bp\nyoz\nc{brSZKbZSf]pdtyYlqc#zb~k\\M]dA<!C.3+z!5Rib5SKC2<2+-R*j",1{!,#A`,
+"Co,Colombia,Santa fe de bogota":`M?P?*#{rymX3LaYbE+K`,
+"Cr,Costa rica,San jose":`F|F|"IZIy`,
+"Cu,Cuba,Havana":`GiGic_1"*q`,
+"Cv,Cape verde,Praia":`ququptor`,
+"Cw,Curacao":`PxPxP`,
+"Cx,Christmas island,Flying fish cove":`Ë?Ë?`,
+"Cy,Cyprus,Nicosia":`?V?Vb1"`,
+"Cz,Czech republic,Prague":`?=?;!*IRici`,
+"De,Germany,Berlin":`?8?A#r#?a?jaZiZ9K *IQ8@`,
+"Dj,Djibouti,Djibouti":`?y?yQ!?qQ`,
+"Dk,Denmark,Copenhagen":`?2?22H)	pk;Yj`,
+"Dm,Dominica,Roseau":`VtVt`,
+"Do,Dominican republic,Santo domingo":`PoPoYCj`,
+"Dz,Algeria,Algiers":`?T{bnycobjYC9RKF[A)7#?`,
+"Ec,Ecuador,Quito":`I?K?2:JpBYzjz`,
+"Ee,Estonia,Tallinn":`?+?+9a@aPYx	i#`,
+"Eg,Egypt,Cairo":`?^?\\YbJ;KYAQ''bZ`,
+"Eh,Western sahara,Al aaiun":`xcwbgA$IB1I%{iz`,
+"Er,Eritrea,Asmara":`?t?pKZS0#0y`,
+"Es,Spain,Madrid":`~N?J"($")IcA0ERibtzk`,
+"Et,Ethiopia,Addis ababa":`?}?udSAYA\\b6,$\na?s`,
+"Fi,Finland,Helsinki":`?)?)evyy#:"8[LXH6CZ`,
+"Fj,Fiji,Suva":`ÿ¤ÿ¤!qQ`,
+"Fk,Falkland islands,Stanley":`XÚXÚ2zVÛi`,
+"Fm,Micronesia,Palikir":`ð?ð?`,
+"Fo,Faeroe islands,Thorshavn":`|&|&a`,
+"Fr,France,Paris":`???>;)J1HZS0CZcxhaYrh)zhqp?JiB`,
+"Ga,Gabon,Libreville":`????:Tyarq "I0(`,
+"Gb,United kingdom,London":`9:j?z"y*DJiJ)A1c3kYj|3XQ(!?*i`,
+"Gd,Grenada,St george's":`UxUx`,
+"Ge,Georgia,Tbilisi":` K¢M\n""RAca`,
+"Gf,French guiana,Cayenne":`\\?\\?Y3 y`,
+"Gg,Guernsey":`~=~=`,
+"Gh,Ghana,Accra":`??*	zdKC`,
+"Gi,Gibraltar,Gibraltar":`}U}U`,
+"Gl,Greenland,Nuuk":`\\!\\!USb[|}clrmdm&r[ik?"jbon%+!+r,e'')',''*!.A*#Uckc_NBdA"C`,
+"Gm,The gambia,Banjul":`uwuwjZ"`,
+"Gn,Guinea,Conakry":`w|w|bbQjKC(2`,
+"Gp,Guadeloupe,Basse terre":`VsVs`,
+"Gq,Equatorial guinea,Malabo":`????h@??aI"`,
+"Gr,Greece,Athens":`?R?R(YH I	\`ridXI("Q!IZ?R?S`,
+"Gs,South georgia":`fßfßiQI`,
+"Gt,Guatemala,Guatemala city":`AuAvbxaXBa3`,
+"Gu,Guam,Hagtana":`çwçw`,
+"Gw,Guinea-bissau,Bissau":`vyvyd81`,
+"Gy,Guyana,Georgetown":`X?X?Q9L#?	0ziQA`,
+"Hk,Hong kong,Victoria city":`ÒjÒj`,
+"Hm,Heard island and mcdonald islands":`µÝµÝH`,
+"Hn,Honduras,Tegucigalpa":`CvCvqeY,`,
+"Hr,Croatia,Zagreb":`?D?D*T[	bZ!`,
+"Ht,Haiti,Port-au-prince":`NoMpb?*Y*`,
+"Hu,Hungary,Budapest":`?A?AkZ(:*!s`,
+// to redo // "Id,Indonesia,Jakarta":`Ì?Ì?bZi\\H$%rÕ?Z(Ó?Õ?Ö?HbkØ?jÄ?WISIUizxÎ?AMaHcPi{sq"<"1×?\n(C{?adi2$BkI)JÍ?Ì?pQÜ?2Jz(Ú?Y0Ü?aQ#Ý?jbBQt]GA"q	8j"x`,
+"Ie,Ireland,Dublin":`|6|3)2I9YjXy)`,
+"Il,Israel,Jerusalem":`?\\?\\ ?\``,
+"Im,Isle of man":`~5~5(p`,
+"In,India,New delhi":`·\`¸V*#JZ1H6)L+Qa)SiyJAOOIj|juva""r?´x´y´{´|`,
+"Io,British indian ocean territory":`²?²?`,
+"Iq,Iraq,Baghdad":` Y¡Xz"2J+J]Rbbx`,
+"Ir,Iran,Tehran":`¥U¬Vy+A#h0)!BSB0QZAQZRReIcYya	r!`,
+"Is,Iceland,Reykjavik":`q"q"q"j"rRidiS1-`,
+"It,Italy,Rome":`?K?K\n!9!ybqcI9SI^A0I9)Iaj!?P?iI9`,
+"Je,Jersey":`~=~=`,
+"Jm,Jamaica,Kingston":`KpKp!Q`,
+"Jo,Jordan,Amman":`?[?[pXkI*I2(	`,
+"Jp,Japan,Tokyo":`äVäV}:C+:$2YjRraÝ\\qR9àY*?iäJq?hSjB)9)9`,
+"Ke,Kenya,Nairobi":`?????qq^ia9DQ2:?`,
+"Kg,Kyrgyzstan,Bishkek":`¶JµIeZ@/B#ikq[`,
+"Kh,Cambodia,Phnom penh":`ËyË~ss)*KR`,
+"Ki,Kiribati,Tarawa":`û?û?û?ü?ü?ü?`,
+
+
+
+
+
+}
+
+data = "Ad,Andorra,Andorra la vella0Ae,United arab emirates,Abu dhabi0Af,Afghanistan,Kabul0Ag,Antigua and barbuda,St john's0Ai,Anguilla,The valley0Al,Albania,Tirana0Am,Armenia,Yerevan0Nl,Netherlands antilles,Willemstad0Ao,Angola,Luanda0Aq,Antartica0Ar,Argentina,Buenos aires0As,American samoa,Pago pago0At,Austria,Vienna0Au,Australia,Canberra0Aw,Aruba,Oranjestad0Ax,Aland islands0Az,Azerbaijan,Baku0Ba,Bosnia and herzegovina,Sarajevo0Bb,Barbados,Bridgetown0Bd,Bangladesh,Dhaka0Be,Belgium,Brussels0Bf,Burkina faso,Ouagadougou0Bg,Bulgaria,Sofia0Bh,Bahrain,Manama0Bi,Burundi,Bujumbura0Bj,Benin,Porto novo0Bl,Saint barthelemy0Bm,Bermuda,Hamilton0Bn,Brunei,Bandar seri begawan0Bo,Bolivia,Sucre0Bq,Bonaire, sint eustatius and saba0Br,Brazil,Brasilia0Bs,The bahamas,Nassau0Bt,Bhutan,Thimphu0Bv,Bouvet island0Bw,Botswana,Gaborone0By,Belarus,Minsk0Bz,Belize,Belmopan0Ca,Canada,Ottawa0Cc,Cocos (,Keeling) islands0Cd,Democratic republic of the congo,Kinshasa0Cf,Central african republic,Bangui0Cg,Congo,Brazzaville0Ch,Switzerland,Berne0Ci,Cote d'ivoire,Yamoussoukro0Ck,Cook islands,Avarua0Cl,Chile,Santiago0Cm,Cameroon,Yaound0Cn,China,Beijing0Co,Colombia,Santa fe de bogot0Cr,Costa rica,San jos0Cu,Cuba,Havana0Cv,Cape verde,Praia0Cw,Curacao0Cx,Christmas island,Flying fish cove0Cy,Cyprus,Nicosia0Cz,Czech republic,Prague0De,Germany,Berlin0Dj,Djibouti,Djibouti0Dk,Denmark,Copenhagen0Dm,Dominica,Roseau0Do,Dominican republic,Santo domingo0Dz,Algeria,Algiers0Ec,Ecuador,Quito0Ee,Estonia,Tallinn0Eg,Egypt,Cairo0Eh,Western sahara,Al aaiun0Er,Eritrea,Asmara0Es,Spain,Madrid0Et,Ethiopia,Addis ababa0Fi,Finland,Helsinki0Fj,Fiji,Suva0Fk,Falkland islands,Stanley0Fm,Micronesia,Palikir0Fo,Faeroe islands,Thorshavn0Fr,France,Paris0Ga,Gabon,Libreville0Gb,United kingdom,London0Gd,Grenada,St george's0Ge,Georgia,Tbilisi0Gf,French guiana,Cayenne0Gg,Guernsey0Gh,Ghana,Accra0Gi,Gibraltar,Gibraltar0Gl,Greenland,Nuuk0Gm,The gambia,Banjul0Gn,Guinea,Conakry0Gp,Guadeloupe,Basse terre0Gq,Equatorial guinea,Malabo0Gr,Greece,Athens0Gs,South georgia0Gt,Guatemala,Guatemala city0Gu,Guam,Hagtana0Gw,Guinea-bissau,Bissau0Gy,Guyana,Georgetown0Hk,Hong kong,Victoria city0Hm,Heard island and mcdonald islands0Hn,Honduras,Tegucigalpa0Hr,Croatia,Zagreb0Ht,Haiti,Port-au-prince0Hu,Hungary,Budapest0Id,Indonesia,Jakarta0Ie,Ireland,Dublin0Il,Israel,Jerusalem0Im,Isle of man0In,India,New delhi0Io,British indian ocean territory0Iq,Iraq,Baghdad0Ir,Iran,Tehran0Is,Iceland,Reykjavik0It,Italy,Rome0Je,Jersey0Jm,Jamaica,Kingston0Jo,Jordan,Amman0Jp,Japan,Tokyo0Ke,Kenya,Nairobi0Kg,Kyrgyzstan,Bishkek0Kh,Cambodia,Phnom penh0Ki,Kiribati,Tarawa0Km,Comoros,Moroni0Kn,Saint kitts and nevis,Basseterre0Kp,North korea,Pyongyang0Kr,South korea,Seoul0Kw,Kuwait,Kuwait city0Ky,Cayman islands,George town0Kz,Kazakhstan,Astana0La,Laos,Vientiane0Lb,Lebanon,Beirut0Lc,Saint lucia,Castries0Li,Liechtenstein,Vaduz0Lk,Sri lanka,Colombo0Lr,Liberia,Monrovia0Ls,Lesotho,Maseru0Lt,Lithuania,Vilnius0Lu,Luxembourg,Luxembourg0Lv,Latvia,Riga0Ly,Libya,Tripoli0Ma,Morocco,Rabat0Mc,Monaco,Monaco0Md,Moldova,Chisinau0Me,Montenegro0Mf,Saint martin (french part)0Mg,Madagascar,Antananarivo0Mh,Marshall islands,Majuro0Mk,Macedonia,Skopje0Ml,Mali,Bamako0Mm,Myanmar,Yangon0Mn,Mongolia,Ulan bator0Mo,Macau,Macau0Mp,Northern marianas,Garapan0Mq,Martinique,Fort-de-france0Mr,Mauritania,Nouakchott0Ms,Montserrat,Plymouth0Mt,Malta,Valletta0Mu,Mauritius,Port louis0Mv,Maldives,Male0Mw,Malawi,Lilongwe0Mx,Mexico,Mexico city0My,Malaysia,Kuala lumpur0Mz,Mozambique,Maputo0Na,Namibia,Windhoek0Nc,New caledonia,Noumea0Ne,Niger,Niamey0Nf,Norfolk island,Kingston0Ng,Nigeria,Abuja0Ni,Nicaragua,Managua0Nl,Netherlands,Amsterdam0No,Norway,Oslo0Np,Nepal,Kathmandu0Nr,Nauru,Yaren0Nu,Niue,Alofi0Nz,New zealand,Wellington0Om,Oman,Muscat0Pa,Panama,Panama city0Pe,Peru,Lima0Pf,French polynesia,Papeete0Pg,Papua new guinea,Port moresby0Ph,Philippines,Manila0Pk,Pakistan,Islamabad0Pl,Poland,Warsaw0Pm,Saint pierre and miquelon,Saint-pierre0Pn,Pitcairn islands,Adamstown0Pr,Puerto rico,San juan0Ps,Palestinian territory0Pt,Portugal,Lisbon0Pw,Palau,Koror0Py,Paraguay,Asuncion0Qa,Qatar,Doha0Re,Reunion,Saint-denis0Ro,Romania,Bucharest0Rs,Serbia,Belgrade0Ru,Russia,Moscow0Rw,Rwanda,Kigali0Sa,Saudi arabia,Riyadh0Sb,Solomon islands,Honiara0Sc,Seychelles,Victoria0Sd,Sudan,Khartoum0Se,Sweden,Stockholm0Sg,Singapore,Singapore0Sh,Saint helena,Jamestown0Si,Slovenia,Ljubljana0Sj,Svalbard and jan mayen,Longyearbyen0Sk,Slovakia,Bratislava0Sl,Sierra leone,Freetown0Sm,San marino,San marino0Sn,Senegal,Dakar0So,Somalia,Mogadishu0Sr,Suriname,Paramaribo0Ss,South sudan,Juba0St,Sao tome and principle,Sao tome & principe dobra0Sv,El salvador,San salvador0Sx,Sint maarten (dutch part)0Sy,Syria,Damascus0Sz,Swaziland,Mbabane0Tc,Turks and caicos islands,Cockburn town0Td,Chad,N'djamena0Tf,French southern territories0Tg,Togo,Lome0Th,Thailand,Bangkok0Tj,Tajikistan,Dushanbe0Tk,Tokelau,Fakaofo0Tl,Timor-leste,Dili0Tm,Turkmenistan,Ashgabat0Tn,Tunisia,Tunis0To,Tonga,Nuku'alofa0Tr,Turkey,Ankara0Tt,Trinidad and tobago,Port of spain0Tv,Tuvalu,Fongafale0Tw,Taiwan,Taipei0Tz,Tanzania,Dodoma0Ua,Ukraine,Kiev0Ug,Uganda,Kampala0Um,United states minor outlying islands0Us,United states,Washington dc0Uy,Uruguay,Montevideo0Uz,Uzbekistan,Tashkent0Va,The hoy see (vatican city state),Vatican city0Vc,Saint vincent and the grenadines,Kingstown0Ve,Venezuela,Caracas0Vg,British virgin islands,Road town0Vi,Us virgin islands,Charlotte amalie0Vn,Vietnam,Hanoi0Vu,Vanuatu,Port vila0Wf,Wallis and futuna,Mata-utu0Ws,Samoa,Apia0Ye,Yemen,San'a0Yt,Mayotte,Mamoudzou0Za,South africa,Pretoria0Zm,Zambia,Lusaka0Zw,Zimbabwe,Harare".split(0);
+
+o.value = '"' + data[0] + '":`';
+count = 100;
+
+a.onclick = function(e){
+  newx = e.pageX;
+  newy = e.pageY;
+  if(!started){
+    newx = Math.round(e.pageX / 8) * 8;
+    newy = Math.round(e.pageY / 4) * 4;
+    started = 1;
+    x = newx;
+    y = newy;
+    points.push([x,y]);
+    o.value += (
+      String.fromCharCode(x/8) +
+      String.fromCharCode(y/4)
+    ).replace(/\\/g,"\\\\").replace(/\r/g,"\\r").replace(/\n/g,"\\n").replace(/`/g,"\\`");
+    console.log(newx, newy);
+  }
+  else if(started == 1){
+    newx = Math.round(e.pageX / 8) * 8;
+    newy = Math.round(e.pageY / 4) * 4;
+    started = 2;
+    x = newx;
+    y = newy;
+    points.push([x,y]);
+    o.value += (
+      String.fromCharCode(x/8) +
+      String.fromCharCode(y/4)
+    ).replace(/\\/g,"\\\\").replace(/\r/g,"\\r").replace(/\n/g,"\\n").replace(/`/g,"\\`");
+    //console.log(newx, newy);
+  }
+  else {
+    closestPoint();
+    if(distance > 0 && !(distance == 32 && angle == 15)){
+      
+      console.log(distance,angle);
+      
+      points.push([newx, newy]);
+      x = newx;
+      y = newy;
+      
+      // 4 bits for angle, 3 bits for distance
+      o.value += String.fromCharCode((angle << 3) + ((distance - 4) / 4)).replace(/\\/g,"\\\\").replace(/\r/g,"\\r").replace(/\n/g,"\\n").replace(/`/g,"\\`");
+    }
+  }
+}
+
+a.onmousemove = function(e){
+  a.width ^= 0;
+  
+  for(p in paths){
+    path = paths[p];
+    islands = path.split('');
+    for(is in islands){
+      island = islands[is];
+      c.beginPath();
+      if(is == 0){
+        c.moveTo(X=island[2][z="charCodeAt"]()*8,Y=island[3][z]()*4);
+        //console.log(island[2],island[3],island[2][z="charCodeAt"](),x,y);
+        c.lineTo(X+1,Y+1);
+        c.lineTo(X,Y);
+        for(i of island.substr(4))
+          J=i[z](),
+          D=(J&7)*4+4,
+          A=(J>>3),
+          //console.log(D,A)
+          A=-A*.39+4.72,
+          c.lineTo(X=Math.floor(X+D*Math.cos(A)),Y=Math.floor(Y+D*Math.sin(A)))
+      }
+      
+      else {
+        c.moveTo(X=island[0][z="charCodeAt"]()*8,Y=island[1][z]()*4);
+        for(i of island.substr(2))
+          J=i[z](),
+          A=-(J>>3)*.39+4.72,
+          D=(J&7)*4+4,
+          c.lineTo(X+=D*Math.cos(A),Y+=D*Math.sin(A))
+      }
+      
+      c.closePath();
+      c.stroke();
+    }
+  }
+  
+  
+  if(points[0]){
+    c.beginPath();
+    c.lineWidth = 1;
+    c.moveTo(points[0][0] + .5, points[0][1] + .5);
+    for(i of points){
+      c.lineTo(i[0] + .5, i[1] + .5);
+    }
+    c.stroke();
+  }
+  
+  newx = e.pageX;
+  newy = e.pageY;
+  closestPoint();
+  
+  if(started == 2){
+    c.beginPath();
+    c.lineWidth = 1;
+    c.moveTo(x + .5, y + .5);
+    c.lineTo(newx + .5, newy + .5);
+    c.stroke();
+    c.closePath();
+  }
+  else {
+    c.fillRect(Math.round(e.pageX / 8) * 8, Math.round(e.pageY / 4) * 4, 4, 4);
+  }
+}
+
+closestPoint = function(){
+  dx = newx - x;
+  dy = newy - y;
+  angle = 0;
+  distance = 0;
+  angle = ((Math.round((Math.atan2(dx, dy))/(2*Math.PI)*16))%16)+8;
+  distance = Math.min(32, Math.round(Math.hypot(dx,dy)/4) * 4);
+  angle_rad = -angle * .39 + 4.72;
+  newx = Math.floor(x + distance * Math.cos(angle_rad));
+  newy = Math.floor(y + distance * Math.sin(angle_rad));
+}
+
+onkeydown = function(e){
+  // N (\n)
+  if(e.keyCode == 78){
+    started = 0;
+    o.value += '`,\n"' + data[count++] + '":`'; 
+    o.scrollTop = 10000;
+  }
+  
+  // I (del)
+  if(e.keyCode == 73){
+    started = 1;
+    o.value += ""; 
+  }
+}
+</script>

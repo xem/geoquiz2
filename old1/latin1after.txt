@@ -1,0 +1,38 @@
+var territories = [
+"GreenlandGibraltarGuadeloupeHong kongGuamCayman islandsMartiniqueSaint martinFrench polynesiaSaint helenaSaint barthelemyReunionNew caledoniaPuerto ricoWallis and futunaFrench guianaGuernseyBritish indian ocean territoryMayotteSaint pierre and miquelonAnguillaAmerican samoaFaeroe islandsBermudaUs minor outlying islandsFrench southern territoriesBritish virgin islandsUs virgin islandsNetherlands antillesArubaAland islandsSouth georgiaBonaireBouvet islandCocos islandsCuracaoChristmas islandWestern saharaFalkland islandsHeard island and mcdonald islandsIsle of manJerseyMacauNorthern marianasMontserratNorfolk islandPitcairn islandsSvalbard and jan mayenSwazilandTokelau",
+`\!USb[|}clrmdm&r[ikÉ"jbon%+!+r,e'')',''*!.A*#Uckc_NBdA"Cv}UvVsv“jvÁwvGnvVuvTpv£üaH°Q °H£°§§£v}°vUpv®®Hhvˆ™aTvRo(Havùöõûv\ÉY3 Åyv~=v≤îv°úvYCvTpv	ûv|&avS[v	rv≤÷(ÅZ8vSpvSqvPxQxvOxvè)@hvfﬂiQIvQyvÉﬂvCÇvPxPvÀôvwbgA$IB1I%{izvX⁄2zV€ivµ›Hv~5(pv~=vgëvËsËrÁuvUrv˜¥˜¥v&≠vå	)[sbQd[cYl'"1"*1[vó∞xXA(vó`
+]
+
+var states = [
+"HawaiiHonoluluAlaskaJuneauWashingtonOlympiaNevadaCarson cityNew mexicoSanta feNew yorkAlbanyFloridaTallahasseeIllinoisSpringfieldOhioColumbusRhode islandProvidenceSouth carolinaColumbiaTexasAustinUtahSalt lake cityVirginiaRichmondWest virginiaCharlestonPennsylvaniaHarrisburgMassachusettsBostonNorth carolinaRaleighAlabamaMontgomeryCaliforniaSacramentoColoradoDenverGeorgiaAtlantaMichiganLansingNorth dakotaBismarckMontanaHelenaNebraskaLincolnArizonaPhoenixArkansasLittle rockNew hampshireConcordNew jerseyTrentonConnecticutHartfordDelawareDoverOklahomaOklahoma cityIdahoBoiseOregonSalemIndianaIndianapolisIowaDes moinesKansasTopekaSouth dakotaPierreKentuckyFrankfortTennesseeNashvilleLouisianaBaton rougeMaineAugustaMarylandAnnapolisVermontMontpelierMinnesotaSt. paulMississippiJacksonWisconsinMadisonMissouriJefferson cityWyomingCheyenne",
+`kklna~"-"-R[C		s&'/2*_+-[fA,3UrBfB2/AotmvP;ldQd
+á/rI26*q9"i::*"i
+#)b~*B*DckÑ&B"Kh~,P,PÑg\`GAB~6V8\&H)áxeb~MIMIC'rc{bBI~E_E_ZRAJr("*8bH~BO@Ns	cIF2~FOEKD[sÉ)9	)~LQLQ(A~HXHW"0ISir~<_8TG$RYAXiaSJb	rXqaÅ
+x"~2M2K"G@fÜ!~JSKT'!iby\`qRa9Q~GQGR8byXq(!*Q~KNKO%ÉgAQ*~OJOJÅ29c~HUKVÅ'3YpbH\`Rt~D[C^pby	#FP~,P,P%IMKSYaIc~7N4MFgaá)'~EYE[8Jczx"A~EJCKiÇ{ZBhQ;~9A<>' Egc	~2B/?ÅggaG'!AÅ~<M9Nga !'CaiA~1Y0[ÖhÄfGA!~@W>Tf8P;I$x~NINIi1AA~KOKOIa~NKNK2Åb@~LPLP\`8~<W>Y#fD~/G2F!	(Å	Ä!EY:DcdÑ~*E*CD9AgbÑy+!0 ~DOCKcD9"~?LAJÄ'IKer~=O=N'(Egc~:D=I&#Ñde~EQDQjZI1$)!rai~DUAWfh\`jiÄ$((!0(2~@^A] y$JAZaqÄ~PFPF2ÉhzbC5~KPKPaB~NFNFC	Åb8~?E?E[A'Éh	Å	eQc4H0~A[A[	ybFX)Ä~BICDAq:A+pÄiH\~@Q@M$JDg~7L7LzÄÇ%#DAHXae`
+];
+
+var streams = [
+"AmazoneNileCongoNigerLoireZambezeIndusMississippiColoradoColumbiaUruguayYangzi jiangYellowXi jiangUralDanubeRhinElbeMeuseRhoneSeineOrangeSenegalVoltaChariGambiaDraaBandamaTanaParanaYukonSao franciscoJubbaLimpopoOkavangoRio grandeTocantinsOrenoqueBrazosMackenzieMagdalenaFraserParnaibaSaint-laurentRio negroEssequiboLenaAmourMekongIenisseiObBrahmapoutreSalouenEuphrateAmou-dariaGangeOleniokSyr-dariaIrrawaddyKolymaTarimTigreIndiguirkaKhatangaAlazeiaKouraGodavariIliTazLiaoKrishnaNarmadaRed riverAnadyrKapuasPourVolgaDnieperDonPetchoraDniestrTageVistuleDaugavaMurraySepik",
+`^â4+3,3+3vñ\RCSD3CYrQB)Bväìt|jylRZDJQC2JvÖÉqÉ
++:,v~BchbiR9Qvö§$5
+	Çv∞grk|lR[H[vA_~ryvU≈"Åv)CaHc
+jI}ÅUvYΩyuev◊\5*":,:12Ç8*!v’R*4"*Çqz*J:!I*9S)v—j"(,yv¶B
+y
+e[qÖvïI$")+
+
+1vÖ8LaH;avá5]9[IavÉ:[B8JvÉIyaxvÅ=ZQaQvç¥jcRtdqavurcSYRvÅÇÇ1vãwRL[vuwjZSvxbenv~ÉÉ(vûç!
+cvb´
+$;3K:v&dk|Zlcn_KcRYVvgô,:D2D0vüävôÆ#"3ví§Å
+v<e!	1pu!v_ã3KY?BC3vV},!4BaQaRv=a)v"Q8RjS]T9cIfvMy;R:C2v&:\SkÑTvcé2*<K92BvP@<#*:vU«#vXÄ9BQAv⁄L5;K_e⁄L5;K_J2!,#+3-5;Zkv‰6C,B*$+=vÃ|rÅ#r	yÉÅvºCbNQDTAWB3IBRgQv¥*$;Q:^g]R\J94\Aiv¡j
+bm
+v∆tÇjxÅQv£^
+zÅbv™FL[KZJv¿g+
+jv—9S;,v¨DcRZS:ZvƒszrÇaÅ{$vÛ92)"4SaP2A31!vÛ92)"4SaP2A31!v£^vÎ9*B4vÃ-V<vÔ3*<v§O$!J)vªs	$vµE\Rv∑^<Wv◊Mt}v∫s2v¥jmcZvÕlv˛ !#rv“è
+rv∑LCMv£D!t	kzq*
+$B)2vóCla	\rzcrvúBm{yvß2CcqS;JbvóC"	vzQrejvé5A[R:"vë.\IbZsv„øzcTibvÁê2I`
+];
+
+var places = [
+"Cape canaveralChrist the redeemerGreat chinese wallGreat sphinxEiffel towerTower of pisaSagrada familiaBig benStatue of libertyForbidden cityThe pyramids of gizaThe palace of versaillesAcropolisTrevi fountainKremlinAtomiumLascaux cavesMont st. michelPiazza san marcoGrand canyonMillau bridgeRock of gibraltarEmpire state buildingHollywood signTimes squareLouvre museumWhite houseFlorence cathedralLas vegasMadrid palaceCentral parkSistine chapelPiazza del campoMachu picchuBurj al arab hotelSt peter basilicaCapitol hillLuxor templeGolden gate bridgeBurj khalifaAlcatrazEphesusManneken pisMount eden craterNorth capeSt basil cathedralVictoria fallsGreat buddha of kamakuraLotus templeColosseumAbu simbelPetronas twin towersYellowstoneNiagara fallsTaj mahalMeccaAuschwitzStonehengeMount rushmorePentagonCape of good hopeOpera houseParc guellPompeiiWaterlooEaster islandEvergladesCloud gateRialto bridgeWillis towerLittle mermaidTower bridgeBlue mosqueNevado mismiTable mountainMinaret of jamAngkor watFaisal mosqueNeuschwanstein castleGolden temple of amritsarAl aqsa mosqueTemple of besakihChichen itzaBran castleHagia sophiaUluruBrandenburg gateBlue domed churchCheyenne mountainKiyomizu-deraPetraTombouctouKultury i nauki palaceNull island",
+`Hac™”Nó]Ç?àGÇKÄ9LM”Nó]Ç?íQäKõ1Ñ;ÇEÄ?àF1UÉG}TLM-XMMÇ?KQàF/S~NMLäKàGNùßfäK+?òd*Rßf*RîPÑ;¸¿íõ1ï°‚W∑\`äKòh…Ö3FIH∑\`ùké;Ä:8FKQéªÎªÇKãMÑ;4±GdCJâECJä1Ä9ïKMüÆX w¥Xà?µ[ö\”ñBlíDïL›≠ä8ìS6O·Vö]rê8ÅäHac™”Nó]Ç?àGÇKÄ9LM”Nó]Ç?íQäKõ1Ñ;ÇEÄ?àF1UÉG}TLM-XMMÇ?KQàF/S~NMLäKàGNùßfäK+?òd*Rßf*RîPÑ;¸¿íõ1ï°‚W∑\`äKòh…Ö3FIH∑\`ùké;Ä:8FKQéªÎªÇKãMÑ;4±GdCJâECJä1Ä9ïKMüÆX w¥Xà?µ[ö\”ñBlíDïL›≠ä8ìS6O·Vö]rê8Åä`
+];

@@ -1,0 +1,575 @@
+<meta charset=iso-8859-1>
+<body id=b>
+<canvas id=a width=1500 height=800>
+
+<script>
+
+// WARNING
+// =======
+
+// This file is encoded in Latin-1, in order to encode every byte of the map's data on a 1-byte char.
+
+// DATA
+// ====
+
+// See temp.txt for the raw data and concatenated data
+
+data = [
+[
+"RuRussiaMoscowCnChinaBeijingCaCanadaOttawaFrFranceParisDzAlgeriaAlgiersArArgentinaBuenos airesAuAustraliaCanberraAtAustriaViennaBeBelgiumBrusselsBrBrazilBrasiliaBgBulgariaSofiaAeUnited arab emiratesAbu dhabiClChileSantiagoHrCroatiaZagrebCuCubaHavanaCzCzech republicPragueDkDenmarkCopenhagenEcEcuadorQuitoEgEgyptCairoEeEstoniaTallinnNoNorwayOsloFiFinlandHelsinkiDeGermanyBerlinGrGreeceAthensHuHungaryBudapestEsSpainMadridChSwitzerlandBerneGbUnited kingdomLondonIsIcelandReykjavikInIndiaNew delhiIdIndonesiaJakartaIrIranTehranIqIraqBaghdadIeIrelandDublinIlIsraelJerusalemItItalyRomeJmJamaicaKingstonJpJapanTokyoLbLebanonBeirutLtLithuaniaVilniusLuLuxembourgLuxembourgMkMacedoniaSkopjeMgMadagascarAntananarivoMxMexicoMexico cityMcMonacoMonacoMaMoroccoRabatGyGuyanaGeorgetownLyLibyaTripoliNpNepalKathmanduNlNetherlandsAmsterdamNzNew zealandWellingtonKpNorth koreaPyongyangPsPalestineJerusalemPyParaguayAsuncionPePeruLimaPhPhilippinesManilaPlPolandWarsawPtPortugalLisbonRoRomaniaBucharestQaQatarDohaSaSaudi arabiaRiyadhSgSingaporeSingaporeSkSlovakiaBratislavaSiSloveniaLjubljanaZaSouth africaPretoriaKrSouth koreaSeoulSeSwedenStockholmTwTaiwanTaipeiTnTunisiaTunisTrTurkeyAnkaraUaUkraineKievUyUruguayMontevideoUsUsaWashington dcVeVenezuelaCaracasVaVatican cityVatican cityVnVietnamHanoiAfAfghanistanKabulAdAndorraAndorra la vellaAlAlbaniaTiranaByBelarusMinskBaBosnia and herzegovinaSarajevoBfBurkina fasoOuagadougouCfCentral african republicBanguiCmCameroonYaoundeCdDemocratic republic of the congoKinshasaCiCote d'ivoireYamoussoukroCrCosta ricaSan joseCoColombiaSanta fe de bogotaBoBoliviaLa pazCvCape verdePraiaCyCyprusNicosiaBjBeninPorto novoKhCambodiaPhnom penhDmDominicaRoseauCgCongoBrazzavilleDoDominican republicSanto domingoGqEquatorial guineaMalaboGtGuatemalaGuatemala cityHtHaitiPort-au-princeHnHondurasTegucigalpaJoJordanAmmanKzKazakhstanAstanaXkKosovoPristinaKwKuwaitKuwait cityLaLaosVientianeKeKenyaNairobiMyMalaysiaKuala lumpurMlMaliBamakoMtMaltaVallettaMdMoldovaChisinauPkPakistanIslamabadPaPanamaPanama citySmSan marinoSan marinoSnSenegalDakarRsSerbiaBelgradeScSeychellesVictoriaSoSomaliaMogadishuLkSri lankaColomboSdSudanKhartoumTzTanzaniaDodomaThThailandBangkokYeYemenSan'aZwZimbabweHarareAgAntigua and barbudaSt john'sAmArmeniaYerevanAzAzerbaijanBakuAoAngolaLuandaBsThe bahamasNassauBhBahrainManamaBdBangladeshDhakaBbBarbadosBridgetownBzBelizeBelmopanBtBhutanThimphuBwBotswanaGaboroneBnBruneiBandar seri begawanBiBurundiBujumburaTdChadN'djamenaKmComorosMoroniDjDjiboutiDjiboutiSvEl salvadorSan salvadorErEritreaAsmaraEtEthiopiaAddis ababaFjFijiSuvaGaGabonLibrevilleGmGambiaBanjulGeGeorgiaTbilisiGhGhanaAccraGdGrenadaSt george'sGnGuineaConakryGwGuinea-bissauBissauKiKiribatiTarawaKgKyrgyzstanBishkekLvLatviaRigaLsLesothoMaseruLrLiberiaMonroviaLiLiechtensteinVaduzMwMalawiLilongweMvMaldivesMaleMhMarshall islandsMajuroMrMauritaniaNouakchottMuMauritiusPort louisFmMicronesiaPalikirMnMongoliaUlan batorMeMontenegroPodgoricaMzMozambiqueMaputoMmMyanmarNaypyidawNaNamibiaWindhoekNrNauruYarenNiNicaraguaManaguaNeNigerNiameyNgNigeriaAbujaOmOmanMuscatPwPalauMelekeokPgPapua new guineaPort moresbyRwRwandaKigaliKnSt kitts and nevisBasseterreLcSt luciaCastriesVcSt vincent and the grenadinesKingstownWsSamoaApiaStSao tome and principleSao tomeSlSierra leoneFreetownSbSolomon islandsHoniaraSsSouth sudanJubaSrSurinameParamariboSySyriaDamascusTjTajikistanDushanbeTlTimor-lesteDiliTgTogoLomeToTongaNuku'alofaTtTrinidad and tobagoPort of spainTmTurkmenistanAshgabatTvTuvaluFunafutiUgUgandaKampalaUzUzbekistanTashkentVuVanuatuPort vilaZmZambiaLusakaCkCook islandsAvaruaNuNiueAlofiSzSwazilandMbabane".split(/(?=[A-Z])/),
+"HawaiiHonoluluAlaskaJuneauWashingtonOlympiaNevadaCarson cityNew mexicoSanta feNew yorkAlbanyFloridaTallahasseeIllinoisSpringfieldOhioColumbusRhode islandProvidenceSouth carolinaColumbiaTexasAustinMarylandAnnapolisNorth carolinaRaleighUtahSalt lake cityVirginiaRichmondWest virginiaCharlestonPennsylvaniaHarrisburgMassachusettsBostonConnecticutHartfordAlabamaMontgomeryCaliforniaSacramentoColoradoDenverGeorgiaAtlantaMichiganLansingNorth dakotaBismarckMontanaHelenaNebraskaLincolnArizonaPhoenixArkansasLittle rockNew hampshireConcordNew jerseyTrentonDelawareDoverOklahomaOklahoma cityIdahoBoiseOregonSalemIndianaIndianapolisIowaDes moinesKansasTopekaSouth dakotaPierreKentuckyFrankfortTennesseeNashvilleLouisianaBaton rougeMaineAugustaVermontMontpelierMinnesotaSt paulMississippiJacksonWisconsinMadisonMissouriJefferson cityWyomingCheyenne".split(/(?=[A-Z])/),
+"GreenlandGibraltarGuadeloupeHong kongGuamCayman islandsMartiniqueSt martinFrench polynesiaSt helenaSt barthelemyReunionNew caledoniaPuerto ricoWallis and futunaFrench guianaGuernseyBritish indian ocean territoryMayotteSt pierre and miquelonAnguillaAmerican samoaFaroe islandsBermudaUs minor outlying islandsFrench southern territoriesBritish virgin islandsUs virgin islandsNetherlands antillesArubaAland islandsSouth georgiaBonaireBouvet islandCocos islandsCuracaoChristmas islandWestern saharaFalkland islandsHeard island and mcdonald islandsIsle of manJerseyMacauNorthern marianasMontserratNorfolk islandPitcairn islandsSvalbard and jan mayenTokelauAntarticaTurks and caicos islandsSvalbard".split(/(?=[A-Z])/),
+"Cape canaveralChrist the redeemerGreat chinese wallGreat sphinxEiffel towerTower of pisaSagrada familiaBig benStatue of libertyForbidden cityThe pyramids of gizaThe palace of versaillesAcropolisTrevi fountainKremlinAtomiumLascaux cavesMont st michelPiazza san marcoWashington dcGrand canyonMillau bridgeRock of gibraltarEmpire state buildingHollywood signTimes squareLouvre museumWhite houseFlorence cathedralLas vegasMadrid palaceCentral parkSistine chapelPiazza del campoMachu picchuBurj al arab hotelSt peter basilicaCapitol hillLuxor templeGolden gate bridgeBurj khalifaAlcatrazEphesusManneken pisMount eden craterNorth capeSt basil cathedralVictoria fallsGreat buddha of kamakuraLotus templeColosseumAbu simbelPetronas twin towersYellowstoneNiagara fallsTaj mahalMeccaAuschwitzStonehengeMount rushmorePentagonCape of good hopeOpera houseParc guellPompeiiWaterlooEaster islandEvergladesCloud gateRialto bridgeWillis towerLittle mermaidTower bridgeBlue mosqueNevado mismiTable mountainMinaret of jamAngkor watFaisal mosqueNeuschwanstein castleGolden temple of amritsarAl aqsa mosqueTemple of besakihChichen itzaBran castleHagia sophiaUluruBrandenburg gateBlue domed churchCheyenne mountainKiyomizu-deraPetraTombouctouKultury i nauki palaceNull island".split(/(?=[A-Z])/),
+"SuperiorLemanMichiganTiticacaVictoriaGreat bear lakeMalawiGreat slave lakeNicaraguaLoch nessTaal lakeBaikalOntarioPinatuboHuronTanganyikaErieWinnipegLadogaBalkhashOnegaCrater lakeReed flute caveEmerald lakeMirror lakeSpotted lake".split(/(?=[A-Z])/),
+"AmazoneNileCongoNigerLoireZambezeIndusMississippiColoradoColumbiaUruguayYangtzeYellowXiUralDanubeRhinElbeMeuseRhoneSeineOrangeSenegalVoltaChariGambiaDraaBandamaTanaParanaYukonSao franciscoJubbaLimpopoRio grandeTocantinsOrinocoBrazosMackenzieMagdalenaFraserParnaibaSaint-laurentRio negroEssequiboLenaAmourMekongIenisseiObBrahmapoutreSalouenEuphratesAmou-dariaGangeSyr-dariaIrrawaddyKolymaTigrisIndiguirkaKouraGodavariKrishnaNarmadaRed riverAnadyrVolgaDnieperDonPechoraDniestrTagusVistuleDaugavaMurraySepik".split(/(?=[A-Z])/),
+"SaharaColorado plateauArabian desertGobiGreat victoriaSimpsonAtacamaSyrian desertGreat sandy desertNamibChihuahuan desertKalahariPatagonian desertKarakumSonoranKyzylkumTaklamakanTharGibsonDasht-e margoRegistanMojaveDasht-e kavirDasht-e loot".split(/(?=[A-Z])/),
+"EtnaVesuviusPiton de la fournaisePeleeEyjafjallajokullSt helensKilaueaStromboliSanta mariaPinatuboYasurTaalAmbrymMerapiErta alePacayaErebusSakurajimaNyiragongoUlawunMauna loaGalerasKrakatoaTamboraNevado del ruiz".split(/(?=[A-Z])/),
+"Mount everestK2AnnapurnaFujiKilimanjaroMont blancPopocatepetlOlympusBroad peakCookLhotseMakaluCho oyuDhaulagiriManasluNanga parbatGasherbrum iGasherbrum iiShishapangmaKangchenjungaDenaliKirkjufellFitz royHuaElbrusMatterhornEl capitanGrand tetonLicancaburTre cime de lavaredoBen nevisRainierKinabaluHuangKailashBanff".split(/(?=[A-Z])/),
+"Amazon rainforestSumatra rainforestTaigaGreat lakes-st lawrenceSierra nevadaMiombo woodlandsCongo basin forestKinabalu national parkThe sundarbansDaintree rainforestXishuangbannaBialowieza primeval forestThe black forestVirgin komi forestsLacandon jungleTongassBosawas biosphere reserveAtlantic forestValdivian rainforest".split(/(?=[A-Z])/),
+"Mediterranean seaGulf of mexicoEnglish channelBering seaAdriatic seaAegean seaBlack seaNorth seaRed seaSea of japanPhilippine seaEast china seaSouth china seaAral seaCaspian seaDead seaCoral seaGulf of alaskaCaribbean seaSargasso seaBaltic seaIrish seaCeltic seaLigurian seaTyrrhenian seaGulf of thailandJava seaTimor seaGulf of guineaPersian gulfArabian seaBarents seaGreenland seaGreat australian bightNorwegian seaHudson bayJames baySea of okhotskSeto inland seaBeibu gulfSulu seaCelebes seaBohol seaFlores seaBanda seaArafura seaTasman seaYellow seaBohai seaGulf of carpentariaBaffin bayGulf of st lawrenceGulf of bothniaSea of azovIonian seaMirtoon seaGulf of sidraMarmara seaSea of creteGulf of adenGulf of omanBay of bengalKara seaBeaufort seaAmundsen gulfChukchi seaLaptev seaEast siberian seaAmundsen seaWeddell seaRoss seaGulf st vincentSpencer gulfSalton sea".split(/(?=[A-Z])/),
+],
+
+[
+
+// countries 
+`>2-	aKz)	a9:lR
+<:1U	
+{q(kJWJZqa\\31[1\\BRJ]ai_1"R:2KiRAYJFiMQE:QCTiLARazQrXCI9!C1Q!1I+	A30©1AJVaÁÃQÇ	BæKë8Qæ5jqc.  GkJZ5~ÓNÝJ!"R9@2ARqRa
+pT@bJPI8J9B)BaQhQqTi|iby)
+y#3AXA iÎp0	~KEQF1ZIYIpJ@I;YAOOMP:;!A19XAH/(
+
+0	!a9@9YP{	Xy"I9	Yy	B
+y	Y	Z9I{hBzD8PI 
+8EYqJYAyRAzQbp	az1)8 *
+iyzrqRXL[ipT!YY;hqPAI!(!IZI-9
+iQASCAJ*
+I.\rQJ6y87(9X9<yN8	OLQMIAIYRADa	3	Q@=I:G$XHLP@H%h$99I1P~,?,;phXhqXH@hPAP!1A	8	?Jh0~fTfn	09 *9"IPIHYiQYQh~W½W½#(YI!B0IZibjaobr	)19!PáB8~ê¾ë¾iR8PI2H)a:KSIYA!41	!!
+b")rt}kçÇr ~O@S@pJ
+!A~";,;8~_¡O^qiRjqixjhi[q!)!+)GIA2aIQ2YArI0~'J'L	x( @PIa~§g©ebB~O»Q¬1*Yqhajajbk!jZYqiz	!8I2#.!*"(~ODODXHy9(@H(~FiFi	PI0@H@XH~<=<;Qy
+~?2?4	Q)Qh~I<I^Yhr! ~-_T]pa0rxqO.	x~'+'+Qxpx0 ~^*^*y(!1)x	 	pAKPIQZbTk~')')	3 1IhI@Pi[i~S8.=)0x	rRXpK ~'R'Rh:	pIp8r~ZBZAPYI0 ~}NfJXAP@Kh	jXy"~?B.Cp	0I~:}<I0H(@!axXzha{5	0P~q"q"A	Ax
+zS~·aµW	qi	Y	8h	 	yHYb19PqaX[Qic86+aAA	9 ~Ì"Ì"X	L@KØT ÖTHË'A2=yiyÎ^!	ixZhK1Õ')y1I0
+PIHhaÛ?xh@Ý<yq qX	+AY@1~¥V PsXyq	qy
+A01!9AQhI:HA~ Y¢[qQA9H0!	qX~|6|5qR00~s\\s\\i80 ~?K?K:X1	0Y{p@haP9	:^N@i~JpJpH~ãVãVx"29Zpax[IZi0Xh(hx~sXTZX~"4"48Jhy~.=.=~KM8a~¢¥ §aq'1ZQ~:n<dkz	!yZHhHh9QF!>1HqyrA B	;1
+zyh~?H?H~|Xz\\hZ
+()I@~X?X?payI8 9~SZOhXI90 *y	x0ohH~½b¹\`ypI~"8?7@Yh	~üÈüÈbHaI(! @!:pYa~ÚPÚLYxh	@!R~s\\s\\~X¯W²!B0!	xhhiQ~J>J>3@!q! y	hQjxyiXqPB9(~ÖuÖu0!iXqH9Xa2aY (	×?piPxH0~8<;	0)J@R~zQzQq) I~"GDz	xH(9PHP~¥f¥g8p~¢f£ayhz	aRIhJX2@39(0z~Ê^Ê^~@Z>	xIYA~<DOCIh	~.¯-ªIZhAa2kH@Xt		! @ ~ÚRÚR	phR~Z+Z+QpaQ 1)0)!iHaQb~×f×fPi~^T?SxhXyXP9!(~~O"L
+yixJPJ@hAXA10XH~-<T;aPHXpQ8Aa@AQB	80	 ~Y¾W¼"yhQ~KPKP~Q{Q{
+yHaxPAqhI8*P8H9!x~SKSK~ÌlÍkYpzj[2	!2@ :
+~±W¬Vaqh
+(Q0HX@HZ~,J,J~LO8(xh~"6"4Qi		!2IP~ZHZG@Hpy ~x}{!zY@a8H~Z"Z?Ah01q{JXA~?.<xd@Xip
+(81(8~O'Z?apXaXHX
+q	ay	y @)	9+"8H@JXA~}fIQ 8!0	xpa~E|Dzh8~LfO)1	*P8H1(RaPxiay	~Q¢PsjXxirp!	p)0H)C(@~pupuor~~V~VXH~,,)8 xpXi~ËyÊz1	ha~UtUt~<?'8x)H)apXaX~OpOp	Bi~?.?.??	(H~AuBqIxp@i P~MpNqA8	~CvBs	QXA~s[s[xXhXH~³;¾>BH<Y:ITaxLAQYhzi@Yh	p*yr	) ~JJX0~£\`¡\`q~ÉpÈkyhPqpI 1Q1~>OTO( 1aixXa:~È.È.2yxhqAÎ^(A[Hh@~{x}fHjqiKXqp	!	 )@~<U<U~.B-BAHyp~´Y¬_
+(zPIr[HhyIX0K 0@~I}F|hH(HXA~?G?G~uuyxK0!	~FZDzhPA ~¨'¨'¥~¢~~¡?z8)HB!h	
+b~¹?¹?!qhH~~t>r2@NiHjYsx
+i)~s"TOX@Hpary@)0:~ÈvÊz1	(1I(8Qpqhphaqx18!0~ t x1PIhJX~-¤"¤iaI:~UqUqUr~ N N8yP~¤N¤N1XHpAyhx~S-?£p	8)!P8( IXH1Js~JfJfKgLi~¤d¤d~Áh¿eyqHQ!~WwWw~BqBqa!~Àb¿bpI~"®"®;PIkr!~ÒfÒfX~..b~<yOhXqiYhrXxh	!0*~Y>Y> o~YzYzPq~BwBwIy~otYx:1Yip~o}z"P	HA0@ H(AZahXi ~ÿ¥ÿ¥0Xxÿ¢X~?S?< 	0	XiX@a9~uwuw	@~ L L0BIh~,,+HPia~UyUy~w|{? 2JYyp~uywxpQ1~û^û^ü<û?Z'?T~µJ²L		YPHXJ~'01
+x)P8PX8~"µ"µxXH~yx?yqH~^B^B~Tz~z )qhxphH0~µ"µ"µS´?~ú?ú?÷}ú}÷zôz~up}fHjqiKX0I(2
+ )	(~©§©§~ð?ð?ífì?ë}ä|â}~ÌAÓ>a
+xT@bJPI@J:A)B	)	~ZJZL0x~~¯~± )8 +YP@XrX8(@Qpiaih~ÄnÆ}!3XH)9"ybpXPhqip~«<«4
+p@PIoAP2~÷<÷<~DyDz9aq~,wfy	!)1IRYIqaI~?}fy	 qd8PhQ9@~ªh¨j!py\\Q1~ààh0~é~é~9YA+yqyê'iIï"@(~-.ZpQ~TqTq~VvVv~UwUw~zz~.S.S?^~wx0Q~ò~ò~x0óTPó~8ñ.x@ð-~-f"{x
+jXhYI0P;!~Z,Xaz )~sYsYX!HPJi~±Q±Q8 	Q
+yR HXP~Ù-Ù-	Q~,)8~©©§¥~U{U{p ~ªRªR@Q20H!|HZH~ÿ-ÿ-ý"~~S~SYH("	q~²L²LPH2XHBIj(ppy 8 
+@~ø¤ø¤÷ h0ø¥~. "¥A8)!p9)	yjQp@Y~©©\rT~	¥	¥
+§~-°-°xP(~`.split("~"),
+
+// us_states 
+`h'q~,<0G!@1<XAI/+MAKBWQLRZIbzraT[8Qi0		zqzML
+KJ~7W6[+MhI~:k?t!-Mk~GrDom
+(
+,~ebf]lBJ!
+!~\\}\\}Y9(
+yra:~WiWo:#
+ak~]i[k*iZ~hghg Ph~^v[t[1~O}G{{zh1+AK)JkJ~ckbj	j~\`r_tK!qR~AgBdJm,I~bnbjyiN~^m]maQ~ch_i)qQI~hchcIh
+~gffea ~Yw[y2Il(	~9n:dKjyt	)?~HjDp,N~[v[y2qa0J~[_Ye$R:qzk~LYP[N+~AYISlMR5~PgPbNi	i~AwDpmIB*!~TtRw*xbJ~hah]jH~ehek!AqPy~dkdki!~OsRpOh
+i~>aBdL/u~7^6d,l~Zi[ejYH+~SeQg!AL~QkKjjN~L^I[k+~[m[kYRp0~YrVqYL~VVB+	b	x~i_hc*jx~g\`f]	bP~S]Pa.	Rjy~VyVs	lP0I~WaXc"H:Ijy~TmRq+8azh~HdIf,MXk`.split("~"),
+
+// territories 
+`UUIzrIzasz$!1AA
+MBONR~}U~Us~Ñj~çw~Gn~Vu~Tp~ ¡£¡¥¤~}¡~Tp~¨¨~÷ªP9~RpHP@x~s>z~\\faH)~=~´'´.~¡o~YC~Tp~Y~|&~S[~<S?,	rb~³ÖXH p~Sp~Sq~OxPx~Ox~)~gà@ymãnænèmê~Qy~fà~Åo~Px~ËT~tk
+ )	 JYh~WÚYVÛ h~µÝ~}5~>~Ðl~èr~Tr~÷´~%¯&®)®~{X~-~Lÿy#[||ÿ~Nk~ODKIA`.split("~"),
+
+// places 
+`HacªÓN-],?^G,K?9LMÓN-],?'QSK>1";,E??^F??1UfG}TLM-XMM,?KQ^F/S~NMLSK^GN§fSK+?~d*R§f*R"P";üÀ'>1.¡âW·\`SK~hÉ.3FIH·\`kZ;?:8FKQZ»ë»,K<M";4±GdCJ?ECJS1?9.KMYZ»®XÊw´X^?µ[s\\Ó-Bl'D.LÝ­S8"S6OáVs]r8S`,
+
+// lakes 
+`ECQ0K~.D~CFbpI~P¢8~-Sa	)~(
+QxI~T~qi1~3$R8Y~Dyp~}/~Öt~Ê: paXQ~KGR
+~Ös~EDxi@~--9)~FLX~<:9iqX~-'yP~µF(
+XI~T"iy(8(~)I~Îe~.:~+R~,=`.split("~"),
+
+// streams 
+`_OQ@Q@TBRAbqiypMYAiqW[pQkzY9ZZ[qai\\haxiapaS0JAH9~-\\iXziZqqYhqaHhqi~txhr ~?')	zjpbhOZhq~."!0@(;1HZQaP."!0	p~B	php~s¦1@JYH9(0 ~±h(0(! ~A_9!(9"9A( ~0\\0 0~(By	()1y~W¼"	y~×\\@HZ@Q0IYIiH8@1(:HP~ÕRQaJ0 ( APbXIXpxI8@~Ñj8J0HQ(~¥B!1
+*~.K9K@H*IPAQ@(0~"8ipap~?5hy~f8ha~"I )~=yx~O´
+y	~urypaq~0@2X~Svxhyq~uw~xa	9~}f0!@~Z1HX~W¼@(#	"
+X±!2!@~'"	yq{~gTAQYpbiH~YS0*@~~°2IX~<eA(9XA2"@~_OYqxXbiaX~V}Tay	~=a2@~ {	zq~Lzhqai~(@	*1~cZYiX~OA[Q~V0BH0~Xaxh~Ûax[riQKRAYR[pÜ"	iZLZ~ä7h\\J;1JbP~Ì}910H1@ 0 8(3A~»q	qXyazrybi	¿yaqYÂ-xayj~±HaiyqZh±&ybZbP±.	Y}h~Âj9(0~Æv)1+2BH~£^B;H8~ªFr{~Àk2K9@(~¬Cyi~Äs*#~óiIUzaHQ8h@~£^9A)9~ëQiSqY~¤O9AIh~»s9@I@~ºt@PB~´i	~Ìm9A~þ!AP ~£E;"8 9Q9BaHX9~-D0B+~>DA3~§biyYq~-D:J~zQ	~Z5i	pX~'/y	~ã¾	y	xå¼!	~çQHx`.split("~"),
+
+// deserts 
+`ws3wWOOO~0X)zjQ~sav[U3~ÉN#[Ta~à¹DR:b~ß¯"c~M¡t\\*!1 ~ \\;Zk~ß°JG
+z~O³2 4{kr~4Zui;B:3~ªjcB~Qß9)1Elcs~ªR:|R~2_0Iq;*|i~¬MrM~¶NjT~µi;j	~Ú®[:~«d!:K~­ds~0WB)~§ViI~ª_2
+r`.split("~"),
+
+// volcanoes
+`<R<L¨¨Vus!*Bm<OAtÖsù¥×v÷ Ï"wAuöÿÝZ.<ì'nK?Ë'Ô-L?`,
+
+// mountains
+`½\`¶T¼\`ãU>Z.D;oN¸WùÌ¾a¾a¾a»\`¼\`·V¸V¸W½a¿b"pNÓÏWYH?D,R2FQ©?C~0+@ÓÓ^º\\/7`,
+
+// forests 
+`\\?COVn;$~Ë'A2:ry~\r
+
+|c{{,}RK^BI;OFOG<LET6<c
+[<OMREOWOK[ODMWT4C~DH!xiCE0Kk
+~-W:2)jz~<o*ubUD4dJ~?O"1i
+j[KCY~Ó,Y~ÁjR!
+p~è¦1Zr~Æh!yi~7	yYA~?A!xi~©VI[}*~@q	b9~*zq!<~EtY~h'iYciYaSj[:#y5~P³Zkbi#*`.split("~"),
+
+// seas
+`D/ 3?}F#I)L$AM7o$o:m/i;T#R&L.wP\r$:+.G>=C$D'd?gImNADR2W<N:m\`A
+"#uo,f7j?kBl?kJmIpKycl,j(qP%* GM"F)I*F/J'I*Q<U4_;V	ky}	4}}}q\`p^,`
+
+]
+
+];
+
+for(i in data[1][0]){
+  if(data[1][0][i].length == 2){
+    console.log(data[1][0][i]);
+    data[1][0][i]+=data[1][0][i];
+    console.log(data[1][0][i]);
+  }
+}
+
+
+
+
+
+// Init
+// ====
+
+// Browser/OS detection
+mac = navigator.userAgent.indexOf("Mac OS") > -1;
+android = navigator.userAgent.indexOf("Android") > -1;
+ios = navigator.userAgent.indexOf("iPhone") > -1;
+//if(!mac && !android && !ios){ ms = 1; b.classList.add("f"); }
+  
+// Canvas
+c = a.getContext`2d`;
+
+// Global vars
+screen = 3; // 0 = title screen
+question = 0; // Current question number
+questions = 25; // or any value chosen on screen 11
+mode = 0; // 0 = highest score / 1 = "least errors"
+error = 0; // error counter (in mode 1)
+flags = 1; // enable flags
+
+// Datasets
+//datasets = [countries, countries, places, us_states, us_states, territories, countries, seas, lakes, streams, deserts, volcanoes, mountains, forests];
+
+// Datasets names
+things = ["COUNTRY", "CAPITAL", "PLACE", "US STATE", "US CAPITAL", "TERRITORY", "FLAG", "SEA", "LAKE", "STREAM", "DESERT", "VOLCANO", "MOUNTAIN", "FOREST"];
+
+// Current/previous dataset index
+dataset = 0;
+lastdataset = 0;
+
+// Draw a screen
+draw = function(){
+
+  // Reset canvas
+  a.width ^= 0;
+
+  // Title screen (0)
+  if(screen == 0){
+  
+    // Black sky
+    c.fillRect(0, 0, 1024, 1024);
+    
+    // Stars
+    c.fillStyle = "#fff";
+    for(i = 500; i--;) c.beginPath(), c.arc(Math.random() * 1024, Math.random() * 768, Math.random() + .5, 0, 7), c.fill(); 
+    
+    // 2
+    c.font = (android ? 500 : 800) + "px impact,charcoal";
+    c.fillStyle = "#07d";
+    c.fillText(2, 600, android ? 500 : 680);
+    
+    // Emojis
+    c.font = (android ? 200 : 260) + "px impact,charcoal";
+    c.fillText("\u{1f30d}", mac ? 240 : android ? 300 : ios ? 260 : 195, mac ? 480 : android ? 400 : 450);
+    c.font = "50px impact,charcoal";
+    c.fillText("\u{1f312}", mac ? 710 : android ? 820 : ios ? 760 : 700, android ? 230 : 270);
+    
+    // GE + QUIZ
+    c.fillStyle = "#fff";
+    c.font = (android ? 180 : ios ? 150 : 200) + "px impact,charcoal";
+    c.fillText("GE       QUIZ", 50, android ? 400 : 450);
+    c.lineWidth = 6;
+    if(!ios) c.strokeText("GE       QUIZ", 50, android ? 400 : 450);
+    
+    // PLAY
+    c.fillStyle = ios ? "#fff" : android ? "#fff" : "#000";
+    c.font = "100px impact,charcoal";
+    c.fillText("\u25b8PLAY\u25c2", 620, 670);
+  }
+  
+  // Flags on Windows (10)
+  else if(screen == 10){
+  
+    c.fillStyle = "#fff";
+    
+    c.font = "110px impact,charcoal,f";
+    c.fillText("Enable flags?", 100, 150);
+    c.fillText("\u{1f1fa}\u{1f1f8}", 430, 470);
+    
+    c.font = "40px impact,charcoal";
+    c.fillText("Your system doesn't support Emoji flags natively", 100, 230);
+    c.fillText("Do you want to load better flags?", 100, 300);
+    c.font = "80px impact,charcoal";
+    c.fillText("\u25b8OK", 250, 600);
+    c.fillText("\u25b8no", 600, 600);
+  }
+  
+  // Menu (1)
+  else if(screen == 1){
+    c.fillStyle = "#fff";
+    
+    c.font = "110px impact,charcoal";
+    c.fillText("Choose a mode", 100, 150);
+    
+    c.font = "80px impact,charcoal";
+    c.fillText("\u25b8Highest score", 50, 300);
+    c.fillText("\u25b8Least errors", 50, 550);
+    
+    c.font = "40px impact,charcoal";
+    c.fillText("Answer a group of questions and", 120, 350);
+    c.fillText("get a score based on your accuracy.", 120, 400);
+    c.fillText("Answer as many questions as you can.", 120, 600);
+    c.fillText("If you total 50,000km of errors it's Game Over !", 120, 650);
+    
+  }
+  
+  // High score (11)
+  else if(screen == 11){
+  
+    c.fillStyle = "#fff";
+    c.font = "110px impact,charcoal";
+    c.fillText("Highest score", 200, 150);
+    
+    c.font = "60px impact,charcoal";
+    c.fillText("\u25b825 questions", 50, 300);
+    c.fillText("\u25b850 questions", 50, 450);
+    c.fillText("\u25b8100 questions", 50, 600);
+    
+    c.fillText("\u25b8250 questions", 550, 300);
+    c.fillText("\u25b8500 questions", 550, 450);
+    if(flags)c.fillText("\u25b81000 questions", 550, 600);
+    
+  }
+  
+  // Choose a question (2)
+  else if(screen == 2){
+  
+    // Pick a dataset
+    console.log(question);
+    
+    // First questions: country, capital, place, then random
+    if(question < 3){
+      dataset = question;
+      lastdataset = dataset;
+      random = 0;
+    }
+    else {
+      dataset = lastdataset;
+      while(dataset == lastdataset){
+        random = Math.random();
+        if(random > .75) dataset = 0; // More probability for countries
+        else if(random > .6) dataset = 1; // and capitals
+        else if(random > .5) dataset = 2; // and places
+        else {
+          dataset = ~~(random * 22) + 3; // all the rest (11 datasets) has equal probabilities (.5)
+        }
+      }
+      lastdataset = dataset;
+    }
+    
+    thing = things[dataset];
+    
+    c.fillStyle = "#fff";
+    c.textAlign = "left";
+    
+    c.font = "40px impact,charcoal";
+    c.fillText("Question " + (question+1) + (mode == 0 ? ("/" + questions) : ""), 50, 50);
+    if(mode == 1 && error > 0){
+      c.fillText("Error: " + error + "km", 50, 100);
+    }
+    
+    c.textAlign = "center";
+    c.font = "80px impact,charcoal";
+    c.fillText("FIND A", 512, 200);
+    if(thing == "FLAG"){
+      c.fillText("WITH THIS FLAG", 512, 460);
+    }
+    else {
+      c.fillText("CALLED", 512, 460);
+    }
+    c.fillText("\u25b8", 1000, 750);
+    
+    c.font = "120px impact,charcoal";
+    
+    if(thing == "FLAG"){
+      c.fillText("COUNTRY", 512, 330);
+    }
+    else {
+      c.fillText(thing, 512, 330);
+    }
+    c.fillText("FRANCE", 512, 590);
+    
+  }
+  
+  // Map (3)
+  else if(screen == 3){
+  
+    c.fillStyle = "#def";
+    c.fillRect(0,0,1500,800);
+    
+    // paths, diststep, fill, stroke, capital, close, scale, xoffset, yoffset
+    trace(data[1][0], 8, "green", "black", 1 ,1 ,1, 0, 0)
+    trace(data[1][1], 6, "green", "black", 1 ,1 ,1, 0, 0)
+    //trace(data[1][1], 4, "green", "black", 1 ,1 ,2.9, -240, -100)
+    
+  }
+  
+  // Score (4)
+  else if(screen == 4){
+    
+  }
+  
+  
+}
+
+
+// Events
+
+// mousedown, touchstart
+ontouchstart = onmousedown = function(e){
+  //M.play();
+  xy(e);
+  document.title = "down " + ~~x + " " + ~~y;
+}
+
+// mousemove, touchmove
+onmousemove = ontouchmove = function(e){
+  xy(e);
+  document.title = "move " + ~~x + " " + ~~y;
+}
+
+// Mouseup, touchend
+onmouseup = ontouchend = function(e){
+  xy(e);
+  document.title = "up " + ~~x + " " + ~~y;
+  
+  // On title screen (0)
+  if(screen == 0){
+    if(!mac && !android && !ios) screen = 10;
+    else screen = 1;
+    draw();
+  }
+  
+  // On flags screen (10)
+  else if(screen == 10){
+    if(y > 480){
+      if(x > 575){
+        flags = 0;
+      }
+      screen = 1;
+      draw();
+    }
+  }
+  
+  // On mode screen (1)
+  else if(screen == 1){
+  
+    // Least errors
+    if(y > 450) {
+      questions = flags ? 1124 : 925;
+      mode = 1;
+      screen = 2;
+    }
+    
+    else {
+      screen = 11;
+    }
+    
+    draw();
+  }
+  
+  // On Highest score screen (11)
+  else if(screen == 11){
+    if(y > 500){
+      questions = 100;
+    }
+    else if(y > 350){
+      questions = 50;
+    }
+    
+    if(x > 550){
+      questions *= 10;
+    }
+    
+    screen = 2;
+    
+    draw();
+  }
+  
+  // On question screen (2)
+  else if(screen == 2){
+        
+    screen = 3;
+    question++;
+    draw();
+  }
+}
+
+
+
+
+// Helpers
+xy = function(e){
+  w = a.offsetWidth;
+  if(e.changedTouches){
+    x = e.changedTouches[0].pageX * 1024 / w;
+    y = e.changedTouches[0].pageY * 1024 / w;
+  }
+  
+  else{
+    x = e.pageX * 1024 / w;
+    y = e.pageY * 1024 / w;
+  }
+}
+
+
+// Convert latin-1 char to int
+latin2int = function(ch){
+  if(ch){
+    J = ch.charCodeAt();
+    J = (6E4 < J ? 0 : 255 < J ? "€‚ƒ„…†‡ˆ‰Š‹ŒŽ‘’“”•–—˜™š›œžŸ".indexOf(J) + 128 : J);
+    return J;
+  }
+}
+
+
+// Draw a dataset
+trace = function(paths, diststep, fill, stroke, capital, close, scale, xoffset, yoffset){
+  for(var item in paths){
+    console.log(item, paths[item]);
+    var path = paths[item];
+    c.beginPath();
+    for(i = capital ? 0 : -1; i < path.length; i++){
+      J = latin2int(path[i]);
+      if(i == (capital ? 0 : -2)) { /* wait... */ }
+      
+      else if(i == (capital ? 1 : -1) || J == 127){
+        if(J==127){
+          if(close)c.lineTo(x0,y0);
+          c.lineWidth = 3 * scale
+          c.strokeStyle=stroke;
+          c.stroke();
+          if(fill)c.fillStyle=fill;
+          if(fill)c.fill();
+        }
+        c.beginPath();
+        c.moveTo(x0=x=latin2int(path[i+1])*diststep * scale + xoffset, y0=y=latin2int(path[i+2])*diststep/2 * scale + yoffset);
+        c.lineTo(x,y+1);
+        c.lineTo(x,y);
+        i += 2;
+      }
+      
+
+      else {
+        A = -((J>>3)-1)* Math.PI/8,
+        D = (J&7)*diststep+diststep,
+        c.lineTo(x=Math.floor(x+D*scale*Math.cos(A)),y=Math.floor(y+D*scale*Math.sin(A)))
+      }
+    }
+    if(close) c.lineTo(x0,y0);
+    c.lineWidth = 3 * scale
+    c.strokeStyle=stroke;
+    c.stroke();
+    if(fill)c.fillStyle=fill;
+    if(fill)c.fill();
+  
+    
+    
+    
+    
+    
+    
+    /*
+    var islands = path.split('');
+    for(island in islands){
+    
+      islandlog = [];
+      
+      var island_path = islands[island];
+      c.beginPath();
+      
+      if(has_capital && island == 0){
+        c.moveTo(X0 = X = island_path[2].charCodeAt()*8 * scale + xoffset, Y0 = Y = island_path[3].charCodeAt()*4 * scale + yoffset);
+        c.lineTo(X+.5, Y);
+        c.lineTo(X, Y);
+        
+        for(i of island_path.substr(4)){
+          J = i.charCodeAt(),
+          J = (6E4 < J ? 0 : 255 < J ? "€‚ƒ„…†‡ˆ‰Š‹ŒŽ‘’“”•–—˜™š›œžŸ".indexOf(i) + 128 : J),
+          D = (J & 7) * dist_step + dist_step,
+          A = (J>>3),
+          A = -A *.39 + 4.72,
+          c.lineTo(X = Math.floor(X+D*scale*Math.cos(A)), Y = Math.floor(Y+D*scale*Math.sin(A)));
+          
+        }
+      }
+      
+      else {
+        c.moveTo(X0 = X = island_path[0].charCodeAt()*8 * scale + xoffset, Y0 = Y = island_path[1].charCodeAt()*4 * scale + yoffset);
+        c.lineTo(X+.5, Y);
+        c.lineTo(X, Y);
+        
+        for(i of island_path.substr(2)){
+          J = i.charCodeAt(),
+          A = -(J>>3) * .39+4.72,
+          D = (J&7) * dist_step + dist_step,
+          c.lineTo(X = Math.floor(X+D*scale*Math.cos(A)), Y = Math.floor(Y+D*scale*Math.sin(A)));
+        }
+      }
+      
+      
+      if(close){
+        c.lineTo(X0,Y0);
+      }
+      
+      if(stroke){
+        c.strokeStyle = stroke;
+        c.lineWidth = 3;
+        c.stroke();
+      }
+      if(fill){
+        c.fillStyle = fill;
+        c.fill();
+      }
+      
+      c.fillStyle = "red";
+      if(name){
+        c.fillText(item, X0,Y0); 
+      }
+    }*/
+  }
+}
+
+
+// Draw title screen
+onload = function(){
+  draw();
+}
+</script>
+<style>
+@font-face{font-family:"f";src:url(flags.woff2)}
+*{margin:0;background:#000;cursor:pointer;width:100%;overflow:hidden;max-width:calc(100vh*2);font-family:f

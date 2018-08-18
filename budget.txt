@@ -1,0 +1,8 @@
+budget
+
+Used: 
+data+title+menus+questions+music = 12.6kb
+
+Todo:
+
+map+feedback+score = 0.4kb ?

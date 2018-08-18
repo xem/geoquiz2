@@ -1,0 +1,626 @@
+Country	Capital	Code
+Andorra	Andorra la Vella	AD
+United Arab Emirates	Abu Dhabi	AE
+Afghanistan	Kabul	AF
+Antigua and Barbuda	St John's	AG
+Anguilla	The Valley	AI
+Albania	Tirana	AL
+Armenia	Yerevan	AM
+Netherlands Antilles	Willemstad	
+Angola	Luanda	AO
+Antartica		AQ
+Argentina	Buenos Aires	AR
+American Samoa	Pago Pago	AS
+Austria	Vienna	AT
+Australia	Canberra	AU
+Aruba	Oranjestad	AW
+Åland Islands		AX
+Azerbaijan	Baku	AZ
+Bosnia and Herzegovina	Sarajevo	BA
+Barbados	Bridgetown	BB
+Bangladesh	Dhaka	BD
+Belgium	Brussels	BE
+Burkina Faso	Ouagadougou	BF
+Bulgaria	Sofia	BG
+Bahrain	Manama	BH
+Burundi	Bujumbura	BI
+Benin	Porto Novo	BJ
+Saint Barthélemy		BL
+Bermuda	Hamilton	BM
+Brunei	Bandar Seri Begawan	BN
+Bolivia	Sucre	BO
+Bonaire, Sint Eustatius and Saba		BQ
+Brazil	Brasilia	BR
+The Bahamas	Nassau	BS
+Bhutan	Thimphu	BT
+Bouvet Island		BV
+Botswana	Gaborone	BW
+Belarus	Minsk	BY
+Belize	Belmopan	BZ
+Canada	Ottawa	CA
+Cocos (Keeling) Islands	Bantam	CC
+Democratic Republic of the Congo	Kinshasa	CD
+Central African Republic	Bangui	CF
+Congo	Brazzaville	CG
+Switzerland	Berne	CH
+Cote D'Ivoire	Yamoussoukro	CI
+Cook Islands	Avarua	CK
+Chile	Santiago	CL
+Cameroon	Yaound	CM
+China	Beijing	CN
+Colombia	Santa Fe de Bogot	CO
+Costa Rica	San Jos	CR
+Cuba	Havana	CU
+Cape Verde	Praia	CV
+Curaçao		CW
+Christmas Island	Flying Fish Cove	CX
+Cyprus	Nicosia	CY
+Czech Republic	Prague	CZ
+Germany	Berlin	DE
+Djibouti	Djibouti	DJ
+Denmark	Copenhagen	DK
+Dominica	Roseau	DM
+Dominican Republic	Santo Domingo	DO
+Algeria	Algiers	DZ
+Ecuador	Quito	EC
+Estonia	Tallinn	EE
+Egypt	Cairo	EG
+Western Sahara	Al aaiun	EH
+Eritrea	Asmara	ER
+Spain	Madrid	ES
+Ethiopia	Addis Ababa	ET
+Finland	Helsinki	FI
+Fiji	Suva	FJ
+Falkland Islands	Stanley	FK
+Micronesia	Palikir	FM
+Faeroe Islands	Thorshavn	FO
+France	Paris	FR
+Gabon	Libreville	GA
+United Kingdom	London	GB
+Grenada	St George's	GD
+Georgia	Tbilisi	GE
+French Guiana	Cayenne	GF
+Guernsey		GG
+Ghana	Accra	GH
+Gibraltar	Gibraltar	GI
+Greenland	Nuuk	GL
+The Gambia	Banjul	GM
+Guinea	Conakry	GN
+Guadeloupe	Basse Terre	GP
+Equatorial Guinea	Malabo	GQ
+Greece	Athens	GR
+South Georgia		GS
+Guatemala	Guatemala City	GT
+Guam	Hagtana	GU
+Guinea-Bissau	Bissau	GW
+Guyana	Georgetown	GY
+Hong Kong	Victoria City	HK
+Heard Island and Mcdonald Islands		HM
+Honduras	Tegucigalpa	HN
+Croatia	Zagreb	HR
+Haiti	Port-au-Prince	HT
+Hungary	Budapest	HU
+Indonesia	Jakarta	ID
+Ireland	Dublin	IE
+Israel	Jerusalem	IL
+Isle of Man		IM
+India	New Delhi	IN
+British Indian Ocean Territory		IO
+Iraq	Baghdad	IQ
+Iran	Tehran	IR
+Iceland	Reykjavik	IS
+Italy	Rome	IT
+Jersey		JE
+Jamaica	Kingston	JM
+Jordan	Amman	JO
+Japan	Tokyo	JP
+Kenya	Nairobi	KE
+Kyrgyzstan	Bishkek	KG
+Cambodia	Phnom Penh	KH
+Kiribati	Tarawa	KI
+Comoros	Moroni	KM
+Saint Kitts and Nevis	Basseterre	KN
+North Korea	Pyongyang	KP
+South Korea	Seoul	KR
+Kuwait	Kuwait City	KW
+Cayman Islands	George Town	KY
+Kazakhstan	Astana	KZ
+Laos	Vientiane	LA
+Lebanon	Beirut	LB
+Saint Lucia	Castries	LC
+Liechtenstein	Vaduz	LI
+Sri Lanka	Colombo	LK
+Liberia	Monrovia	LR
+Lesotho	Maseru	LS
+Lithuania	Vilnius	LT
+Luxembourg	Luxembourg	LU
+Latvia	Riga	LV
+Libya	Tripoli	LY
+Morocco	Rabat	MA
+Monaco	Monaco	MC
+Moldova	Chisinau	MD
+Montenegro		ME
+Saint Martin (French Part)		MF
+Madagascar	Antananarivo	MG
+Marshall Islands	Majuro	MH
+Former Yugoslav Republic of Macedonia	Skopje	MK
+Mali	Bamako	ML
+Myanmar	Yangon	MM
+Mongolia	Ulan Bator	MN
+Macau	Macau	MO
+Northern Marianas	Garapan	MP
+Martinique	Fort-de-France	MQ
+Mauritania	Nouakchott	MR
+Montserrat	Plymouth	MS
+Malta	Valletta	MT
+Mauritius	Port Louis	MU
+Maldives	Male	MV
+Malawi	Lilongwe	MW
+Mexico	Mexico City	MX
+Malaysia	Kuala Lumpur	MY
+Mozambique	Maputo	MZ
+Namibia	Windhoek	NA
+New Caledonia	Noumea	NC
+Niger	Niamey	NE
+Norfolk Island	Kingston	NF
+Nigeria	Abuja	NG
+Nicaragua	Managua	NI
+Netherlands	Amsterdam	NL
+Norway	Oslo	NO
+Nepal	Kathmandu	NP
+Nauru	Yaren	NR
+Niue	Alofi	NU
+New Zealand	Wellington	NZ
+Oman	Muscat	OM
+Panama	Panama City	PA
+Peru	Lima	PE
+French Polynesia	Papeete	PF
+Papua New Guinea	Port Moresby	PG
+Philippines	Manila	PH
+Pakistan	Islamabad	PK
+Poland	Warsaw	PL
+Saint Pierre and Miquelon	Saint-Pierre	PM
+Pitcairn Islands	Adamstown	PN
+Puerto Rico	San Juan	PR
+Palestinian Territory		PS
+Portugal	Lisbon	PT
+Palau	Koror	PW
+Paraguay	Asuncion	PY
+Qatar	Doha	QA
+Reunion	Saint-Denis	RE
+Romania	Bucharest	RO
+Serbia	Belgrade	RS
+Russia	Moscow	RU
+Rwanda	Kigali	RW
+Saudi Arabia	Riyadh	SA
+Solomon Islands	Honiara	SB
+Seychelles	Victoria	SC
+Sudan	Khartoum	SD
+Sweden	Stockholm	SE
+Singapore	Singapore	SG
+Saint Helena	Jamestown	SH
+Slovenia	Ljubljana	SI
+Svalbard and Jan Mayen	Longyearbyen	SJ
+Slovakia	Bratislava	SK
+Sierra Leone	Freetown	SL
+San Marino	San Marino	SM
+Senegal	Dakar	SN
+Somalia	Mogadishu	SO
+Suriname	Paramaribo	SR
+South Sudan	Juba	SS
+Sao tome and principle	Sao Tome & Principe Dobra	ST
+El Salvador	San Salvador	SV
+Sint Maarten (Dutch Part)		SX
+Syria	Damascus	SY
+Swaziland	Mbabane	SZ
+Turks and Caicos Islands	Cockburn Town	TC
+Chad	N'Djamena	TD
+French Southern Territories		TF
+Togo	Lome	TG
+Thailand	Bangkok	TH
+Tajikistan	Dushanbe	TJ
+Tokelau	Fakaofo	TK
+Timor-Leste	Dili	TL
+Turkmenistan	Ashgabat	TM
+Tunisia	Tunis	TN
+Tonga	Nuku'alofa	TO
+Turkey	Ankara	TR
+Trinidad and Tobago	Port of Spain	TT
+Tuvalu	Fongafale	TV
+Taiwan	Taipei	TW
+Tanzania	Dodoma	TZ
+Ukraine	Kiev	UA
+Uganda	Kampala	UG
+United States Minor Outlying Islands		UM
+United States	Washington DC	US
+Uruguay	Montevideo	UY
+Uzbekistan	Tashkent	UZ
+The Hoy See (Vatican City State)	Vatican City	VA
+Saint Vincent and the Grenadines	Kingstown	VC
+Venezuela	Caracas	VE
+British Virgin Islands	Road Town	VG
+US Virgin Islands	Charlotte Amalie	VI
+Vietnam	Hanoi	VN
+Vanuatu	Port Vila	VU
+Wallis and Futuna	Mata-Utu	WF
+Samoa	Apia	WS
+Yemen	San'a	YE
+Mayotte	Mamoudzou	YT
+South Africa	Pretoria	ZA
+Zambia	Lusaka	ZM
+Zimbabwe	Harare	ZW
+
+
+US state	US capital
+Alaska	Juneau
+Washington	Olympia
+Nevada	Carson city
+New mexico	Santa fe
+New york	Albany
+Florida	Tallahassee
+Illinois	Springfield
+Ohio	Columbus
+Rhode island	Providence
+South carolina	Columbia
+Texas	Austin
+Utah	Salt lake city
+Virginia	Richmond
+West virginia	Charleston
+Pennsylvania	Harrisburg
+Massachusetts	Boston
+North carolina	Raleigh
+Alabama	Montgomery
+California	Sacramento
+Colorado	Denver
+Georgia	Atlanta
+Michigan	Lansing
+North dakota	Bismarck
+Montana	Helena
+Nebraska	Lincoln
+Arizona	Phoenix
+Arkansas	Little rock
+New hampshire	Concord
+New jersey	Trenton
+Connecticut	Hartford
+Delaware	Dover
+Oklahoma	Oklahoma city
+Idaho	Boise
+Oregon	Salem
+Indiana	Indianapolis
+Iowa	Des moines
+Kansas	Topeka
+South dakota	Pierre
+Kentucky	Frankfort
+Tennessee	Nashville
+Louisiana	Baton rouge
+Maine	Augusta
+Maryland	Annapolis
+Vermont	Montpelier
+Minnesota	St. paul
+Mississippi	Jackson
+Wisconsin	Madison
+Missouri	Jefferson city
+Wyoming	Cheyenne
+
+Main seas
+Labrador Sea
+Caribbean Sea
+Argentine Sea
+Norwegian Sea
+North Sea
+Baltic Sea
+English Channel
+Irish Sea
+Celtic Sea
+Bay of Biscay
+Mediterranean Sea
+Adriatic Sea
+Ligurian Sea
+Tyrrhenian Sea
+Marmara Sea
+Black Sea
+Sea of Azov
+Gulf of Guinea
+Irish Sea
+Chukchi Sea
+East Siberian Sea
+Laptev Sea
+Kara Sea
+Barents Sea
+Queen Victoria Sea
+Wandel Sea
+Greenland Sea
+Lincoln Sea
+Baffin Bay
+The Northwest Passages
+Hudson Strait
+Hudson Bay
+Beaufort Sea
+Amundsen Sea
+Bass Strait
+Bellingshausen Sea
+Cooperation Sea[c]
+Cosmonauts Sea[c]
+Davis Sea
+D'Urville Sea
+Drake Passage
+Great Australian Bight
+Gulf St Vincent
+Investigator Strait
+King Haakon VII Sea[c]
+Lazarev Sea[c]
+Mawson Sea[c]
+Riiser-Larsen Sea
+Ross Sea
+Scotia Sea
+Somov Sea[c]
+Spencer Gulf
+Weddell Sea
+Andaman Sea
+Arabian Sea
+Bay of Bengal
+Gulf of Aden
+Gulf of Oman
+Laccadive Sea
+Mozambique Channel
+Persian Gulf
+Red Sea
+Timor Sea
+Bering Sea
+Chilean Sea
+Sea of Chiloé
+Gulf of Alaska
+Gulf of California
+Mar de Grau
+Salish Sea
+Arafura Sea
+Bali Sea
+Banda Sea
+Bismarck Sea
+Bohai Sea
+Bohol Sea
+Camotes Sea
+Celebes Sea
+Ceram Sea
+Coral Sea
+East China Sea
+Flores Sea
+Gulf of Carpentaria
+Gulf of Thailand
+Halmahera Sea
+Java Sea
+Koro Sea
+Molucca Sea
+Philippine Sea
+Savu Sea
+Sea of Japan
+Sea of Okhotsk
+Seto Inland Sea
+Sibuyan Sea
+Solomon Sea
+South China Sea
+Sulu Sea
+Tasman Sea
+Visayan Sea
+Yellow Sea
+
+Main lakes
+Caspian sea
+Superior
+Victoria
+Huron
+Michigan
+Tanganyika
+Baikal
+Great Bear Lake
+Malawi
+Great Slave Lake
+Erie
+Winnipeg
+Ontario
+Ladoga
+Balkhash
+Vostok
+Onega
+Titicaca
+Nicaragua
+
+
+Main streams
+Nil
+Congo
+Niger
+Zambèze
+Orange
+Sénégal
+Jubba
+Limpopo
+Okavango
+Volta
+Chari
+Gambie
+Drâa
+Bandama
+Tana
+Amazone
+Parana
+Mississippi
+Yukon
+São Francisco
+Río Grande
+Tocantins
+Colorado
+Orénoque
+Brazos
+Columbia
+Mackenzie
+Uruguay
+Magdalena
+Fraser
+Parnaíba
+Saint-Laurent
+Río Negro
+Rio Colorado
+Essequibo
+Yangzi Jiang
+fleuve Jaune
+Léna
+Amour
+Mékong
+Ienisseï
+Ob
+Indus
+Brahmapoutre
+Salouen
+Euphrate
+Amou-Daria
+Gange
+Oleniok
+Syr-Daria
+Irrawaddy
+Kolyma
+Tarim
+Tigre
+Xi Jiang
+Indiguirka
+Khatanga
+Alazeïa
+Koura
+Godâvarî
+Iana
+Ili
+Taz
+Liao
+Krishnâ
+Narmadâ
+fleuve Rouge
+Anadyr
+Kapuas
+Pour
+Volga
+Danube
+Oural
+Dniepr
+Don
+Petchora
+Dniestr
+Rhin
+Elbe
+Tage
+Vistule
+Daugava
+Loire
+Meuse
+Rhône
+Seine
+Murray
+Sepik
+
+Deserts
+Antarctica
+Arctic
+Sahara
+Arabian Desert
+Gobi Desert
+Kalahari Desert
+Great Victoria Desert
+Patagonian Desert
+Syrian Desert
+Great Basin Desert
+Chihuahuan Desert
+Great Sandy Desert
+Karakum Desert
+Colorado Plateau
+Sonoran Desert
+Kyzylkum Desert
+Taklamakan Desert
+Thar Desert
+Gibson Desert
+Dasht-e Margo
+Registan Desert
+Simpson Desert
+Atacama Desert
+Mojave Desert
+Namib Desert
+Dasht-e Kavir
+Dasht-e Loot
+
+Main lakes
+Caspian sea
+Superior
+Victoria
+Huron
+Michigan
+Tanganyika
+Baikal
+Great Bear Lake
+Malawi
+Great Slave Lake
+Erie
+Winnipeg
+Ontario
+Ladoga
+Balkhash
+Vostok
+Onega
+Titicaca
+Nicaragua
+
+Main volcanoes
+Kilauea
+Mount Etna
+Piton de la Fournaise
+Stromboli
+Mount Yasur
+Ambrym
+Mount Merapi
+Erta Ale
+Pacaya
+Mount Erebus
+Eyjafjallajökull
+Mount Vesuvius
+Sakurajima
+Mount Merapi
+Mount Nyiragongo
+Ulawun
+Taal Volcano
+Mauna Loa
+Galeras
+Santa María
+
+Main mountains
+Mount Everest
+K2
+Kangchenjunga
+Lhotse
+Makalu
+Cho Oyu
+Dhaulagiri
+Manaslu
+Nanga Parbat
+Annapurna
+Gasherbrum I
+Broad Peak
+Gasherbrum II
+Shishapangma
+
+Main forests
+MIOMBO WOODLANDS
+CONGO BASIN FOREST
+KINUBALU NATIONAL PARK
+THE SUNDARBANS
+SUMATRA RAINFOREST
+XISHUANGBANNA
+DAINTREE RAINFOREST
+BIALOWIEZA PRIMEVAL FOREST
+TIAGA BIOME/BOREAL FOREST
+THE BLACK FOREST
+VIRGIN KOMI FORESTS
+GREAT LAKES – ST. LAWRENCE
+LACANDON JUNGLE
+SEQUOIA FORESTS (Sierra Nevada)
+TONGASS
+BOSAWÁS BIOSPHERE RESERVE
+AMAZON RAINFOREST
+ATLANTIC FOREST
+VALDIVIAN RAINFOREST			

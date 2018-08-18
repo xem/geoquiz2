@@ -1,0 +1,964 @@
+﻿<canvas id=a width=2048 height=1024 style=background:#def></canvas>
+<script>
+
+// GEOQUIZ 2
+// =========
+
+// Data
+// ----
+
+// The game contains 9 datasets, containing many items names, coordinates and/or shape, ordered by increasing difficulty.
+
+// Countries
+// Each country (or territory) has a two-letter code (used to generate an emoji flag) and a name.
+// Most of them have a capital; The others will have a default capital called "Z".
+// Text data: Code, Name and Capital are concatenated in CamelCase.
+// Map data: a string that starts with the capital's coordinates, then for each "island" of the territory, the path's start coordinates and the path's points.
+// Coordinates: X/8 and Y/4 are both encoded on a latin character (0-255).
+// Path: each new point is encoded on one ASCII char: bits 0-3 represent the distance from last point (multiples of 4: 4, 8, 12, 16, 20, 24, 28 or 32), bits 4-7 represent the angle from 0 to 15 (0: top, 4: left, 8: bottom, 12: right).
+// The islands are separated with the character DEL ().
+// Characters `, \, \0, \xa0, \r and \n are avoided (or escaped if they appear in a path).
+// (at the end, \r, \n and \xa0 will be unescaped for better compression).
+// Final compression: all text data is concatenated, all map data is concatenated, separated with a "~" character, every 4-char map data "ABAB~" is reduced to 2 chars ("AB~") 
+
+var countries = {
+
+"Ru,Russia,Moscow":`25$jX+)M[IR(BjJ\`RiPZB)Q1:\\a[bIYqs	xQsb\\j[jshajdxcI[lIUeSYo]jyZbIYcZdk\\i}k[M]e>!Ccwt}\r&wugj\\wcQuQ;*7<O}k}tl[ugyk&B'1'+&J':z''%$.tlr&&,&,%J'9\\#+Z#3L\\$3{\rq=K#$[2#+q/:5$J$\r^m&+QBQBS6[^Rp\\4©#wngkQ+!/-B[¢Yl¨d«k!®i!Ë3ÄlZÃd,æ&j[icæ5CND(`,
+"Cn,China,Beijing":`ÓO¿bp\nyoz\nc{brSZKbZSf]pdtyYlqc#zb~k\\M]dA<!C.3+z!5Rib5SKC2<2+-R*j",1{!,#A`,
+"Fr,France,Paris":`?>;)J1HZS0CZcxhaYrh)zhqpJiB`,
+"Dz,Algeria,Algiers":`T{bnycobjYC9RKF[A)7#`,
+"Ar,Argentina,Buenos aires":`X½X½w	:$r	%=B>KC1E:JF=RId\nws|\nZidt\nTà-by[`,
+"Au,Australia,Canberra":`ê¾ëÁ{s\n!;E)|)#+C7;+.COFQbjdqob\\KsCqM\\jZraçÆMi|+`,
+"At,Austria,Vienna":`@?A:$#dxj`,
+"Be,Belgium,Brussels":`;:ZAH`,
+"Br,Brazil,Brasilia":`_ ]LSa_jUaK;6JC>/3C2;3yv	 	"z\n)!,*1{l{kJm	ZjqJBckYr`,
+"Bg,Bulgaria,Sofia":`JG[jY9I)H#q`,
+"Ca,Canada,Ottawa":`LELEdrybCYb2Qsc{3	r!-ugn?e9jQ"|:1"KB1SC+L;$)\num|DRkZ9[td	_S2Q*2Yd]_[^t\n$	'+Kr+3Sg*<1ql&C:[A3\ni;&\\ij%q#0C&'<[kn3b+gZ'IcQej2c*&"i$2	1"/)"HGGJiSrW[DSLTbgggggcZlWd?Qud#5aK*gs04gkd1\ne	$6e\\'9eJ#:dJ*<\\#=\ne\\gcZ*'&\n*U''%.'/_e+dgo`,
+"Ae,United arab emirates,Abu dhabi":`§g§g)Scyh2`,
+"Cl,Chile,Santiago":`O»P£9GD;G<GI>Y;CJVd"j$|	qq{~{`,
+"Hr,Croatia,Zagreb":`DD*T[	bZ!`,
+"Cu,Cuba,Havana":`GiGic_1"*q`,
+"Cz,Czech republic,Prague":`=;!*IRici`,
+"Dk,Denmark,Copenhagen":`222H)	pk;Yj`,
+"Ec,Ecuador,Quito":`IK2:JpBYzjz`,
+"Eg,Egypt,Cairo":`^\\YbJ;KYAQ''bZ`,
+"Ee,Estonia,Tallinn":`++9a@aPYx	i#`,
+"Fi,Finland,Helsinki":`))evyy#:"8[LXH6CZ`,
+"De,Germany,Berlin":`8A#r#ajaZiZ9K *IQ8@`,
+"Gr,Greece,Athens":`RR(YH I	\`ridXI("Q!IZRS`,
+"Hu,Hungary,Budapest":`AAkZ(:*!s`,
+"Es,Spain,Madrid":`~NJ"($")IcA0ERibtzk`,
+"Ch,Switzerland,Berne":`BDzcQ2!`,
+"Gb,United kingdom,London":`9:jz"y*DJiJ)A1c3kYj|3XQ(!*i`,
+"Is,Iceland,Reykjavik":`q"q"q"j"rRidiS1-`,
+"In,India,New delhi":`·\`¸V*#JZ1H6)L+Qa)SiyJAOOIj|juva""r´x´y´{´|`,
+"Id,Indonesia,Jakarta":`ÌÌbZi\\H$%rÕZ(ÓÕÖHbkØjÄWISIUizxÎAMaHcPi{sq"<"1×\n(C{adi2$BkI)JÍÌpQÜ2Jz(ÚY0ÜaQ#ÝjbBQt]GA"q	8j"x`,
+"Ir,Iran,Tehran":`¥U¬Vy+A#h0)!BSB0QZAQZRReIcYya	r!`,
+"Iq,Iraq,Baghdad":` Y¡Xz"2J+J]Rbbx`,
+"Ie,Ireland,Dublin":`|6|3)2I9YjXy)`,
+"Il,Israel,Jerusalem":`\\\\ \``,
+"It,Italy,Rome":`KK\n!9!ybqcI9SI^A0I9)Iaj!PiI9`,
+"Jm,Jamaica,Kingston":`KpKp!Q`,
+"Jp,Japan,Tokyo":`äVäV}:C+:$2YjRraÝ\\qR9àY*iäJqhSjB)9)9`,
+"Lb,Lebanon,Beirut":`XX9j`,
+"Lt,Lithuania,Vilnius":`44q("1HYIc`,
+"Lu,Luxembourg,Luxembourg":`>`,
+"Mk,Macedonia,Skopje":`KKhQ01	`,
+"Mg,Madagascar,Antananarivo":`¢¥¢®)rksRJ0IA`,
+"Mx,Mexico,Mexico city":`;n@ua	bjq$B1+	 1x"@#(!AhKZ88QaIA[Hp\n	ZKZQAYTJ0QRZa]j`,
+"Mc,Monaco,Monaco":`H`,
+"Ma,Morocco,Rabat":`|X|X{RcM#9.B%kzr`,
+"Gy,Guyana,Georgetown":`XXQ9L#	0ziQA`,
+"Ly,Libya,Tripoli":`ZZI2P1F[IaQj_[a!1B"`,
+"Np,Nepal,Kathmandu":`½bº^:ZcRc`,
+"Nl,Netherlands,Amsterdam":`88jC!A`,
+"Nz,New zealand,Wellington":`üÇüÇiqXxIYiA8(A2üÁY@PüÇA2Q!1B10rjrrIp÷Òa`,
+"Kp,North korea,Pyongyang":`ÚPÙNQ:bpa	qiq*I`,
+"No,Norway,Oslo":`*,4zkwv+tRibnAk\\!Z+y#:"2+:)C)9BQ0A0`,
+"Ps,Palestine,Jerusalem":`\\\\B	h`,
+"Py,Paraguay,Asuncion":`X®X®	|[XCcI\`J2#`,
+"Pe,Peru,Lima":`JJRIR]Q{y	)1{l*!:2:!2Q@T`,
+"Ph,Philippines,Manila":`ÖuÖu	{aJ)BaYIaJ!	:iÔ~t93×{qØz:XÙ|(×ybqR9I	`,
+"Pl,Poland,Warsaw":`95%x-9KbSabYr\nh`,
+"Pt,Portugal,Lisbon":`zPzP{bI8E0!`,
+"Ro,Romania,Bucharest":`GG*	hzbXjIL9`,
+"Qa,Qatar,Doha":`¥e¥d0I\`y`,
+"Sa,Saudi arabia,Riyadh":`¢f[]SiZTKRbQ:+"*9%A\riXr`,
+"Sg,Singapore,Singapore":`Ê`,
+"Sk,Slovakia,Bratislava":`@@xjcY1+ )`,
+"Si,Slovenia,Ljubljana":`DDax$IY`,
+"Za,South africa,Pretoria":`¯ª"7A*yID8AM8Skdjv}A xi\n`,
+"Kr,South korea,Seoul":`ÛRÚRQ(IBqb!`,
+"Se,Sweden,Stockholm":`++*D)8)xpyxya{(jykqQZL";,DR`,
+"Tw,Taiwan,Taipei":`×f×f :Iz`,
+"Tn,Tunisia,Tunis":`TS*J:QKhxrry`,
+"Tr,Turkey,Ankara":`OKbZbjb\\bibKB*')*1qc!`,
+"Ua,Ukraine,Kiev":`<9YcjcIRa\\:1,I)i29yY\n*"qr`,
+"Uy,Uruguay,Montevideo":`Y½Y½bqy9E`,
+"Us,Usa,Washington dc":`LQLQ{m	qk*;$2#5~p$,'''''"C)JGBQKQK[XQb]dbRAZrTIZircZrdHZRKaysss	&'/2*_+-[fA,3UrBfB2/AotmvP;ldQd\n/rI26*q9"i::*"i\n#)b`,
+"Ve,Venezuela,Caracas":`R{R{!*I82LaYbEJmbjzi"h*`,
+"Va,Vatican city,Vatican city":`L`,
+"Vn,Vietnam,Hanoi":`ËkÉjlSj5KZKC+z{i	)`,
+"Af,Afghanistan,Kabul":`²W°ScsClH+?+A*$zrYu`,
+"Ad,Andorra,Andorra la vella":`J`,
+"Al,Albania,Tirana":`LL9Qq9`,
+"By,Belarus,Minsk":`55zj[JY1A*#*	hY`,
+"Ba,Bosnia and herzegovina,Sarajevo":`HJz#I`,
+"Bf,Burkina faso,Ouagadougou":`x~w9:YaQ\nehi	+9`,
+"Cg,Congo,Brazzaville":`|hz!1H#Aa9Q9!(:SaQ`,
+"Cm,Cameroon,Yaounde":`{\naB?1:YId[`,
+"Cf,Central african republic,Bangui":`q\\xkb	!:"A#;Lqb`,
+"Cd,Democratic republic of the congo,Kinshasa":`1!BeJbybCJi\\hSi	!j\ny~!+89D`,
+"Ci,Cote d'ivoire,Yamoussoukro":`}}{"DJAkb	z!`,
+"Cr,Costa rica,San jose":`F|F|"IZIy`,
+"Co,Colombia,Santa fe de bogota":`MP*#{rymX3LaYbE+K`,
+"Bo,Bolivia,La paz":`Q¢P£yy	mB_CcJ:!1:%A`,
+"Cv,Cape verde,Praia":`ququptor`,
+"Cy,Cyprus,Nicosia":`VVb1"`,
+"Bj,Benin,Porto novo":`r	!2KB`,
+"Kh,Cambodia,Phnom penh":`ËyË~ss)*KR`,
+"Dm,Dominica,Roseau":`Vt`,
+"Do,Dominican republic,Santo domingo":`PoPoYCj`,
+"Gq,Equatorial guinea,Malabo":`h@aI"`,
+"Gt,Guatemala,Guatemala city":`AuAvbxaXBa3`,
+"Ht,Haiti,Port-au-prince":`NoMpb*Y*`,
+"Hn,Honduras,Tegucigalpa":`CvCvqeY,`,
+"Jo,Jordan,Amman":`[[pXkI*I2(	`,
+"Kz,Kazakhstan,Astana":`³:µIA:2#*F*y0ja"*	qItb\\j[jshajdqbJc0lIVdSa2I*:+I:`,
+"Xk,Kosovo,Pristina":`JX)pXH`,
+"Kw,Kuwait,Kuwait city":`£_£_Ab`,
+"La,Laos,Vientiane":`ÉpÉp)z!YqJiQ1WA")`,
+"Ke,Kenya,Nairobi":`qq^ia9DQ2:`,
+"My,Malaysia,Kuala lumpur":`ÉÈJRZ\n8Ó<%aqiqPptS1`,
+"Ml,Mali,Bamako":`{x}{#\n*qgq		bZT\\QXC1++9(`,
+"Mt,Malta,Valletta":`U`,
+"Md,Moldova,Chisinau":`BEaZJ`,
+"Pk,Pakistan,Islamabad":`µYµYZ1@:3*S9*)#ya	cbyk~lY[*#`,
+"Pa,Panama,Panama city":`I}I}1H(!yYjZPBx`,
+"Sm,San marino,San marino":`G`,
+"Sn,Senegal,Dakar":`uuuuxxcZ8J*`,
+"Rs,Serbia,Belgrade":`FHhjIR8P91`,
+"Sc,Seychelles,Victoria":`¨¨¥¥¢`,
+"So,Somalia,Mogadishu":`¡¡6ylu"yYdlB?`,
+"Lk,Sri lanka,Colombo":`¹¹{QJ*`,
+"Sd,Sudan,Khartoum":`tmhggYCZ1:I:4)I2*!:\r|X`,
+"Tz,Tanzania,Dodoma":`]HYBJC-#\nqaIa`,
+"Th,Thailand,Bangkok":`ÈvÈv:jQXBdKI*J<V0!rz`,
+"Ye,Yemen,San'a":` tsyeyj[J9/+`,
+"Zw,Zimbabwe,Harare":`£¡[Ca<"at`,
+"Ag,Antigua and barbuda,St john's":`Uq`,
+"Am,Armenia,Yerevan":` N NPXYX	)`,
+"Az,Azerbaijan,Baku":`¤N¤N\n1IJQqQ0Q¡OQ `,
+"Ao,Angola,Luanda":`heJbqbCJiB!DR*"%*{iy`,
+"Bs,The bahamas,Nassau":`JfJfKfLgLhMj`,
+"Bh,Bahrain,Manama":`¥d¥d(H`,
+"Bd,Bangladesh,Dhaka":`ÁhÁhr"@Q(KAkIq	1`,
+"Bb,Barbados,Bridgetown":`Ww`,
+"Bz,Belize,Belmopan":`BqBqBr	1`,
+"Bt,Bhutan,Thimphu":`ÀbÀbpcmR4=1r"	`,
+"Bw,Botswana,Gaborone":`­¤bXiTS7A*ya`,
+"Bn,Brunei,Bandar seri begawan":`ÒÒA`,
+"Bi,Burundi,Bujumbura":`q!`,
+"Td,Chad,N'djamena":`yyxs\ni_[E A;R):"A#\n\``,
+"Km,Comoros,Moroni":` `,
+"Dj,Djibouti,Djibouti":`yyQ!qQ`,
+"Sv,El salvador,San salvador":`BvAv[q`,
+"Er,Eritrea,Asmara":`tpKZS0#0y`,
+"Et,Ethiopia,Addis ababa":`}udSAYA\\b6,$\nas`,
+"Fj,Fiji,Suva":`ÿ¤ÿ¤!qQ`,
+"Ga,Gabon,Libreville":`:Tyarq "I0(`,
+"Gm,Gambia,Banjul":`uwuw@f`,
+"Ge,Georgia,Tbilisi":` K¢M\n""RAca`,
+"Gh,Ghana,Accra":`*	zdKC`,
+"Gd,Grenada,St george's":`Ux`,
+"Gn,Guinea,Conakry":`w|w|bbQjKC(2`,
+"Gw,Guinea-bissau,Bissau":`vyvyd81`,
+"Ki,Kiribati,Tarawa":`ûûûüüü`,
+"Kg,Kyrgyzstan,Bishkek":`¶JµIeZ@/B#ikq[`,
+"Lv,Latvia,Riga":`//)BhchRj\n0 `,
+"Ls,Lesotho,Maseru":`´´iR*`,
+"Lr,Liberia,Monrovia":`yy](:`,
+"Li,Liechtenstein,Vaduz":`B`,
+"Mw,Malawi,Lilongwe":`zII@JXJ(A\n`,
+"Mv,Maldives,Male":`µµµµ´µ´´µµ`,
+"Mh,Marshall islands,Majuro":`úúú~ù|÷zöz÷}ùóy`,
+"Mr,Mauritania,Nouakchott":`vpvpe	idRZQ)DIIAI9'0#`,
+"Mu,Mauritius,Port louis":`ª§ª§(x`,
+"Fm,Micronesia,Palikir":`ð`,
+"Mn,Mongolia,Ulan bator":`Ì@¾>RZLcZJgYgtrQlyc#{(1*#"(!	"9I1!`,
+"Me,Montenegro,Podgorica":`JJyQ9`,
+"Mz,Mozambique,Maputo":`¯¯ktkr,+M)I+A[CX<JAY`,
+"Mm,Myanmar,Yangon":`ÅmÂkr|sb;MXI*BQBJJ2z2q\n`,
+"Na,Namibia,Windhoek":`ª£jPfHdc0#E!CID0A\n`,
+"Nr,Nauru,Yaren":`÷`,
+"Ni,Nicaragua,Managua":`DyDyqlE"`,
+"Ne,Niger,Niamey":`vuPSarZiZics\n(#7"D-`,
+"Ng,Nigeria,Abuja":`}r\nq[qZidB?1:*`,
+"Om,Oman,Muscat":`ªhªh(HA8PA9+Kiaixa\`r`,
+"Pw,Palau,Melekeok":`àà9`,
+"Pg,Papua new guinea,Port moresby":`éé19\\Z@YY1QZR"`,
+"Rw,Rwanda,Kigali":` iQ9`,
+"Kn,Saint kitts and nevis,Basseterre":`Uq`,
+"Lc,Saint lucia,Castries":`Vv`,
+"Vc,Saint vincent and the grenadines,Kingstown":`Vw`,
+"Ws,Samoa,Apia":`\`H`,
+"St,Sao tome and principle,Sao tome and principe dobra":``,
+"Sl,Sierra leone,Freetown":`x}x~ Sz	`,
+"Sb,Solomon islands,Honiara":`òòóAò!ó`,
+"Ss,South sudan,Juba":`kq	a()I2*:V`,
+"Sr,Suriname,Paramaribo":`ZZ:Lkyy`,
+"Tc,Turks and caicos islands,Cockburn town":`Nj`,
+"Sy,Syria,Damascus":`YYAhop)!):J`,
+"Tj,Tajikistan,Dushanbe":`²Q±SysY2cZJ#3`,
+"Tl,Timor-leste,Dili":`ÚÚ*aj`,
+"Tg,Togo,Lome":`!zXKB`,
+"To,Tonga,Nuku'alofa":`¨¨¥`,
+"Tt,Trinidad and tobago,Port of spain":`V{`,
+"Tm,Turkmenistan,Ashgabat":`ªRªR+j	RbzZAbI^A!38)`,
+"Tv,Tuvalu,Fongafale":`ÿÿÿ`,
+"Ug,Uganda,Kampala":`:"}qiL1`,
+"Uz,Uzbekistan,Tashkent":`²L²Lp[)!3R9!x:!j\\IdRB[`,
+"Vu,Vanuatu,Port vila":`ø£ø£÷¢÷ù¦`,
+"Zm,Zambia,Lusaka":` £"a\\hSi!jRbC:+I!4`,
+"Ck,Cook islands,Avarua":`©©¤¥`,
+"Nu,Niue,Alofi":`	¥`,
+}
+
+z="";
+for(i in countries){
+  z+=i.replace(/,/g,"");
+}
+y=[];
+for(i in z)y.push(z.charCodeAt(i))
+
+console.log(z);
+console.log(JSON.stringify(y));
+
+
+// Territories OK
+// Text data: Name
+// Map data: Polygon (distances are multiples of 4)
+// Final compression: text data is concatenated, map data is joined with character "v".
+
+var territories = {
+"Greenland":`\\!USb[|}clrmdm&r[ik"jbon%+!+r,e'')',''*!.A*#Uckc_NBdA"C`,
+"Gibraltar":`}U`,
+"Guadeloupe":`Vs`,
+"Hong kong":`Òj`,
+"Guam":`çw`,
+"Cayman islands":`Gn`,
+"Martinique":`Vu`,
+"Saint martin":`Tp`,
+"French polynesia":`£aH¡Q ¡H£¡¤¤£`,
+"Saint helena":`}¡`,
+"Saint barthelemy":`Up`,
+"Reunion":`¨¨Hh`,
+"New caledonia":`öªaT`,
+"Puerto rico":`Ro(Ha`,
+"Wallis and futuna":``,
+"French guiana":`\\Y3 y`,
+"Guernsey":`~=`,
+"British indian ocean territory":`²`,
+"Mayotte":`¡`,
+"Saint pierre and miquelon":`YC`,
+"Anguilla":`Tp`,
+"American samoa":`	`,
+"Faeroe islands":`|&a`,
+"Bermuda":`S[`,
+"Us minor outlying islands":`	r`,
+"French southern territories":`²Ö(Z8`,
+"British virgin islands":`Sp`,
+"Us virgin islands":`Sq`,
+"Netherlands antilles":`PxQx`,
+"Aruba":`Ox`,
+"Aland islands":`)@h`,
+"South georgia":`fßiQI`,
+"Bonaire":`Qy`,
+"Bouvet island":`ß`,
+"Cocos islands":`C`,
+"Curacao":`PxP`,
+"Christmas island":`Ë`,
+"Western sahara":`wbgA$IB1I%{iz`,
+"Falkland islands":`XÚ2zVÛi`,
+"Heard island and mcdonald islands":`µÝH`,
+"Isle of man":`~5(p`,
+"Jersey":`~=`,
+"Macau":`g`,
+"Northern marianas":`èsèrçu`,
+"Montserrat":`Ur`,
+"Norfolk island":`÷´÷´`,
+"Pitcairn islands":`&­`,
+"Svalbard and jan mayen":`	)[sbQd[cYl'"1"*1[`,
+"Swaziland":`°xXA(`,
+"Tokelau":``,
+"Antartica":`KÿKÿoeoo4?Lÿogg\\gognocm_gg_oogog_o_en\\m]g_gg]g\\`,
+"Turks and caicos islands,Cockburn town": "??"
+}
+
+var territories2 = [
+"GreenlandGibraltarGuadeloupeHong kongGuamCayman islandsMartiniqueSaint martinFrench polynesiaSaint helenaSaint barthelemyReunionNew caledoniaPuerto ricoWallis and futunaFrench guianaGuernseyBritish indian ocean territoryMayotteSaint pierre and miquelonAnguillaAmerican samoaFaeroe islandsBermudaUs minor outlying islandsFrench southern territoriesBritish virgin islandsUs virgin islandsNetherlands antillesArubaAland islandsSouth georgiaBonaireBouvet islandCocos islandsCuracaoChristmas islandWestern saharaFalkland islandsHeard island and mcdonald islandsIsle of manJerseyMacauNorthern marianasMontserratNorfolk islandPitcairn islandsSvalbard and jan mayenSwazilandTokelau",
+`\\!USb[|}clrmdm&r[ik"jbon%+!+r,e'')',''*!.A*#Uckc_NBdA"Cv}UvVsvÒjvçwvGnvVuvTpv£aH¡Q ¡H£¡¤¤£v}¡vUpv¨¨HhvöªaTvRo(Havv\\Y3 yv~=v²v¡vYCvTpv	v|&avS[v	rv²Ö(Z8vSpvSqvPxQxvOxv)@hvfßiQIvQyvßvCvPxPvËvwbgA$IB1I%{izvXÚ2zVÛivµÝHv~5(pv~=vgvèsèrçuvUrv÷´÷´v&­v	)[sbQd[cYl'"1"*1[v°xXA(v`
+]
+
+// US states OK
+// Text data: Name + Capital
+// Map data: Capital + polygon (distances are multiples of 4)
+// Final compression: text data is concatenated, map data is joined with character "~".
+
+var states = {
+"HawaiiHonolulu":`kklna`,
+"AlaskaJuneau":`"-"-R[C		s&'/2*_+-[fA,3UrBfB2/AotmvP;ldQd\n/rI26*q9"i::*"i\n#)b`,
+"WashingtonOlympia":`*B*Dck&B"Kh`,
+"NevadaCarson city":`,P,Pg\`GAB`,
+"New mexicoSanta fe":`6V8\\&H)xeb`,
+"New yorkAlbany":`MIMIC'rc{bBI`,
+"FloridaTallahassee":`E_E_ZRAJr("*8bH`,
+"IllinoisSpringfield":`BO@Ns	cIF2`,
+"OhioColumbus":`FOEKD[s)9	)`,
+"Rhode islandProvidence":`LQLQ(A`,
+"South carolinaColumbia":`HXHW"0ISir`,
+"TexasAustin":`<_8TG$RYAXiaSJb	rXqa\nx"`,
+"UtahSalt lake city":`2M2K"G@f!`,
+"VirginiaRichmond":`JSKT'!iby\`qRa9Q`,
+"West virginiaCharleston":`GQGR8byXq(!*Q`,
+"PennsylvaniaHarrisburg":`KNKO%gAQ*`,
+"MassachusettsBoston":`OJOJ29c`,
+"North carolinaRaleigh":`HUKV'3YpbH\`Rt`,
+"AlabamaMontgomery":`D[C^pby	#FP`,
+"CaliforniaSacramento":`,P,P%IMKSYaIc`,
+"ColoradoDenver":`7N4MFga)'`,
+"GeorgiaAtlanta":`EYE[8Jczx"A`,
+"MichiganLansing":`EJCKi{ZBhQ;`,
+"North dakotaBismarck":`9A<>' Egc	`,
+"MontanaHelena":`2B/?ggaG'!A`,
+"NebraskaLincoln":`<M9Nga !'CaiA`,
+"ArizonaPhoenix":`1Y0[hfGA!`,
+"ArkansasLittle rock":`@W>Tf8P;I$x`,
+"New hampshireConcord":`NINIi1AA`,
+"New jerseyTrenton":`KOKOIa`,
+"ConnecticutHartford":`NKNK2b@`,
+"DelawareDover":`LPLP\`8`,
+"OklahomaOklahoma city":`<W>Y#fD`,
+"IdahoBoise":`/G2F!	(	!EY:Dcd`,
+"OregonSalem":`*E*CD9Agby+!0 `,
+"IndianaIndianapolis":`DOCKcD9"`,
+"IowaDes moines":`?LAJ'IKer`,
+"KansasTopeka":`=O=N'(Egc`,
+"South dakotaPierre":`:D=I&#de`,
+"KentuckyFrankfort":`EQDQjZI1$)!rai`,
+"TennesseeNashville":`DUAWfh\`ji$((!0(2`,
+"LouisianaBaton rouge":`@^A] y$JAZaq`,
+"MaineAugusta":`PFPF2hzbC5`,
+"MarylandAnnapolis":`KPKPaB`,
+"VermontMontpelier":`NFNFC	b8`,
+"MinnesotaSt paul":`?E?E[A'h		eQc4H0`,
+"MississippiJackson":`A[A[	ybFX)`,
+"WisconsinMadison":`BICDAq:A+piH\\`,
+"MissouriJefferson city":`@Q@M$JDg`,
+"WyomingCheyenne":`7L7Lz%#DAHXae`,
+}
+
+var states2 = [
+"HawaiiHonoluluAlaskaJuneauWashingtonOlympiaNevadaCarson cityNew mexicoSanta feNew yorkAlbanyFloridaTallahasseeIllinoisSpringfieldOhioColumbusRhode islandProvidenceSouth carolinaColumbiaTexasAustinUtahSalt lake cityVirginiaRichmondWest virginiaCharlestonPennsylvaniaHarrisburgMassachusettsBostonNorth carolinaRaleighAlabamaMontgomeryCaliforniaSacramentoColoradoDenverGeorgiaAtlantaMichiganLansingNorth dakotaBismarckMontanaHelenaNebraskaLincolnArizonaPhoenixArkansasLittle rockNew hampshireConcordNew jerseyTrentonConnecticutHartfordDelawareDoverOklahomaOklahoma cityIdahoBoiseOregonSalemIndianaIndianapolisIowaDes moinesKansasTopekaSouth dakotaPierreKentuckyFrankfortTennesseeNashvilleLouisianaBaton rougeMaineAugustaMarylandAnnapolisVermontMontpelierMinnesotaSt paulMississippiJacksonWisconsinMadisonMissouriJefferson cityWyomingCheyenne",
+`kklna~"-"-R[C		s&'/2*_+-[fA,3UrBfB2/AotmvP;ldQd\n/rI26*q9"i::*"i\n#)b~*B*Dck&B"Kh~,P,Pg\`GAB~6V8\\&H)xeb~MIMIC'rc{bBI~E_E_ZRAJr("*8bH~BO@Ns	cIF2~FOEKD[s)9	)~LQLQ(A~HXHW"0ISir~<_8TG$RYAXiaSJb	rXqa\nx"~2M2K"G@f!~JSKT'!iby\`qRa9Q~GQGR8byXq(!*Q~KNKO%gAQ*~OJOJ29c~HUKV'3YpbH\`Rt~D[C^pby	#FP~,P,P%IMKSYaIc~7N4MFga)'~EYE[8Jczx"A~EJCKi{ZBhQ;~9A<>' Egc	~2B/?ggaG'!A~<M9Nga !'CaiA~1Y0[hfGA!~@W>Tf8P;I$x~NINIi1AA~KOKOIa~NKNK2b@~LPLP\`8~<W>Y#fD~/G2F!	(	!EY:Dcd~*E*CD9Agby+!0 ~DOCKcD9"~?LAJ'IKer~=O=N'(Egc~:D=I&#de~EQDQjZI1$)!rai~DUAWfh\`ji$((!0(2~@^A] y$JAZaq~PFPF2hzbC5~KPKPaB~NFNFC	b8~?E?E[A'h		eQc4H0~A[A[	ybFX)~BICDAq:A+piH\\~@Q@M$JDg~7L7Lz%#DAHXae`
+]
+  
+
+// Seas
+// Seas are drawn "below" the countries.
+// They're encoded as circles: 2 latin chars for the center coordinates, 1 ASCII char for radius
+var seas = {
+"Bering":`__R2//ÿ/7W_`,
+"Gulf of alaska":`1rgW/`,
+"Okhotsk":`å<\n#wbolI7J?`,
+"Sea of japan":`ãA5*:Tn`,
+"Seto":`ÞW9i`,
+"East china sea":`ÖaymT7`,
+"South china sea":`ÕdLD=3&`,
+"Beibu gulf":`Ìq	sK`,
+"Sulu":`Öw<e`,
+"Celebes":`ÔeK*$`,
+"Bohol":`Øx9b`,
+"Philippine sea":`ØgvgOE4'`,
+"Flores":`Ôf'`,
+"Banda":`ØLd|`,
+"Arafura":`à4Ko`,
+"Tasman sea":`ëÁo_N7/`,
+"Yellow sea":`ÛV6T`,
+"Bohai":`ÔQs[3`,
+"Coral sea":`åO_o~'`,
+"Gulf of carpentaria":`á;]`,
+"Hudson bay":`D7B_U~`,
+"James bay":`F3cC!`,
+"Baffin bay":`KcS<`,
+"Gulf of st lawrence":`Q@sd<#`,
+"Caribbean sea":`Ej4W\\tk#`,
+"Gulf of mexico":`Gi-2o]`,
+"Sargasso":`OKogWG7''`,
+"North sea":`;v/O`,
+"Baltic sea":`4wcJ4'`,
+"Gulf of bothnia":`(lY4I`,
+"Irish sea":`}:rR`,
+"Celtic sea":`z:i[-`,
+"English channel":`~@n:`,
+"Mediterranean sea":`}Swn^_\\='%/`,
+"Adriatic sea":`DK\\`,
+"Aegean sea":`MT|`,
+"Black sea":`K|fL*'`,
+"Azov":`A*Js`,
+"Ionian sea":`M[I*`,
+"Ligurian sea":`FbA"`,
+"Mirtoon":`Pd;`,
+"Tyrrhenian":`ICZr`,
+"Gulf of sidra":`YSj`,
+"Marmara":`LZi`,
+"Sea of crete":`Xc	"`,
+"Red sea":`_:O^`,
+"Gulf of aden":`§y,o`,
+"Persian gulf":`¦ir^`,
+"Gulf of oman":`«ky]`,
+"Arabian sea":`¬d<-O_o}.`,
+"Bay of bengal":`¸}wdL?&`,
+"Gulf of thailand":`ÊzV`,
+"Java":`ÉeSc;"`,
+"Timor sea":`Ý¡t^`,
+"Barents":`og_B?/`,
+"Kara":`¨o[;I'`,
+"Beaufort sea":`e\\o}'7`,
+"Amundsen gulf":`*dC%`,
+"Greenland sea":`qg^F/`,
+"Chukchi":`_f}'`,
+"Laptev":`ç\r5'''lgg`,
+"East siberian sea":`åwo_O*'`,
+"Amundsen":`ÿwogggg_V`,
+"Weddell":`YÿwoggWR`,
+"Ross":`Qú''/A`,
+"Great australian bight":`ÏÅvoc\\O/`,
+"Gulf st vincent":`á¿qI`,
+"Spencer gulf":`à¾rB`,
+"Aral":`©Cb2`,
+"Caspian":`¡DO[`,
+"Dead sea":`Z8Py`,
+"Salton":`/YP `,
+"Gulf of guinea":`|o]G'`,
+"Norwegian sea":`oe]E7/`
+}
+
+// Lakes OK
+// Text data: Name
+// Map data: Polygon (distances are multiples of 8)
+// Final compression: text data is concatenated, map data is joined with character "}".
+
+var lakes = {
+"Superior":`?As@AqiR)) `,
+"Leman":`B`,
+"Michigan":`EB)@Bhyp`,
+"Titicaca":`P\xa0P0`,
+"Victoria":`8@Xp`,
+"Great bear lake":`)a0Xp@ip!h *`,
+"Malawi":`IPI\0	`,
+"Great slave lake":`.'Xapj!8!8`,
+"Nicaragua":`Ez@`,
+"Loch ness":`~.`,
+"Taal":`×v`,
+"Baikal":`Ê9\`iz\`:0*`,
+"Ontario":`HJqa8 0`,
+"Pinatubo":`Ös`,
+"Huron":`EB@XJyp`,
+"Tanganyika":`AI	x`,
+"Erie":`FKa(8`,
+"Winnipeg":`;7QIx`,
+"Ladoga":`&0Iph`,
+"Balkhash":`µF\0pbX!)8`,
+"Onega":`$Y@(`,
+"Crater lake":`*I`,
+"Reed flute cave":`Ïc`,
+"Emerald":`,8`,
+"Mirror lake":`,Q`,
+"Spotted lake":`+;`,
+}
+
+var lakes2 = [
+"SuperiorLemanMichiganTiticacaVictoriaGreat bear lakeMalawiGreat slave lakeNicaraguaLoch nessTaalBaikalOntarioPinatuboHuronTanganyikaErieWinnipegLadogaBalkhashOnegaCrater lakeReed flute caveEmeraldMirror lakeSpotted lake",
+`?As@AqiR)) }B}EB)@Bhyp}P P0}8@Xp})a0Xp@ip!h *}IPI\0	}Xapj!8!8}Ez@}~.}×v}Ê9\`iz\`:0*}HJqa8 0}Ös}EB@XJyp}AI	x}FKa(8};7QIx}&0Iph}µF\0pbX!)8}$Y@(}*I}Ïc},8},Q}+;`
+];
+
+
+// Streams OK
+// Text data: Name
+// Map data: Polygon (distances are multiples of 4)
+// Final compression: text data is concatenated, map data is joined with character "v".
+
+var streams = {
+"Amazone":`^4+3,3+3`,
+"Nile":`\\RCSD3CYrQB)B`,
+"Congo":`t|jylRZDJQC2J`,
+"Niger":`q\n+:,`,
+"Loire":`~BchbiR9Q`,
+"Zambeze":`¤$5\n	`,
+"Indus":`°grk|lR[H[`,
+"Mississippi":`A_~ry`,
+"Colorado":`UÅ"`,
+"Columbia":`)CaHc\njI}U`,
+"Uruguay":`Y½yue`,
+"Yangzi jiang":`×\\5*":,:128*!`,
+"Yellow":`ÕR*4"*qz*J:!I*9S)`,
+"Xi jiang":`Ñj"(,y`,
+"Ural":`¦B\ny\ne[q`,
+"Danube":`I$")+\n\n1`,
+"Rhin":`8LaH;a`,
+"Elbe":`5]9[Ia`,
+"Meuse":`:[B8J`,
+"Rhone":`Iyax`,
+"Seine":`=ZQaQ`,
+"Orange":`´jcRtdqa`,
+"Senegal":`urcSYR`,
+"Volta":`1`,
+"Chari":`wRL[`,
+"Gambia":`uwjZS`,
+"Draa":`xben`,
+"Bandama":`~(`,
+"Tana":`!\nc`,
+"Parana":`b«\n$;3K:`,
+"Yukon":`&dk|Zlcn_KcRYV`,
+"Sao francisco":`g,:D2D0`,
+"Jubba":``,
+"Limpopo":`®#"3`,
+"Okavango":`¤\n`,
+"Rio grande":`<e!	1pu!`,
+"Tocantins":`_3KY?BC3`,
+"Orenoque":`V},!4BaQaR`,
+"Brazos":`=a)`,
+"Mackenzie":`"Q8RjS]T9cIf`,
+"Magdalena":`My;R:C2`,
+"Fraser":`&:\\SkT`,
+"Parnaiba":`c2*<K92B`,
+"Saint-laurent":`P@<#*:`,
+"Rio negro":`UÇ#`,
+"Essequibo":`X9BQA`,
+"Lena":`ÚL5;K_eÚL5;K_J2!,#+3-5;Zk`,
+"Amour":`ä6C,B*$+=`,
+"Mekong":`Ì|r#r	y`,
+"Ienissei":`¼CbNQDTAWB3IBRgQ`,
+"Ob":`´*$;Q:^g]R\\J94\\Ai`,
+"Brahmapoutre":`Áj\nbm\n`,
+"Salouen":`ÆtjxQ`,
+"Euphrate":`£^\nzb`,
+"Amou-daria":`ªFL[KZJ`,
+"Gange":`Àg+\nj`,
+"Oleniok":`Ñ9S;,`,
+"Syr-daria":`¬DcRZS:Z`,
+"Irrawaddy":`Äszra{$`,
+"Kolyma":`ó92)"4SaP2A31!`,
+"Tarim":`ó92)"4SaP2A31!`,
+"Tigre":`£^`,
+"Indiguirka":`ë9*B4`,
+"Khatanga":`Ì-V<`,
+"Alazeia":`ï3*<`,
+"Koura":`¤O$!J)`,
+"Godavari":`»s	$`,
+"Ili":`µE\\R`,
+"Taz":`·^<W`,
+"Liao":`×Mt}`,
+"Krishna":`ºs2`,
+"Narmada":`´jmcZ`,
+"Red river":`Íl`,
+"Anadyr":`þ !#r`,
+"Kapuas":`Ò\nr`,
+"Pour":`·LCM`,
+"Volga":`£D!t	kzq*\n$B)2`,
+"Dnieper":`Cla	\rzcr`,
+"Don":`Bm{y`,
+"Petchora":`§2CcqS;Jb`,
+"Dniestr":`C"	`,
+"Tage":`zQrej`,
+"Vistule":`5A[R:"`,
+"Daugava":`.\\IbZs`,
+"Murray":`ã¿zcTib`,
+"Sepik":`ç2I`,
+
+}
+
+var streams2 = [
+"AmazoneNileCongoNigerLoireZambezeIndusMississippiColoradoColumbiaUruguayYangzi jiangYellowXi jiangUralDanubeRhinElbeMeuseRhoneSeineOrangeSenegalVoltaChariGambiaDraaBandamaTanaParanaYukonSao franciscoJubbaLimpopoOkavangoRio grandeTocantinsOrenoqueBrazosMackenzieMagdalenaFraserParnaibaSaint-laurentRio negroEssequiboLenaAmourMekongIenisseiObBrahmapoutreSalouenEuphrateAmou-dariaGangeOleniokSyr-dariaIrrawaddyKolymaTarimTigreIndiguirkaKhatangaAlazeiaKouraGodavariIliTazLiaoKrishnaNarmadaRed riverAnadyrKapuasPourVolgaDnieperDonPetchoraDniestrTageVistuleDaugavaMurraySepik",
+`^4+3,3+3v\\RCSD3CYrQB)Bvt|jylRZDJQC2Jvq\n+:,v~BchbiR9Qv¤$5\n	v°grk|lR[H[vA_~ryvUÅ"v)CaHc\njI}UvY½yuev×\\5*":,:128*!vÕR*4"*qz*J:!I*9S)vÑj"(,yv¦B\ny\ne[qvI$")+\n\n1v8LaH;av5]9[Iav:[B8JvIyaxv=ZQaQv´jcRtdqavurcSYRv1vwRL[vuwjZSvxbenv~(v!\ncvb«\n$;3K:v&dk|Zlcn_KcRYVvg,:D2D0vv®#"3v¤\nv<e!	1pu!v_3KY?BC3vV},!4BaQaRv=a)v"Q8RjS]T9cIfvMy;R:C2v&:\\SkTvc2*<K92BvP@<#*:vUÇ#vX9BQAvÚL5;K_eÚL5;K_J2!,#+3-5;Zkvä6C,B*$+=vÌ|r#r	yv¼CbNQDTAWB3IBRgQv´*$;Q:^g]R\\J94\\AivÁj\nbm\nvÆtjxQv£^\nzbvªFL[KZJvÀg+\njvÑ9S;,v¬DcRZS:ZvÄszra{$vó92)"4SaP2A31!vó92)"4SaP2A31!v£^vë9*B4vÌ-V<vï3*<v¤O$!J)v»s	$vµE\\Rv·^<Wv×Mt}vºs2v´jmcZvÍlvþ !#rvÒ\nrv·LCMv£D!t	kzq*\n$B)2vCla	\rzcrvBm{yv§2CcqS;JbvC"	vzQrejv5A[R:"v.\\IbZsvã¿zcTibvç2I`
+];
+
+
+
+// Deserts
+// Same as lakes
+var deserts = {
+"Sahara":`vxzrmld]b\0aZbKJJ+','`,
+"Colorado plateau":`2Xay:T`,
+"Arabian desert":`\\m[:T[:-\nAy`,
+"Gobi":`ÃMudk]5$3`,
+"Great victoria":`Ø­Zm\\:Y+9	p"1`,
+"Simpson":`áªBj`,
+"Atacama":`NµC9BQq`,
+"Syrian desert":`T8I[rx#`,
+"Great sandy desert":`×¥d^,*x`,
+"Namib":`9HQIBP`,
+"Chihuahuan desert":`7XRb<Q(@aZ`,
+"Kalahari":`¤dR;+\n`,
+"Patagonian desert":`Qßprqz	G:Q@RYa`,
+"Karakum":`§OjT,\n`,
+"Sonoran":`3YBIY8P\`AY\nYIXyx`,
+"Kyzylkum":`ªN|bTZK"*#`,
+"Taklamakan":`¶Pma]H-"`,
+"Thar":`²bhiZ*9	`,
+"Gibson":`Û©*IZj`,
+"Dasht-e margo":`¬^rd<"`,
+"Registan":`«XZ1`,
+"Mojave":`0R)I8[z`,
+"Dasht-e kavir":`¥WkQ2`,
+"Dasht-e loot":`ªY2Zq`
+
+}
+
+// Volcanoes OK
+// Text data: Name
+// Map data: Coordinates
+// Final compression: text data is concatenated, map data is concatenated.
+
+var volcanoes = {
+
+"Etna":`R`,
+"Vesuvius":`L`,
+"Piton de la fournaise":`¨¨`,
+"Pelee":`Vu`,
+"Eyjafjallajokull":`s!`,
+"St helens":`*B`,
+"Kilauea":`m`,
+"Stromboli":`O`,
+"Santa maria":`At`,
+"Pinatubo":`Ös`,
+"Yasur":`ù¥`,
+"Taal":`×v`,
+"Ambrym":`÷ `,
+"Merapi":`Ï`,
+"Erta ale":`w`,
+"Pacaya":`Au`,
+"Erebus":`öÿ`,
+"Sakurajima":`ÝZ`,
+"Nyiragongo":``,
+"Ulawun":`ì`,
+"Mauna loa":`n`,
+"Galeras":`K`,
+"Krakatoa":`Ë`,
+"Tambora":`Ô`,
+"Nevado del ruiz":`L`,
+
+}
+
+var volcanoes2 = [
+"EtnaVesuviusPiton de la fournaisePeleeEyjafjallajokullSt helensKilaueaStromboliSanta mariaPinatuboYasurTaalAmbrymMerapiErta alePacayaErebusSakurajimaNyiragongoUlawunMauna loaGalerasKrakatoaTamboraNevado del ruiz",
+`RL¨¨Vus!*BmOAtÖsù¥×v÷ ÏwAuöÿÝZìnKËÔL`
+];
+
+
+// Mountains
+// Text data: Name
+// Map data: Coordinates
+// Final compression: text data is concatenated, map data is concatenated.
+
+var mountains = {
+
+"Mount everest":`½\``,
+"K2":`¶T`,
+"Annapurna":`¼\``,
+"Fuji":`ãU`,
+"Kilimanjaro":``,
+"Mont blanc":`D`,
+"Popocatepetl":`;o`,
+"Olympus":`N`,
+"Broad peak":`¸W`,
+"Table mountain":`»`,
+"Cook":`ùÌ`,
+"Lhotse":`¾a`,
+"Makalu":`¾a`,
+"Cho oyu":`¾a`,
+"Dhaulagiri":`»\``,
+"Manaslu":`¼\``,
+"Nanga parbat":`·V`,
+"Gasherbrum i":`¸V`,
+"Gasherbrum ii":`¸W`,
+"Shishapangma":`½a`,
+"Kangchenjunga":`¿b`,
+"Denali":`"`,
+"Kirkjufell":`p`,
+"Fitz roy":`NÓ`,
+"Hua":`ÏW`,
+"Elbrus":`H`,
+"Matterhorn":`D`,
+"El capitan":`,R`,
+"Grand teton":`2F`,
+"Licancabur":`Q©`,
+"Tre cime de lavaredo":`C`,
+"Ben nevis":`~0`,
+"Rainier":`+@`,
+"Kinabalu":`Ó`,
+"Huang":`Ó^`,
+"Kailash":`º\\`,
+"Banff":`/7`,
+
+}
+
+mountains2 = [
+"Mount everestK2AnnapurnaFujiKilimanjaroMont blancPopocatepetlOlympusBroad peakTable mountainCookLhotseMakaluCho oyuDhaulagiriManasluNanga parbatGasherbrum iGasherbrum iiShishapangmaKangchenjungaDenaliKirkjufellFitz royHuaElbrusMatterhornEl capitanGrand tetonLicancaburTre cime de lavaredoBen nevisRainierKinabaluHuangKailashBanff",
+`½\`¶T¼\`ãUD;oN¸W»ùÌ¾a¾a¾a»\`¼\`·V¸V¸W½a¿b"pNÓÏWHD,R2FQ©C~0+@ÓÓ^º\\/7`
+];
+
+// Forests
+// Same as lakes
+var forests = {
+"Amazon rainforest":`W'7CT]Owo~`,
+"Sumatra rainforest":`Ê"	YQZ`,
+"Taiga (boreal forest)":`l_o_g_[DkWbzb\n\\tJ[+#7"2'$'%'wgZRkgK|glgwggg__ng_@"2/%7IbI;\r''//'''+3Aã^m`,
+"Great lakes - st lawrence":`==$IGCcvI<")3`,
+"Sequoia forests (sierra nevada)":`.UW`,
+"Miombo woodlands":`¥rsQvdLM+;`,
+"Congo basin forest":`}UG/`,
+"Kinubalu national park":`ÐtQ1Q3"`,
+"The sundarbans":`Ái 3\nt[`,
+"Daintree rainforest":`ç 1KZ`,
+"Xishuangbanna":`Érb3`,
+"Bialowieza primeval forest":`8aJ"`,
+"The black forest":`@zXB`,
+"Virgin komi forests":`¦(tJ=`,
+"Lacandon jungle":`>ql;`,
+"Tongass":`%5r;cVY`,
+"Bosawas biosphere reserve":`DtAi`,
+"Atlantic forest":`h;1I<+;5w[c`,
+"Valdivian rainforest":`NÇ<X:Z`,
+}
+
+// Famous places OK
+// Text data: Name
+// Map data: Coordinates
+// Final compression: text data is concatenated, map data is concatenated.
+var places = {
+
+"Cape canaveral":`Ha`,
+"Christ the redeemer":`cª`,
+"Great chinese wall":`ÓN`,
+"Great sphinx":`]`,
+"Eiffel tower":`?`,
+"Tower of pisa":`G`,
+"Sagrada familia":`K`,
+"Big ben":`9`,
+"Statue of liberty":`LM`,
+"Forbidden city":`ÓN`,
+"The pyramids of giza":`]`,
+"The palace of versailles":`?`,
+"Acropolis":`Q`,
+"Trevi fountain":`K`,
+"Kremlin":`1`,
+"Atomium":`;`,
+"Lascaux caves":`E`,
+"Mont st michel":`?`,
+"Piazza san marco":`F`,
+"Washington dc": "??",
+"Grand canyon":`1U`,
+"Millau bridge":`G`,
+"Rock of gibraltar":`}T`,
+"Empire state building":`LM`,
+"Hollywood sign":`-X`,
+"Times square":`MM`,
+"Louvre museum":`?`,
+"White house":`KQ`,
+"Florence cathedral":`F`,
+"Las vegas":`/S`,
+"Madrid palace":`~N`,
+"Central park":`ML`,
+"Sistine chapel":`K`,
+"Piazza del campo":`G`,
+"Machu picchu":`N`,
+"Burj al arab hotel":`§f`,
+"St peter basilica":`K`,
+"Capitol hill":`+?`,
+"Luxor temple":`d`,
+"Golden gate bridge":`*R`,
+"Burj khalifa":`§f`,
+"Alcatraz":`*R`,
+"Ephesus":`P`,
+"Manneken pis":`;`,
+"Mount eden crater":`üÀ`,
+"North cape":``,
+"St basil cathedral":`1`,
+"Victoria falls":`¡`,
+"Great buddha of kamakura":`âW`,
+"Lotus temple":`·\``,
+"Colosseum":`K`,
+"Abu simbel":`h`,
+"Petronas twin towers":`É`,
+"Yellowstone":`3F`,
+"Niagara falls":`IH`,
+"Taj mahal":`·\``,
+"Mecca":`k`,
+"Auschwitz":`;`,
+"Stonehenge":`:`,
+"Mount rushmore":`8F`,
+"Pentagon":`KQ`,
+"Cape of good hope":`»`,
+"Opera house":`ë»`,
+"Parc guell":`K`,
+"Pompeii":`M`,
+"Waterloo":`;`,
+"Easter island":`4±`,
+"Everglades":`Gd`,
+"Cloud gate":`CJ`,
+"Rialto bridge":`E`,
+"Willis tower":`CJ`,
+"Little mermaid":`1`,
+"Tower bridge":`9`,
+"Blue mosque":`K`,
+"Nevado mismi":`M`,
+"Table mountain":``,
+"Minaret of jam":`®X`,
+"Angkor wat":`Êw`,
+"Faisal mosque":`´X`,
+"Neuschwanstein castle":`?`,
+"Golden temple of amritsar":`µ[`,
+"Al aqsa mosque":`\\`,
+"Temple of besakih":`Ó`,
+"Chichen itza":`Bl`,
+"Bran castle":`D`,
+"Hagia sophia":`L`,
+"Uluru":`Ý­`,
+"Brandenburg gate":`8`,
+"Blue domed church":`S`,
+"Cheyenne mountain":`6O`,
+"Kiyomizu-dera":`áV`,
+"Petra":`]`,
+"Tombouctou":`r`,
+"Kultury i nauki palace":`8`,
+"Null island":``,
+}
+
+var places2 = [
+"Cape canaveralChrist the redeemerGreat chinese wallGreat sphinxEiffel towerTower of pisaSagrada familiaBig benStatue of libertyForbidden cityThe pyramids of gizaThe palace of versaillesAcropolisTrevi fountainKremlinAtomiumLascaux cavesMont st michelPiazza san marcoGrand canyonMillau bridgeRock of gibraltarEmpire state buildingHollywood signTimes squareLouvre museumWhite houseFlorence cathedralLas vegasMadrid palaceCentral parkSistine chapelPiazza del campoMachu picchuBurj al arab hotelSt peter basilicaCapitol hillLuxor templeGolden gate bridgeBurj khalifaAlcatrazEphesusManneken pisMount eden craterNorth capeSt basil cathedralVictoria fallsGreat buddha of kamakuraLotus templeColosseumAbu simbelPetronas twin towersYellowstoneNiagara fallsTaj mahalMeccaAuschwitzStonehengeMount rushmorePentagonCape of good hopeOpera houseParc guellPompeiiWaterlooEaster islandEvergladesCloud gateRialto bridgeWillis towerLittle mermaidTower bridgeBlue mosqueNevado mismiTable mountainMinaret of jamAngkor watFaisal mosqueNeuschwanstein castleGolden temple of amritsarAl aqsa mosqueTemple of besakihChichen itzaBran castleHagia sophiaUluruBrandenburg gateBlue domed churchCheyenne mountainKiyomizu-deraPetraTombouctouKultury i nauki palaceNull island",
+`HacªÓN]?GK9LMÓN]?QK1;E?F1UG}TLM-XMM?KQF/S~NMLKGN§fK+?d*R§f*RP;üÀ1¡âW·\\\`KhÉ3FIH·\\\`k;:8FKQ»ë»KM;4±GdCJECJ19KM®XÊw´X?µ[\\ÓBlDLÝ­8S6OáV]r8HacªÓN]?GK9LMÓN]?QK1;E?F1UG}TLM-XMM?KQF/S~NMLKGN§fK+?d*R§f*RP;üÀ1¡âW·\\\`KhÉ3FIH·\\\`k;:8FKQ»ë»KM;4±GdCJECJ19KM®XÊw´X?µ[\\ÓBlDLÝ­8S6OáV]r8`
+];
+
+
+// Helper
+// ------
+
+// Draw a dataset
+draw = function(dataset, dist_step, fill, stroke, has_capital, noclose, name){
+  for(var item in dataset){
+    //console.log(item);
+    
+    var path = dataset[item];
+    var islands = path.split('');
+    for(island in islands){
+    
+      islandlog = [];
+      
+      var island_path = islands[island];
+      c.beginPath();
+      
+      if(has_capital && island == 0){
+        if(island_path[2]){
+          c.moveTo(X0 = X = island_path[2].charCodeAt()*8, Y0 = Y = island_path[3].charCodeAt()*4);
+          c.lineTo(X+.5, Y);
+          c.lineTo(X, Y);
+        }
+        else {
+          c.moveTo(X0 = X = island_path[0].charCodeAt()*8, Y0 = Y = island_path[1].charCodeAt()*4);
+          c.lineTo(X+.5, Y);
+          c.lineTo(X, Y);
+        }
+        
+        for(i of island_path.substr(4)){
+          J = i.charCodeAt(),
+          D = (J & 7) * dist_step + dist_step,
+          A = (J>>3),
+          A = -A *.39 + 4.72,
+          c.lineTo(X = Math.floor(X+D*Math.cos(A)), Y = Math.floor(Y+D*Math.sin(A)));
+          
+        }
+      }
+      
+      else {
+        c.moveTo(X0 = X = island_path[0].charCodeAt()*8, Y0 = Y = island_path[1].charCodeAt()*4);
+        c.lineTo(X+.5, Y);
+        c.lineTo(X, Y);
+        
+        for(i of island_path.substr(2)){
+          J = i.charCodeAt(),
+          A = -(J>>3) * .39+4.72,
+          D = (J&7) * dist_step + dist_step,
+          c.lineTo(X = Math.floor(X+D*Math.cos(A)), Y = Math.floor(Y+D*Math.sin(A)));
+        }
+      }
+      
+      
+      if(!noclose){
+        c.lineTo(X0,Y0);
+      }
+      
+      if(stroke){
+        c.strokeStyle = stroke;
+        c.stroke();
+      }
+      if(fill){
+        c.fillStyle = fill;
+        c.fill();
+      }
+      
+      c.fillStyle = "red";
+      if(name){
+        c.fillText(item, X0,Y0); 
+      }
+    }
+  }
+}
+
+
+// Init
+// ----
+
+// The game features a 2:1 world map including the datasets above.
+// The game is rendered on a 1024x768px canvas with UI on top and the map below.
+var c = a.getContext("2d");
+c.lineWidth = 3;
+
+// Seas
+/*draw(seas, 8, "blue", 0, 0, 0);
+
+// Countries
+draw(countries, 4, "green", 0, 1, 0);
+draw(territories, 4, "darkgreen", 0, 0, 0);
+*/
+
+// US states
+draw(states, 4, "green", "black", 1, 0);
+
+/*// Deserts
+draw(deserts, 8, "yellow", 0, 0, 0);
+
+// Forests
+//draw(forests, 8, "lightgreen", 0, 0, 0);
+
+// Countries stroke
+//draw(countries, 4, 0, "black", 1, 0);
+
+// US states stroke
+//draw(states, 4, 0, "black", 1, 0);
+
+// Lakes
+//draw(lakes, 8, "blue", 0, 0, 0);
+
+// Streams
+//draw(streams, 4, 0, "red", 0, 1);
+
+// names
+draw(deserts, 8, 0, 0, 0, 0, 1);
+*/
+
+
+
+
+</script>

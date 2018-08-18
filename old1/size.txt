@@ -1,0 +1,13 @@
+Used:
+
+- code+music (incomplete): 2.45kb gzipped
+- data (incomplete): 5.2kb gzipped
+total: 7.65
+
+Free:
+
+- code end (<.5kb gzipped)
+- seas, deserts, forests (<1.7kb gzipped)
+total: ~10kb
+
+- countries (~3.5kb max)

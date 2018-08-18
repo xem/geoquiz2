@@ -1,0 +1,471 @@
+﻿<canvas id=a width=2048 height=1024></canvas>
+<br>
+<textarea id=o cols=99 rows=2></textarea>
+<style>
+* { margin: 0 }
+canvas { background: url(map.png) no-repeat 16px 0; background-size: 2032px auto }
+textarea { position: fixed; bottom: 0; }
+</style>
+<script>
+o.value = "";
+c = a.getContext("2d");
+
+started = 0;
+x = 0;
+y = 0;
+points = [];
+
+paths = { };
+
+data = {
+
+"Ad,Andorra,Andorra la vella":`JJ`,
+"Ae,United arab emirates,Abu dhabi":`§g§g)Scyh2`,
+"Af,Afghanistan,Kabul":`²W°ScsClH+?+A*$zrYu`,
+"Ag,Antigua and barbuda,St john's":`UqUq`,
+"Ai,Anguilla,The valley":`TpTp`,
+"Al,Albania,Tirana":`LL9Qq9`,
+"Am,Armenia,Yerevan":` N NPXYX	)`,
+"Nl,Netherlands antilles,Willemstad":`PxPxQx`,
+"Ao,Angola,Luanda":`heJbqbCJiB!DR*"%*{iy`,
+"Aq,Antartica":`KÿKÿoeoo4?Lÿogg\\gognocm_gg_oogog_o_en\\m]g_gg]g\\`,
+"Ar,Argentina,Buenos aires":`X½X½w	:$r	%=B>KC1E:JF=RId\nws|\nZidt\nTà-by[`,
+"As,American samoa,Pago pago":`		`,
+"At,Austria,Vienna":`@?A:$#dxj`,
+"Au,Australia,Canberra":`ê¾ëÁ{s\n!;E)|)#+C7;+.COFQbjdqob\\KsCqM\\jZraçÆMi|+`,
+"Aw,Aruba,Oranjestad":`OxOx`,
+"Ax,Aland islands":`))@h`,
+"Az,Azerbaijan,Baku":`¤N¤N\n1IJQqQ0Q¡OQ `,
+"Ba,Bosnia and herzegovina,Sarajevo":`HJz#I`,
+"Bb,Barbados,Bridgetown":`WwWw`,
+"Bd,Bangladesh,Dhaka":`ÁhÁhr"@Q(KAkIq	1`,
+"Be,Belgium,Brussels":`;:ZAH`,
+"Bf,Burkina faso,Ouagadougou":`x~w9:YaQ\nehi	+9`,
+"Bg,Bulgaria,Sofia":`JG[jY9I)H#q`,
+"Bh,Bahrain,Manama":`¥d¥d(H`,
+"Bi,Burundi,Bujumbura":`q!`,
+"Bj,Benin,Porto novo":`r	!2KB`,
+"Bl,Saint barthelemy":`UpUp`,
+"Bm,Bermuda,Hamilton":`S[S[`,
+"Bn,Brunei,Bandar seri begawan":`ÒÒA`,
+"Bo,Bolivia,La paz":`Q¢P£yy	mB_CcJ:!1:%A`,
+"Bq,Bonaire, sint eustatius and saba":`QyQy`,
+"Br,Brazil,Brasilia":`_ ]LSa_jUaK;6JC>/3C2;3yv	 	"z\n)!,*1{l{kJm	ZjqJBckYr`,
+"Bs,The bahamas,Nassau":`JfJfKfLgLhMj`,
+"Bt,Bhutan,Thimphu":`ÀbÀbpcmR4=1r"	`,
+"Bv,Bouvet island":`ßß`,
+"Bw,Botswana,Gaborone":`­¤bXiTS7A*ya`,
+"By,Belarus,Minsk":`55zj[JY1A*#*	hY`,
+"Bz,Belize,Belmopan":`BqBqBr	1`,
+"Ca,Canada,Ottawa":`LELEdrybCYb2Qsc{3	r!-ugn?e9jQ"|:1"KB1SC+L;$)\num|DRkZ9[td	_S2Q*2Yd]_[^t\n$	'+Kr+3Sg*<1ql&C:[A3\ni;&\\ij%q#0C&'<[kn3b+gZ'IcQej2c*&"i$2	1"/)"HGGJiSrW[DSLTbgggggcZlWd?Qud#5aK*gs04gkd1\ne	$6e\\'9eJ#:dJ*<\\#=\ne\\gcZ*'&\n*U''%.'/_e+dgo`,
+"Cc,Cocos islands":`CC`,
+"Cd,Democratic republic of the congo,Kinshasa":`1!BeJbybCJi\\hSi	!j\ny~!+89D`,
+"Cf,Central african republic,Bangui":`q\\xkb	!:"A#;Lqb`,
+"Cg,Congo,Brazzaville":`|hz!1H#Aa9Q9!(:SaQ`,
+"Ch,Switzerland,Berne":`BDzcQ2!`,
+"Ci,Cote d'ivoire,Yamoussoukro":`}}{"DJAkb	z!`,
+"Ck,Cook islands,Avarua":`©©¤¥`,
+"Cl,Chile,Santiago":`O»P£9GD;G<GI>Y;CJVd"j$|	qq{~{`,
+"Cm,Cameroon,Yaounde":`{\naB?1:YId[`,
+"Cn,China,Beijing":`ÓO¿bp\nyoz\nc{brSZKbZSf]pdtyYlqc#zb~k\\M]dA<!C.3+z!5Rib5SKC2<2+-R*j",1{!,#A`,
+"Co,Colombia,Santa fe de bogota":`MP*#{rymX3LaYbE+K`,
+"Cr,Costa rica,San jose":`F|F|"IZIy`,
+"Cu,Cuba,Havana":`GiGic_1"*q`,
+"Cv,Cape verde,Praia":`ququptor`,
+"Cw,Curacao":`PxPxP`,
+"Cx,Christmas island,Flying fish cove":`ËË`,
+"Cy,Cyprus,Nicosia":`VVb1"`,
+"Cz,Czech republic,Prague":`=;!*IRici`,
+"De,Germany,Berlin":`8A#r#ajaZiZ9K *IQ8@`,
+"Dj,Djibouti,Djibouti":`yyQ!qQ`,
+"Dk,Denmark,Copenhagen":`222H)	pk;Yj`,
+"Dm,Dominica,Roseau":`VtVt`,
+"Do,Dominican republic,Santo domingo":`PoPoYCj`,
+"Dz,Algeria,Algiers":`T{bnycobjYC9RKF[A)7#`,
+"Ec,Ecuador,Quito":`IK2:JpBYzjz`,
+"Ee,Estonia,Tallinn":`++9a@aPYx	i#`,
+"Eg,Egypt,Cairo":`^\\YbJ;KYAQ''bZ`,
+"Eh,Western sahara,Al aaiun":`xcwbgA$IB1I%{iz`,
+"Er,Eritrea,Asmara":`tpKZS0#0y`,
+"Es,Spain,Madrid":`~NJ"($")IcA0ERibtzk`,
+"Et,Ethiopia,Addis ababa":`}udSAYA\\b6,$\nas`,
+"Fi,Finland,Helsinki":`))evyy#:"8[LXH6CZ`,
+"Fj,Fiji,Suva":`ÿ¤ÿ¤!qQ`,
+"Fk,Falkland islands,Stanley":`XÚXÚ2zVÛi`,
+"Fm,Micronesia,Palikir":`ðð`,
+"Fo,Faeroe islands,Thorshavn":`|&|&a`,
+"Fr,France,Paris":`?>;)J1HZS0CZcxhaYrh)zhqpJiB`,
+"Ga,Gabon,Libreville":`:Tyarq "I0(`,
+"Gb,United kingdom,London":`9:jz"y*DJiJ)A1c3kYj|3XQ(!*i`,
+"Gd,Grenada,St george's":`UxUx`,
+"Ge,Georgia,Tbilisi":` K¢M\n""RAca`,
+"Gf,French guiana,Cayenne":`\\\\Y3 y`,
+"Gg,Guernsey":`~=~=`,
+"Gh,Ghana,Accra":`*	zdKC`,
+"Gi,Gibraltar,Gibraltar":`}U}U`,
+"Gl,Greenland,Nuuk":`\\!\\!USb[|}clrmdm&r[ik"jbon%+!+r,e'')',''*!.A*#Uckc_NBdA"C`,
+"Gm,The gambia,Banjul":`uwuw@f`,
+"Gn,Guinea,Conakry":`w|w|bbQjKC(2`,
+"Gp,Guadeloupe,Basse terre":`VsVs`,
+"Gq,Equatorial guinea,Malabo":`h@aI"`,
+"Gr,Greece,Athens":`RR(YH I	\`ridXI("Q!IZRS`,
+"Gs,South georgia":`fßfßiQI`,
+"Gt,Guatemala,Guatemala city":`AuAvbxaXBa3`,
+"Gu,Guam,Hagtana":`çwçw`,
+"Gw,Guinea-bissau,Bissau":`vyvyd81`,
+"Gy,Guyana,Georgetown":`XXQ9L#	0ziQA`,
+"Hk,Hong kong,Victoria city":`ÒjÒj`,
+"Hm,Heard island and mcdonald islands":`µÝµÝH`,
+"Hn,Honduras,Tegucigalpa":`CvCvqeY,`,
+"Hr,Croatia,Zagreb":`DD*T[	bZ!`,
+"Ht,Haiti,Port-au-prince":`NoMpb*Y*`,
+"Hu,Hungary,Budapest":`AAkZ(:*!s`,
+"Id,Indonesia,Jakarta":`ÌÌbZi\\H$%rÕZ(ÓÕÖHbkØjÄWISIUizxÎAMaHcPi{sq"<"1×\n(C{adi2$BkI)JÍÌpQÜ2Jz(ÚY0ÜaQ#ÝjbBQt]GA"q	8j"x`,
+"Ie,Ireland,Dublin":`|6|3)2I9YjXy)`,
+"Il,Israel,Jerusalem":`\\\\ \``,
+"Im,Isle of man":`~5~5(p`,
+"In,India,New delhi":`·\`¸V*#JZ1H6)L+Qa)SiyJAOOIj|juva""r´x´y´{´|`,
+"Io,British indian ocean territory":`²²`,
+"Iq,Iraq,Baghdad":` Y¡Xz"2J+J]Rbbx`,
+"Ir,Iran,Tehran":`¥U¬Vy+A#h0)!BSB0QZAQZRReIcYya	r!`,
+"Is,Iceland,Reykjavik":`q"q"q"j"rRidiS1-`,
+"It,Italy,Rome":`KK\n!9!ybqcI9SI^A0I9)Iaj!PiI9`,
+"Je,Jersey":`~=~=`,
+"Jm,Jamaica,Kingston":`KpKp!Q`,
+"Jo,Jordan,Amman":`[[pXkI*I2(	`,
+"Jp,Japan,Tokyo":`äVäV}:C+:$2YjRraÝ\\qR9àY*iäJqhSjB)9)9`,
+"Ke,Kenya,Nairobi":`qq^ia9DQ2:`,
+"Kg,Kyrgyzstan,Bishkek":`¶JµIeZ@/B#ikq[`,
+"Kh,Cambodia,Phnom penh":`ËyË~ss)*KR`,
+"Ki,Kiribati,Tarawa":`ûûûüüü`,
+"Km,Comoros,Moroni":`  `,
+"Kn,Saint kitts and nevis,Basseterre":`UqUq`,
+"Kp,North korea,Pyongyang":`ÚPÙNQ:bpa	qiq*I`,
+"Kr,South korea,Seoul":`ÛRÚRQ(IBqb!`,
+"Kw,Kuwait,Kuwait city":`£_£_Ab`,
+"Ky,Cayman islands,George town":`GnGn`,
+"Kz,Kazakhstan,Astana":`³:µIA:2#*F*y0ja"*	qItb\\j[jshajdqbJc0lIVdSa2I*:+I:`,
+"La,Laos,Vientiane":`ÉpÉp)z!YqJiQ1WA")`,
+"Lb,Lebanon,Beirut":`XX9j`,
+"Lc,Saint lucia,Castries":`VvVv`,
+"Li,Liechtenstein,Vaduz":`BB`,
+"Lk,Sri lanka,Colombo":`¹¹{QJ*`,
+"Lr,Liberia,Monrovia":`yy](:`,
+"Ls,Lesotho,Maseru":`´´iR*`,
+"Lt,Lithuania,Vilnius":`44q("1HYIc`,
+"Lu,Luxembourg,Luxembourg":`>>`,
+"Lv,Latvia,Riga":`//)BhchRj\n0 `,
+"Ly,Libya,Tripoli":`ZZI2P1F[IaQj_[a!1B"`,
+"Ma,Morocco,Rabat":`|X|X{RcM#9.B%kzr`,
+"Mc,Monaco,Monaco":`HH`,
+"Md,Moldova,Chisinau":`BEaZJ`,
+"Me,Montenegro,Podgorica":`JJyQ9`,
+"Mf,Saint martin (french part)":`TpTp`,
+"Mg,Madagascar,Antananarivo":`¢¥¢®)rksRJ0IA`,
+"Mh,Marshall islands,Majuro":`úúú~ù|÷zöz÷}ùóy`,
+"Mk,Macedonia,Skopje":`KKhQ01	`,
+"Ml,Mali,Bamako":`{x}{#\n*qgq		bZT\\QXC1++9(`,
+"Mm,Myanmar,Yangon":`ÅmÂkr|sb;MXI*BQBJJ2z2q\n`,
+"Mn,Mongolia,Ulan bator":`Ì@¾>RZLcZJgYgtrQlyc#{(1*#"(!	"9I1!`,
+"Mo,Macau,Macau":`gg`,
+"Mp,Northern marianas,Garapan":`èsèsèrçu`,
+"Mq,Martinique,Fort-de-france":`VuVu`,
+"Mr,Mauritania,Nouakchott":`vpvpe	idRZQ)DIIAI9'0#`,
+"Ms,Montserrat,Plymouth":`UrUr`,
+"Mt,Malta,Valletta":`UU`,
+"Mu,Mauritius,Port louis":`ª§ª§(x`,
+"Mv,Maldives,Male":`µµµµ´µ´´µµ`,
+"Mw,Malawi,Lilongwe":`zII@JXJ(A\n`,
+"Mx,Mexico,Mexico city":`;n@ua	bjq$B1+	 1x"@#(!AhKZ88QaIA[Hp\n	ZKZQAYTJ0QRZa]j`,
+"My,Malaysia,Kuala lumpur":`ÉÈJRZ\n8Ó<%aqiqPptS1`,
+"Mz,Mozambique,Maputo":`¯¯ktkr,+M)I+A[CX<JAY`,
+"Na,Namibia,Windhoek":`ª£jPfHdc0#E!CID0A\n`,
+"Nc,New caledonia,Noumea":`öªöªaT`,
+"Ne,Niger,Niamey":`vuPSarZiZics\n(#7"D-`,
+"Nf,Norfolk island,Kingston":`÷´÷´`,
+"Ng,Nigeria,Abuja":`}r\nq[qZidB?1:*`,
+"Ni,Nicaragua,Managua":`DyDyqlE"`,
+"Nl,Netherlands,Amsterdam":`88jC!A`,
+"No,Norway,Oslo":`*,4zkwv+tRibnAk\\!Z+y#:"2+:)C)9BQ0A0`,
+"Np,Nepal,Kathmandu":`½bº^:ZcRc`,
+"Nr,Nauru,Yaren":`÷÷`,
+"Nu,Niue,Alofi":`	¥	¥`,
+"Nz,New zealand,Wellington":`üÇüÇiqXxIYiA8(A2üÁY@PüÇA2Q!1B10rjrrIp÷Òa`,
+"Om,Oman,Muscat":`ªhªh(HA8PA9+Kiaixa\`r`,
+"Pa,Panama,Panama city":`I}I}1H(!yYjZPBx`,
+"Pe,Peru,Lima":`JJRIR]Q{y	)1{l*!:2:!2Q@T`,
+"Pf,French polynesia,Papeete":`££aH¡Q ¡H£¡¤¤£`,
+"Pg,Papua new guinea,Port moresby":`éé19\\Z@YY1QZR"`,
+"Ph,Philippines,Manila":`ÖuÖu	{aJ)BaYIaJ!	:iÔ~t93×{qØz:XÙ|(×ybqR9I	`,
+"Pk,Pakistan,Islamabad":`µYµYZ1@:3*S9*)#ya	cbyk~lY[*#`,
+"Pl,Poland,Warsaw":`95%x-9KbSabYr\nh`,
+"Pm,Saint pierre and miquelon,Saint-pierre":`YCYC`,
+"Pn,Pitcairn islands,Adamstown":`&­&­`,
+"Pr,Puerto rico,San juan":`RoRo(Ha`,
+"Ps,Palestine,Jerusalem":`\\\\B	h`,
+"Pt,Portugal,Lisbon":`zPzP{bI8E0!`,
+"Pw,Palau,Melekeok":`àà9`,
+"Py,Paraguay,Asuncion":`X®X®	|[XCcI\`J2#`,
+"Qa,Qatar,Doha":`¥e¥d0I\`y`,
+"Re,Reunion,Saint-denis":`¨¨¨¨Hh`,
+"Ro,Romania,Bucharest":`GG*	hzbXjIL9`,
+"Rs,Serbia,Belgrade":`FHhjIR8P91`,
+"Ru,Russia,Moscow":`25$jX+)M[IR(BjJ\`RiPZB)Q1:\\a[bIYqs	xQsb\\j[jshajdxcI[lIUeSYo]jyZbIYcZdk\\i}k[M]e>!Ccwt}\r&wugj\\wcQuQ;*7<O}k}tl[ugyk&B'1'+&J':z''%$.tlr&&,&,%J'9\\#+Z#3L\\$3{\rq=K#$[2#+q/:5$J$\r^m&+QBQBS6[^Rp\\4©#wngkQ+!/-B[¢Yl¨d«k!®i!Ë3ÄlZÃd,æ&j[icæ5CND(`,
+"Rw,Rwanda,Kigali":` iQ9`,
+"Sa,Saudi arabia,Riyadh":`¢f[]SiZTKRbQ:+"*9%A\riXr`,
+"Sb,Solomon islands,Honiara":`òòóAò!ó`,
+"Sc,Seychelles,Victoria":`¨¨¥¥¢`,
+"Sd,Sudan,Khartoum":`tmhggYCZ1:I:4)I2*!:\r|X`,
+"Se,Sweden,Stockholm":`++*D)8)xpyxya{(jykqQZL";,DR`,
+"Sg,Singapore,Singapore":`ÊÊ`,
+"Sh,Saint helena,Jamestown":`}¡}¡`,
+"Si,Slovenia,Ljubljana":`DDax$IY`,
+"Sj,Svalbard and jan mayen,Longyearbyen":`		)[sbQd[cYl'"1"*1[`,
+"Sk,Slovakia,Bratislava":`@@xjcY1+ )`,
+"Sl,Sierra leone,Freetown":`x}x~ Sz	`,
+"Sm,San marino,San marino":`GG`,
+"Sn,Senegal,Dakar":`uuuuxxcZ8J*`,
+"So,Somalia,Mogadishu":`¡¡6ylu"yYdlB?`,
+"Sr,Suriname,Paramaribo":`ZZ:Lkyy`,
+"Ss,South sudan,Juba":`kq	a()I2*:V`,
+"St,Sao tome and principle,Sao tome & principe dobra":``,
+"Sv,El salvador,San salvador":`BvAv[q`,
+"Sx,Sint maarten (dutch part)":`UpUp`,
+"Sy,Syria,Damascus":`YYAhop)!):J`,
+"Sz,Swaziland,Mbabane":`°°xXA(`,
+"Tc,Turks and caicos islands,Cockburn town":`NjNj`,
+"Td,Chad,N'djamena":`yyxs\ni_[E A;R):"A#\n\``,
+"Tf,French southern territories":`²Ö²Ö(Z8`,
+"Tg,Togo,Lome":`!zXKB`,
+"Th,Thailand,Bangkok":`ÈvÈv:jQXBdKI*J<V0!rz`,
+"Tj,Tajikistan,Dushanbe":`²Q±SysY2cZJ#3`,
+"Tk,Tokelau,Fakaofo":``,
+"Tl,Timor-leste,Dili":`ÚÚ*aj`,
+"Tm,Turkmenistan,Ashgabat":`ªRªR+j	RbzZAbI^A!38)`,
+"Tn,Tunisia,Tunis":`TS*J:QKhxrry`,
+"To,Tonga,Nuku'alofa":`¨¨¥`,
+"Tr,Turkey,Ankara":`OKbZbjb\\bibKB*')*1qc!`,
+"Tt,Trinidad and tobago,Port of spain":`V{V{`,
+"Tv,Tuvalu,Fongafale":`ÿÿÿ`,
+"Tw,Taiwan,Taipei":`×f×f :Iz`,
+"Tz,Tanzania,Dodoma":`]HYBJC-#\nqaIa`,
+"Ua,Ukraine,Kiev":`<9YcjcIRa\\:1,I)i29yY\n*"qr`,
+"Ug,Uganda,Kampala":`:"}qiL1`,
+"Um,United states minor outlying islands":`	r	r`,
+"Us,United states,Washington dc":`LQLQ{m	qk*;$2#5~p$,'''''"C)JGBQKQK[XQb]dbRAZrTIZircZrdHZRKaysss	&'/2*_+-[fA,3UrBfB2/AotmvP;ldQd\n/rI26*q9"i::*"i\n#)b`,
+"Uy,Uruguay,Montevideo":`Y½Y½bqy9E`,
+"Uz,Uzbekistan,Tashkent":`²L²Lp[)!3R9!x:!j\\IdRB[`,
+"Va,Vatican city,Vatican city":`LL`,
+"Vc,Saint vincent and the grenadines,Kingstown":`VwVw`,
+"Ve,Venezuela,Caracas":`R{R{!*I82LaYbEJmbjzi"h*`,
+"Vg,British virgin islands,Road town":`SpSp`,
+"Vi,Us virgin islands,Charlotte amalie":`SqSq`,
+"Vn,Vietnam,Hanoi":`ËkÉjlSj5KZKC+z{i	)`,
+"Vu,Vanuatu,Port vila":`ø£ø£÷¢÷ù¦`,
+"Wf,Wallis and futuna,Mata-utu":``,
+"Ws,Samoa,Apia":`\`H`,
+"Ye,Yemen,San'a":` tsyeyj[J9/+`,
+"Yt,Mayotte,Mamoudzou":`¡¡`,
+"Za,South africa,Pretoria":`¯ª"7A*yID8AM8Skdjv}A xi\n`,
+"Zm,Zambia,Lusaka":` £"a\\hSi!jRbC:+I!4`,
+"Zw,Zimbabwe,Harare":`£¡[Ca<"at`,
+
+
+
+"AlabamaMontgomery~":`D[C^pby	#FP`,
+"AlaskaJuneau~":`"-"-R[C		s&'/2*_+-[fA,3UrBfB2/AotmvP;ldQd\n/rI26*q9"i::*"i\n#)b`,
+"ArizonaPhoenix~":`1Y0[hfGA!`,
+"ArkansasLittle rock~":`@W>Tf8P;I$x`,
+"CaliforniaSacramento~":`,P,P%IMKSYaIc`,
+"ColoradoDenver~":`7N4MFga)'`,
+"ConnecticutHartford~":`NKNK2b@`,
+"DelawareDover~":`LPLP\`8`,
+"FloridaTallahassee~":`E_E_ZRAJr("*8bH`,
+"HawaiiHonolulu~":`kklna`,
+"GeorgiaAtlanta~":`EYE[8Jczx"A`,
+"IdahoBoise~":`/G2F!	(	!EY:Dcd`,
+"IllinoisSpringfield~":`BO@Ns	cIF2`,
+"IndianaIndianapolis~":`DOCKcD9"`,
+"IowaDes moines~":`?LAJ'IKer`,
+"KansasTopeka~":`=O=N'(Egc`,
+"KentuckyFrankfort~":`EQDQjZI1$)!rai`,
+"LouisianaBaton rouge~":`@^A] y$JAZaq`,
+"MaineAugusta~":`PFPF2hzbC5`,
+"MarylandAnnapolis~":`KPKPaB`,
+"MassachusettsBoston~":`OJOJ29c`,
+"MichiganLansing~":`EJCKi{ZBhQ;`,
+"MinnesotaSt. paul~":`?E?E[A'h		eQc4H0`,
+"MississippiJackson~":`A[A[	ybFX)`,
+"MissouriJefferson city~":`@Q@M$JDg`,
+"MontanaHelena~":`2B/?ggaG'!A`,
+"NebraskaLincoln~":`<M9Nga !'CaiA`,
+"NevadaCarson city~":`,P,Pg\`GAB`,
+"New hampshireConcord~":`NINIi1AA`,
+"New jerseyTrenton~":`KOKOIa`,
+"New mexicoSanta fe~":`6V8\\&H)xeb`,
+"New yorkAlbany~":`MIMIC'rc{bBI`,
+"North carolinaRaleigh~":`HUKV'3YpbH\`Rt`,
+"North dakotaBismarck~":`9A<>' Egc	`,
+"OhioColumbus~":`FOEKD[s)9	)`,
+"OklahomaOklahoma city~":`<W>Y#fD`,
+"OregonSalem~":`*E*CD9Agby+!0 `,
+"PennsylvaniaHarrisburg~":`KNKO%gAQ*`,
+"Rhode islandProvidence~":`LQLQ(A`,
+"South carolinaColumbia~":`HXHW"0ISir`,
+"South dakotaPierre~":`:D=I&#de`,
+"TennesseeNashville~":`DUAWfh\`ji$((!0(2`,
+"TexasAustin~":`<_8TG$RYAXiaSJb	rXqa\nx"`,
+"UtahSalt lake city~":`2M2K"G@f!`,
+"VermontMontpelier~":`NFNFC	b8`,
+"VirginiaRichmond~":`JSKT'!iby\`qRa9Q`,
+"WashingtonOlympia~":`*B*Dck&B"Kh`,
+"West virginiaCharleston~":`GQGR8byXq(!*Q`,
+"WisconsinMadison~":`BICDAq:A+piH\\`,
+"WyomingCheyenne~":`7L7Lz%#DAHXae`,
+
+}
+
+
+o.value = '"' + data[0] + '":`';
+count = 0;
+diststep = 8;
+
+a.onclick = function(e){
+  newx = e.pageX;
+  newy = e.pageY;
+  if(!started){
+    newx = Math.round(e.pageX / 8) * 8;
+    newy = Math.round(e.pageY / 4) * 4;
+    started = 1;
+    x = newx;
+    y = newy;
+    points.push([x,y]);
+    o.value += (
+      String.fromCharCode(x/8) +
+      String.fromCharCode(y/4)
+    ).replace(/\\/g,"\\\\").replace(/\r/g,"\\r").replace(/\n/g,"\\n").replace(/`/g,"\\`");
+    console.log(newx, newy);
+  }
+  /*else if(started == 1){
+    newx = Math.round(e.pageX / 8) * 8;
+    newy = Math.round(e.pageY / 4) * 4;
+    started = 2;
+    x = newx;
+    y = newy;
+    points.push([x,y]);
+    o.value += (
+      String.fromCharCode(x/8) +
+      String.fromCharCode(y/4)
+    ).replace(/\\/g,"\\\\").replace(/\r/g,"\\r").replace(/\n/g,"\\n").replace(/`/g,"\\`");
+    //console.log(newx, newy);
+  }*/
+  else {
+    closestPoint();
+    if(distance > 0 && !(distance == diststep * 8 && angle == 15)){
+      
+      console.log(distance,angle);
+      
+      points.push([newx, newy]);
+      x = newx;
+      y = newy;
+      
+      // 4 bits for angle, 3 bits for distance
+      o.value += String.fromCharCode((angle << 3) + ((distance - diststep) / diststep)).replace(/\\/g,"\\\\").replace(/\r/g,"\\r").replace(/\n/g,"\\n").replace(/`/g,"\\`");
+    }
+  }
+}
+dist=0;
+a.onmousemove = function(e){
+  a.width ^= 0;
+  
+  for(p in paths){
+    path = paths[p];
+    islands = path.split('');
+    for(is in islands){
+      island = islands[is];
+      c.beginPath();
+      if(is == 0){
+        c.moveTo(X=island[2][z="charCodeAt"]()*8,Y=island[3][z]()*4);
+        //console.log(island[2],island[3],island[2][z="charCodeAt"](),x,y);
+        c.lineTo(X+1,Y+1);
+        c.lineTo(X,Y);
+        for(i of island.substr(4))
+          J=i[z](),
+          D=(J&7)*4+4,
+          A=(J>>3),
+          //console.log(D,A)
+          A=-A*.39+4.72,
+          c.lineTo(X=Math.floor(X+D*Math.cos(A)),Y=Math.floor(Y+D*Math.sin(A)))
+      }
+      
+      else {
+        c.moveTo(X=island[0][z="charCodeAt"]()*8,Y=island[1][z]()*4);
+        c.lineTo(X+1,Y+1);
+        c.lineTo(X,Y);
+        for(i of island.substr(2))
+          J=i[z](),
+          A=-(J>>3)*.39+4.72,
+          D=(J&7)*4+4,
+          c.lineTo(X=Math.floor(X+D*Math.cos(A)),Y=Math.floor(Y+D*Math.sin(A)))
+      }
+      
+      c.closePath();
+      c.stroke();
+    }
+  }
+  
+  
+  if(points[0]){
+    c.beginPath();
+    c.lineWidth = 1;
+    c.moveTo(points[0][0] + .5, points[0][1] + .5);
+    for(i of points){
+      c.lineTo(i[0] + .5, i[1] + .5);
+    }
+    c.stroke();
+  }
+  
+  newx = e.pageX;
+  newy = e.pageY;
+  closestPoint();
+  
+  if(started == 1){
+    c.beginPath();
+    c.lineWidth = 1;
+    c.moveTo(x + .5, y + .5);
+    c.lineTo(newx + .5, newy + .5);
+    c.stroke();
+    c.closePath();
+  }
+  else {
+    c.fillRect(Math.round(e.pageX / 8) * 8, Math.round(e.pageY / 4) * 4, 4, 4);
+  }
+}
+
+closestPoint = function(){
+  dx = newx - x;
+  dy = newy - y;
+  angle = 0;
+  distance = 0;
+  angle = ((Math.round((Math.atan2(dx, dy))/(2*Math.PI)*16))%16)+8;
+  distance = Math.min(diststep * 8, Math.round(Math.hypot(dx,dy)/diststep) * diststep);
+  angle_rad = -angle * .39 + 4.72;
+  newx = Math.floor(x + distance * Math.cos(angle_rad));
+  newy = Math.floor(y + distance * Math.sin(angle_rad));
+}
+
+onkeydown = function(e){
+  // N (\n)
+  if(e.keyCode == 78){
+    started = 0;
+    o.value += '`,\n"' + data[count++] + '":`'; 
+    o.scrollTop = 10000;
+  }
+  
+  // I (del)
+  if(e.keyCode == 73){
+    started = 0;
+    o.value += ""; 
+  }
+}
+</script>
