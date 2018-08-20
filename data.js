@@ -36,7 +36,7 @@ zyh~†H†H~|Xz\\hZ
 ~±W¬Vaqh
 (Q0HX@HZ~‚J‚J~LO8(xh~”6“4Qi		!2IP~ŽHŽG@Hpy ~x}{!zY@a8H~Ž„Ž†Ah01q{JXA~‰…‹xd@Xip
 (81(8~Œ‘Ž†apXaXHX
-q	ay	y @)	9+"8H@JXA~}ƒIQ 8!0	xpa~E|Dzh8~LƒO)1	*P8H1(RaPxiay	~Q¢PšjXxirp!	p)0H)C(@~pupuor~˜V˜VXH~‚‚)8 xpXi~ËyÊz1	ha~UtUt~‹‰‘8x)H)apXaX~OpOp	Bi~‡…‡…‡‰	(H~AuBqIxp@i P~MpNqA8	~CvBs	QXA~š[š[xXhXH~³;¾>BH<Y:ITaxLAQYhzi@Yh	p*yr	) ~JJX0~£\`¡\`q~ÉpÈkyhPqpI 1Q1~›Œ™Œ( 1aixXa:~È…È…2yxhqAÎˆ(A[Hh@~{x}fHjqiKXqp	!	 )@~‹U‹U~•B–BAHyp~´Y¬_
+q	ay	y @)	9+"8H@JXA~}}ƒIQ 8!0	xpa~E|Dzh8~LƒO)1	*P8H1(RaPxiay	~Q¢PšjXxirp!	p)0H)C(@~pupuor~˜V˜VXH~‚‚)8 xpXi~ËyÊz1	ha~UtUt~‹‰‘8x)H)apXaX~OpOp	Bi~‡…‡…‡‰	(H~AuBqIxp@i P~MpNqA8	~CvBs	QXA~š[š[xXhXH~³;¾>BH<Y:ITaxLAQYhzi@Yh	p*yr	) ~JJX0~£\`¡\`q~ÉpÈkyhPqpI 1Q1~›Œ™Œ( 1aixXa:~È…È…2yxhqAÎˆ(A[Hh@~{x}fHjqiKXqp	!	 )@~‹U‹U~•B–BAHyp~´Y¬_
 (zPIr[HhyIX0K 0@~I}F|hH(HXA~‰G‰G~uuyxK0!	~FŽDzhPA ~¨‘¨‘¥˜¢˜~¡‡ž8)HB!h	
 b~¹€¹€!qhH~˜t›r2@NiHjYsx
 i)~š“™ŒX@Hpary@)0:~ÈvÊz1	(1I(8Qpqhphaqx18!0~ t x1PIhJX~–¤“¤iaI:~UqUqUr~ N N8yP~¤N¤N1XHpAyhx~Š—‰£p	8)!P8( IXH1Js~JfJfKgLi~¤d¤d~Áh¿eyqHQ!~WwWw~BqBqa!~Àb¿bpI~“®“®;PIkr!~ÒƒÒƒX~••b~‹yŒhXqiYhrXxh	!0*~Ÿ›Ÿ› œ~ŸzŸzPq~BwBwIy~œtŸx:1Yip~œ}ž„P	HA0@ H(AZahXi ~ÿ¥ÿ¥0Xxÿ¢X~‡Š‡‹ 	0	XiX@a9~uwuw	@~ L L0BIh~‚‚+HPia~UyUy~w|{€ 2JYyp~uywxpQ1~ûˆûˆü‹û†Ž‘‡™~µJ²L		YPHXJ~’01
@@ -145,6 +145,7 @@ var datasets = [
     0,                      // start byte for the path
     1,                      // name group size
     0,                      // position in name group
+    16,                     // diststep
   ],
 
   // 1: countries
@@ -154,11 +155,12 @@ var datasets = [
     L,                      // polygons for each country (array of strings, 2b for capital + 2b + 1b per point)
     [...Array(199).keys()], // questions not asked yet (it's an array from 0 to N = 199)
     0,                      // how many bytes represent each item (0 = variable)
-    "#0f0",                 // fill color
+    "green",                 // fill color
     "#000",                 // stroke color
     2,                      // start byte for the path
     3,                      // name group size
     1,                      // position in name group
+    8,                      // diststep
   ],
 
   // 2: us states
@@ -168,11 +170,12 @@ var datasets = [
     M,                      // polygons for each country (array of strings, 2b for capital + 2b + 1b per point)
     [...Array(50).keys()],  // questions not asked yet
     0,                      // how many bytes represent each item
-    "#0f0",                 // fill color
+    "green",                 // fill color
     "#000",                 // stroke color
     2,                      // start byte for the path
     2,                      // name group size
     0,                      // position in name group
+    6,                      // diststep
   ],
 
   // 3: territories
@@ -182,11 +185,12 @@ var datasets = [
     N,                      // polygons for each country (array of strings, 2b + 1b per point)
     [...Array(52).keys()],  // questions not asked yet
     0,                      // how many bytes represent each item
-    "#0f0",                 // fill color
+    "green",                 // fill color
     "#000",                 // stroke color
     0,                      // start byte for the path
     1,                      // name group size
     0,                      // position in name group
+    8,                      // diststep
   ],
 
   // 4: deserts
@@ -201,6 +205,7 @@ var datasets = [
     0,                      // start byte for the path
     1,                      // name group size
     0,                      // position in name group
+    8,                      // diststep
   ],
   
   // 5: forests
@@ -215,6 +220,7 @@ var datasets = [
     0,                      // start byte for the path
     1,                      // name group size
     0,                      // position in name group
+    8,                      // diststep
   ],
   
   // 6: lakes
@@ -229,6 +235,7 @@ var datasets = [
     0,                      // start byte for the path
     1,                      // name group size
     0,                      // position in name group
+    8,                      // diststep
   ],
   
   // 7: streams
@@ -242,7 +249,8 @@ var datasets = [
     "#0df",                 // stroke color
     0,                      // start byte for the path
     1,                      // name group size
-    0                       // position in name group
+    0,                      // position in name group
+    8,                      // diststep
   ],
   
   // 8: capitals            
@@ -257,6 +265,7 @@ var datasets = [
     0,                      // start byte for the path
     3,                      // name group size
     2,                      // position in name group
+    8,                      // diststep
   ],                        
   
   // 9: us capitals
@@ -271,6 +280,7 @@ var datasets = [
     0,                      // start byte for the path
     2,                      // name group size
     1,                      // position in name group
+    6,                      // diststep
   ],
   
 
@@ -286,6 +296,7 @@ var datasets = [
     0,                      // start byte for the path
     1,                      // name group size
     0,                      // position in name group
+    8,                      // diststep
   ],
 
   // 11: mountains
@@ -300,6 +311,7 @@ var datasets = [
     0,                      // start byte for the path
     1,                      // name group size
     0,                      // position in name group
+    8,                      // diststep
   ],
 
   // 12: places
@@ -314,6 +326,7 @@ var datasets = [
     0,                      // start byte for the path
     1,                      // name group size
     0,                      // position in name group
+    8,                      // diststep
   ],
   
   // 13: flags
@@ -328,6 +341,7 @@ var datasets = [
     2,                      // start byte for the path
     3,                      // name group size
     0,                      // position in name group
+    8,                      // diststep
   ]
 ]
 
@@ -378,3 +392,11 @@ G.gain.setTargetAtTime(.001, i*.2+.18,.005)
 O.stop(i*.2+.19);
 }*/
 
+
+// TO REDO:
+// Cote d'ivoire
+// Palau
+// Sierra leone
+// Jan Mayen / Svalbard separately
+
+// Loire
