@@ -1,6 +1,3 @@
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<body id=b>
-<canvas id=a width=1020 height=575>
 <script>
 
 
@@ -1227,16 +1224,3 @@ oscillator.stop(note*.2+.19);
 music();
 //setInterval(music, 30500);
 </script>
-<style>
-
-/* The font "f" uses the Emoji fonts Noto Color emoji and Twemoji (for Windows) */
-@font-face{font-family:f;src:url(//xem.github.io/geoquiz2/n.ttf),url(//xem.github.io/geoquiz2/t.ttf)}
-
-/* The font "i" uses the local font Impact and a fallback for old OS that may not have it */
-@font-face{font-family:i;src:local(impact),url(//xem.github.io/geoquiz2/i.ttf)}
-
-/* Global style */
-*{margin:0;background:#123;cursor:crosshair;width:100%;overflow:hidden;max-width:177vh;font-family:i}
-
-/* Canvas radial background */
-#a{background:radial-gradient(#7DF 50%,#0af)}
