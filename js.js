@@ -1,6 +1,3 @@
-<script>
-
-
 // Note: this file is encoded in ANSI, in order to encode every byte of the game's data on a 1-byte char.
 
 // These globals are just to inform the minifier what a, b and C-M are. Don't put them in the final file.
@@ -1223,4 +1220,3 @@ oscillator.stop(note*.2+.19);
 }
 music();
 //setInterval(music, 30500);
-</script>
