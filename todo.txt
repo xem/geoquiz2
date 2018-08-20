@@ -1,5 +1,3 @@
 Todo
-- textalign center
 - night
-- mac, mobile
-- 13k
+- 13k (855b to lose)

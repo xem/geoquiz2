@@ -974,8 +974,9 @@ music = function(){
 var audio = new AudioContext,
 gain = audio.createGain(),
 note,
+notes,
 oscillator;
-for(note of`
+for(note in notes = `
 
 
 
@@ -1137,12 +1138,12 @@ datasets[13][3].splice(102, 1);
 // Draw title screen
 draw();
 
-}
-
 // MUSIC
 // =====
 music();
 setInterval(music, 30500);
+
+}
 
 </script>
 <style>
