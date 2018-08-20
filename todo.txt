@@ -1,4 +1,5 @@
 Todo
+- textalign center
 - night
 - mac, mobile
 - 13k

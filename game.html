@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <body id=b>
-<canvas id=a width=1020 height=575>
+<canvas id=a height=575>
 <script>
 
 
@@ -144,10 +144,10 @@ datasets = [
 
   // 0: seas
   [
-    "SEA",                  // dataset name
+    `SEA`,                  // dataset name
     
     // names
-    "Mediterranean seaGulf of mexicoEnglish channelBering seaAdriatic seaAegean seaBlack seaNorth seaRed seaSea of japanPhilippine seaEast china seaSouth china seaAral seaCaspian seaDead seaCoral seaGulf of alaskaCaribbean seaSargasso seaBaltic seaIrish seaCeltic seaLigurian seaTyrrhenian seaGulf of thailandJava seaTimor seaGulf of guineaPersian gulfArabian seaBarents seaGreenland seaGreat australian bightNorwegian seaHudson bayJames baySea of okhotskSeto inland seaBeibu gulfSulu seaCelebes seaBohol seaFlores seaBanda seaArafura seaTasman seaYellow seaBohai seaGulf of carpentariaBaffin bayGulf of st lawrenceGulf of bothniaSea of azovIonian seaMirtoon seaGulf of sidraMarmara seaSea of creteGulf of adenGulf of omanBay of bengalKara seaBeaufort seaAmundsen gulfChukchi seaLaptev seaEast siberian seaAmundsen seaWeddell seaRoss seaGulf st vincentSpencer gulfSalton sea".split(/(?=[A-Z])/),
+    `Mediterranean seaGulf of mexicoEnglish channelBering seaAdriatic seaAegean seaBlack seaNorth seaRed seaSea of japanPhilippine seaEast china seaSouth china seaAral seaCaspian seaDead seaCoral seaGulf of alaskaCaribbean seaSargasso seaBaltic seaIrish seaCeltic seaLigurian seaTyrrhenian seaGulf of thailandJava seaTimor seaGulf of guineaPersian gulfArabian seaBarents seaGreenland seaGreat australian bightNorwegian seaHudson bayJames baySea of okhotskSeto inland seaBeibu gulfSulu seaCelebes seaBohol seaFlores seaBanda seaArafura seaTasman seaYellow seaBohai seaGulf of carpentariaBaffin bayGulf of st lawrenceGulf of bothniaSea of azovIonian seaMirtoon seaGulf of sidraMarmara seaSea of creteGulf of adenGulf of omanBay of bengalKara seaBeaufort seaAmundsen gulfChukchi seaLaptev seaEast siberian seaAmundsen seaWeddell seaRoss seaGulf st vincentSpencer gulfSalton sea`.split(/(?=[A-Z])/),
 
     M,                      // center and radius for each sea (2b + 1b)
     [...Array(74).keys()],  // questions not asked yet (it's an array from 0 to N = 74)
@@ -162,16 +162,16 @@ datasets = [
 
   // 1: countries
   [
-    "COUNTRY",              // dataset name
+    `COUNTRY`,              // dataset name
     
     // names
-    A="RuRussiaMoscowCnChinaBeijingCaCanadaOttawaFrFranceParisDzAlgeriaAlgiersArArgentinaBuenos airesAuAustraliaCanberraAtAustriaViennaBeBelgiumBrusselsBrBrazilBrasiliaBgBulgariaSofiaAeUnited arab emiratesAbu dhabiClChileSantiagoHrCroatiaZagrebCuCubaHavanaCzCzech republicPragueDkDenmarkCopenhagenEcEcuadorQuitoEgEgyptCairoEeEstoniaTallinnNoNorwayOsloFiFinlandHelsinkiDeGermanyBerlinGrGreeceAthensHuHungaryBudapestEsSpainMadridChSwitzerlandBerneGbUnited kingdomLondonIsIcelandReykjavikInIndiaNew delhiIdIndonesiaJakartaIrIranTehranIqIraqBaghdadIeIrelandDublinIlIsraelJerusalemItItalyRomeJmJamaicaKingstonJpJapanTokyoLbLebanonBeirutLtLithuaniaVilniusLuLuxembourgLuxembourgMkMacedoniaSkopjeMgMadagascarAntananarivoMxMexicoMexico cityMcMonacoMonacoMaMoroccoRabatGyGuyanaGeorgetownLyLibyaTripoliNpNepalKathmanduNlNetherlandsAmsterdamNzNew zealandWellingtonKpNorth koreaPyongyangPsPalestineJerusalemPyParaguayAsuncionPePeruLimaPhPhilippinesManilaPlPolandWarsawPtPortugalLisbonRoRomaniaBucharestQaQatarDohaSaSaudi arabiaRiyadhSgSingaporeSingaporeSkSlovakiaBratislavaSiSloveniaLjubljanaZaSouth africaPretoriaKrSouth koreaSeoulSeSwedenStockholmTwTaiwanTaipeiTnTunisiaTunisTrTurkeyAnkaraUaUkraineKievUyUruguayMontevideoUsUsaWashington dcVeVenezuelaCaracasVaVatican cityVatican cityVnVietnamHanoiAfAfghanistanKabulAdAndorraAndorra la vellaAlAlbaniaTiranaByBelarusMinskBaBosnia & herzegovinaSarajevoBfBurkina fasoOuagadougouCfCentral african republicBanguiCmCameroonYaoundeCdDrcongoKinshasaCiCote d'ivoireYamoussoukroCrCosta ricaSan joseCoColombiaSanta fe de bogotaBoBoliviaLa pazCvCape verdePraiaCyCyprusNicosiaBjBeninPorto novoKhCambodiaPhnom penhDmDominicaRoseauCgCongoBrazzavilleDoDominican republicSanto domingoGqEquatorial guineaMalaboGtGuatemalaGuatemala cityHtHaitiPort-au-princeHnHondurasTegucigalpaJoJordanAmmanKzKazakhstanAstanaXkKosovoPristinaKwKuwaitKuwait cityLaLaosVientianeKeKenyaNairobiMyMalaysiaKuala lumpurMlMaliBamakoMtMaltaVallettaMdMoldovaChisinauPkPakistanIslamabadPaPanamaPanama citySmSan marinoSan marinoSnSenegalDakarRsSerbiaBelgradeScSeychellesVictoriaSoSomaliaMogadishuLkSri lankaColomboSdSudanKhartoumTzTanzaniaDodomaThThailandBangkokYeYemenSan'aZwZimbabweHarareAgAntigua & barbudaSt john'sAmArmeniaYerevanAzAzerbaijanBakuAoAngolaLuandaBsThe bahamasNassauBhBahrainManamaBdBangladeshDhakaBbBarbadosBridgetownBzBelizeBelmopanBtBhutanThimphuBwBotswanaGaboroneBnBruneiBandar seri begawanBiBurundiBujumburaTdChadN'djamenaKmComorosMoroniDjDjiboutiDjiboutiSvEl salvadorSan salvadorErEritreaAsmaraEtEthiopiaAddis ababaFjFijiSuvaGaGabonLibrevilleGmGambiaBanjulGeGeorgiaTbilisiGhGhanaAccraGdGrenadaSt george'sGnGuineaConakryGwGuinea-bissauBissauKiKiribatiTarawaKgKyrgyzstanBishkekLvLatviaRigaLsLesothoMaseruLrLiberiaMonroviaLiLiechtensteinVaduzMwMalawiLilongweMvMaldivesMaleMhMarshall islandsMajuroMrMauritaniaNouakchottMuMauritiusPort louisFmMicronesiaPalikirMnMongoliaUlan batorMeMontenegroPodgoricaMzMozambiqueMaputoMmMyanmarNaypyidawNaNamibiaWindhoekNrNauruYarenNiNicaraguaManaguaNeNigerNiameyNgNigeriaAbujaOmOmanMuscatPwPalauMelekeokPgPapua new guineaPort moresbyRwRwandaKigaliKnSt kitts & nevisBasseterreLcSt luciaCastriesVcSt vincent & the grenadinesKingstownWsSamoaApiaStSao tome & principleSao tomeSlSierra leoneFreetownSbSolomon islandsHoniaraSsSouth sudanJubaSrSurinameParamariboSySyriaDamascusTjTajikistanDushanbeTlTimor-lesteDiliTgTogoLomeToTongaNuku'alofaTtTrinidad & tobagoPort of spainTmTurkmenistanAshgabatTvTuvaluFunafutiUgUgandaKampalaUzUzbekistanTashkentVuVanuatuPort vilaZmZambiaLusakaCkCook islandsAvaruaNuNiueAlofiSzSwazilandMbabane".split(/(?=[A-Z])/),
+    A=`RuRussiaMoscowCnChinaBeijingCaCanadaOttawaFrFranceParisDzAlgeriaAlgiersArArgentinaBuenos airesAuAustraliaCanberraAtAustriaViennaBeBelgiumBrusselsBrBrazilBrasiliaBgBulgariaSofiaAeUnited arab emiratesAbu dhabiClChileSantiagoHrCroatiaZagrebCuCubaHavanaCzCzech republicPragueDkDenmarkCopenhagenEcEcuadorQuitoEgEgyptCairoEeEstoniaTallinnNoNorwayOsloFiFinlandHelsinkiDeGermanyBerlinGrGreeceAthensHuHungaryBudapestEsSpainMadridChSwitzerlandBerneGbUnited kingdomLondonIsIcelandReykjavikInIndiaNew delhiIdIndonesiaJakartaIrIranTehranIqIraqBaghdadIeIrelandDublinIlIsraelJerusalemItItalyRomeJmJamaicaKingstonJpJapanTokyoLbLebanonBeirutLtLithuaniaVilniusLuLuxembourgLuxembourgMkMacedoniaSkopjeMgMadagascarAntananarivoMxMexicoMexico cityMcMonacoMonacoMaMoroccoRabatGyGuyanaGeorgetownLyLibyaTripoliNpNepalKathmanduNlNetherlandsAmsterdamNzNew zealandWellingtonKpNorth koreaPyongyangPsPalestineJerusalemPyParaguayAsuncionPePeruLimaPhPhilippinesManilaPlPolandWarsawPtPortugalLisbonRoRomaniaBucharestQaQatarDohaSaSaudi arabiaRiyadhSgSingaporeSingaporeSkSlovakiaBratislavaSiSloveniaLjubljanaZaSouth africaPretoriaKrSouth koreaSeoulSeSwedenStockholmTwTaiwanTaipeiTnTunisiaTunisTrTurkeyAnkaraUaUkraineKievUyUruguayMontevideoUsUsaWashington dcVeVenezuelaCaracasVaVatican cityVatican cityVnVietnamHanoiAfAfghanistanKabulAdAndorraAndorra la vellaAlAlbaniaTiranaByBelarusMinskBaBosnia & herzegovinaSarajevoBfBurkina fasoOuagadougouCfCentral african republicBanguiCmCameroonYaoundeCdDrcongoKinshasaCiCote d'ivoireYamoussoukroCrCosta ricaSan joseCoColombiaSanta fe de bogotaBoBoliviaLa pazCvCape verdePraiaCyCyprusNicosiaBjBeninPorto novoKhCambodiaPhnom penhDmDominicaRoseauCgCongoBrazzavilleDoDominican republicSanto domingoGqEquatorial guineaMalaboGtGuatemalaGuatemala cityHtHaitiPort-au-princeHnHondurasTegucigalpaJoJordanAmmanKzKazakhstanAstanaXkKosovoPristinaKwKuwaitKuwait cityLaLaosVientianeKeKenyaNairobiMyMalaysiaKuala lumpurMlMaliBamakoMtMaltaVallettaMdMoldovaChisinauPkPakistanIslamabadPaPanamaPanama citySmSan marinoSan marinoSnSenegalDakarRsSerbiaBelgradeScSeychellesVictoriaSoSomaliaMogadishuLkSri lankaColomboSdSudanKhartoumTzTanzaniaDodomaThThailandBangkokYeYemenSan'aZwZimbabweHarareAgAntigua & barbudaSt john'sAmArmeniaYerevanAzAzerbaijanBakuAoAngolaLuandaBsBahamasNassauBhBahrainManamaBdBangladeshDhakaBbBarbadosBridgetownBzBelizeBelmopanBtBhutanThimphuBwBotswanaGaboroneBnBruneiBandar seri begawanBiBurundiBujumburaTdChadN'djamenaKmComorosMoroniDjDjiboutiDjiboutiSvEl salvadorSan salvadorErEritreaAsmaraEtEthiopiaAddis ababaFjFijiSuvaGaGabonLibrevilleGmGambiaBanjulGeGeorgiaTbilisiGhGhanaAccraGdGrenadaSt george'sGnGuineaConakryGwGuinea-bissauBissauKiKiribatiTarawaKgKyrgyzstanBishkekLvLatviaRigaLsLesothoMaseruLrLiberiaMonroviaLiLiechtensteinVaduzMwMalawiLilongweMvMaldivesMaleMhMarshall islandsMajuroMrMauritaniaNouakchottMuMauritiusPort louisFmMicronesiaPalikirMnMongoliaUlan batorMeMontenegroPodgoricaMzMozambiqueMaputoMmMyanmarNaypyidawNaNamibiaWindhoekNrNauruYarenNiNicaraguaManaguaNeNigerNiameyNgNigeriaAbujaOmOmanMuscatPwPalauMelekeokPgPapua new guineaPort moresbyRwRwandaKigaliKnSt kitts & nevisBasseterreLcSt luciaCastriesVcSt vincent & grenadinesKingstownWsSamoaApiaStSao tome & principleSao tomeSlSierra leoneFreetownSbSolomon islandsHoniaraSsSouth sudanJubaSrSurinameParamariboSySyriaDamascusTjTajikistanDushanbeTlTimor-lesteDiliTgTogoLomeToTongaNuku'alofaTtTrinidad & tobagoPort of spainTmTurkmenistanAshgabatTvTuvaluFunafutiUgUgandaKampalaUzUzbekistanTashkentVuVanuatuPort vilaZmZambiaLusakaCkCook islandsAvaruaNuNiueAlofiSzSwazilandMbabane`.split(/(?=[A-Z])/),
     
     C,                      // polygons for each country (array of strings, 2b for capital + 2b + 1b per point)
     [...Array(199).keys()], // questions not asked yet (it's an array from 0 to N = 199)
     0,                      // how many bytes represent each item (0 = variable)
-    "#080",                 // fill color
-    "#000",                 // stroke color
+    `#080`,                 // fill color
+    `#000`,                 // stroke color
     2,                      // start byte for the path
     3,                      // name group size
     1,                      // position in name group
@@ -180,16 +180,16 @@ datasets = [
 
   // 2: us states
   [
-    "US STATE",             // dataset name
+    `US STATE`,             // dataset name
     
     // names
-    B="HawaiiHonoluluAlaskaJuneauWashingtonOlympiaNevadaCarson cityNew mexicoSanta feNew yorkAlbanyFloridaTallahasseeIllinoisSpringfieldOhioColumbusRhode islandProvidenceSouth carolinaColumbiaTexasAustinMarylandAnnapolisNorth carolinaRaleighUtahSalt lake cityVirginiaRichmondWest virginiaCharlestonPennsylvaniaHarrisburgMassachusettsBostonConnecticutHartfordAlabamaMontgomeryCaliforniaSacramentoColoradoDenverGeorgiaAtlantaMichiganLansingNorth dakotaBismarckMontanaHelenaNebraskaLincolnArizonaPhoenixArkansasLittle rockNew hampshireConcordNew jerseyTrentonDelawareDoverOklahomaOklahoma cityIdahoBoiseOregonSalemIndianaIndianapolisIowaDes moinesKansasTopekaSouth dakotaPierreKentuckyFrankfortTennesseeNashvilleLouisianaBaton rougeMaineAugustaVermontMontpelierMinnesotaSt paulMississippiJacksonWisconsinMadisonMissouriJefferson cityWyomingCheyenne".split(/(?=[A-Z])/),
+    B=`HawaiiHonoluluAlaskaJuneauWashingtonOlympiaNevadaCarson cityNew mexicoSanta feNew yorkAlbanyFloridaTallahasseeIllinoisSpringfieldOhioColumbusRhode islandProvidenceSouth carolinaColumbiaTexasAustinMarylandAnnapolisNorth carolinaRaleighUtahSalt lake cityVirginiaRichmondWest virginiaCharlestonPennsylvaniaHarrisburgMassachusettsBostonConnecticutHartfordAlabamaMontgomeryCaliforniaSacramentoColoradoDenverGeorgiaAtlantaMichiganLansingNorth dakotaBismarckMontanaHelenaNebraskaLincolnArizonaPhoenixArkansasLittle rockNew hampshireConcordNew jerseyTrentonDelawareDoverOklahomaOklahoma cityIdahoBoiseOregonSalemIndianaIndianapolisIowaDes moinesKansasTopekaSouth dakotaPierreKentuckyFrankfortTennesseeNashvilleLouisianaBaton rougeMaineAugustaVermontMontpelierMinnesotaSt paulMississippiJacksonWisconsinMadisonMissouriJefferson cityWyomingCheyenne`.split(/(?=[A-Z])/),
     
     D,                      // polygons for each country (array of strings, 2b for capital + 2b + 1b per point)
     [...Array(50).keys()],  // questions not asked yet
     0,                      // how many bytes represent each item
-    "#080",                 // fill color
-    "#000",                 // stroke color
+    `#080`,                 // fill color
+    `#000`,                 // stroke color
     2,                      // start byte for the path
     2,                      // name group size
     0,                      // position in name group
@@ -198,16 +198,16 @@ datasets = [
 
   // 3: territories
   [
-    "TERRITORY",            // dataset name
+    `TERRITORY`,            // dataset name
     
     // names
-    "GreenlandGibraltarGuadeloupeHong kongGuamCayman islandsMartiniqueSt martinFrench polynesiaSt helenaSt barthelemyReunionNew caledoniaPuerto ricoWallis & futunaFrench guianaGuernseyBritish indian ocean territoryMayotteSt pierre & miquelonAnguillaAmerican samoaFaroe islandsBermudaUs minor outlying islandsFrench southern territoriesBritish virgin islandsUs virgin islandsNetherlands antillesArubaAland islandsSouth georgiaBonaireBouvet islandCocos islandsCuracaoChristmas islandWestern saharaFalkland islandsHeard & mcdonald islandsIsle of manJerseyMacauNorthern marianasMontserratNorfolk islandPitcairn islandsJan mayen islandTokelauAntarticaTurks & caicos islandsSvalbard".split(/(?=[A-Z])/),
+    `GreenlandGibraltarGuadeloupeHong kongGuamCayman islandsMartiniqueSt martinFrench polynesiaSt helenaSt barthelemyReunionNew caledoniaPuerto ricoWallis & futunaFrench guianaGuernseyBritish indian ocean territoryMayotteSt pierre & miquelonAnguillaAmerican samoaFaroe islandsBermudaUs minor outlying islandsFrench southern territoriesBritish virgin islandsUs virgin islandsNetherlands antillesArubaAland islandsSouth georgiaBonaireBouvet islandCocos islandsCuracaoChristmas islandWestern saharaFalkland islandsHeard & mcdonald islandsIsle of manJerseyMacauNorthern marianasMontserratNorfolk islandPitcairn islandsJan mayen islandTokelauAntarticaTurks & caicos islandsSvalbard`.split(/(?=[A-Z])/),
 
     E,                      // polygons for each country (array of strings, 2b + 1b per point)
     [...Array(52).keys()],  // questions not asked yet
     0,                      // how many bytes represent each item
-    "#080",                 // fill color
-    "#000",                 // stroke color
+    `#080`,                 // fill color
+    `#000`,                 // stroke color
     0,                      // start byte for the path
     1,                      // name group size
     0,                      // position in name group
@@ -216,15 +216,15 @@ datasets = [
 
   // 4: deserts
   [
-    "DESERT",               // dataset name
+    `DESERT`,               // dataset name
     
     // names
-    "SaharaColorado plateauArabian desertGobiGreat victoriaSimpsonAtacamaSyrian desertGreat sandy desertNamibChihuahuan desertKalahariPatagonian desertKarakumSonoranKyzylkumTaklamakanTharGibsonDasht-e margoRegistanMojaveDasht-e kavirDasht-e loot".split(/(?=[A-Z])/),
+    `SaharaColorado plateauArabian desertGobiGreat victoriaSimpsonAtacamaSyrian desertGreat sandy desertNamibChihuahuan desertKalahariPatagonian desertKarakumSonoranKyzylkumTaklamakanTharGibsonDasht-e margoRegistanMojaveDasht-e kavirDasht-e loot`.split(/(?=[A-Z])/),
 
     I,                      // polygons for each country (array of strings, 2b + 1b per point)
     [...Array(24).keys()],  // questions not asked yet
     0,                      // how many bytes represent each item
-    "rgba(255,255,255,.2)", // fill color
+    `rgba(255,255,255,.2)`, // fill color
     0,                      // stroke color
     0,                      // start byte for the path
     1,                      // name group size
@@ -234,15 +234,15 @@ datasets = [
   
   // 5: forests
   [
-    "FOREST",               // dataset name
+    `FOREST`,               // dataset name
     
     // names
-    "Amazon rainforestSumatra rainforestTaigaGreat lakes st lawrenceSierra nevadaMiombo woodlandsCongo basin forestKinabaluThe sundarbansDaintree rainforestXishuangbannaBialowieza primeval forestThe black forestVirgin komi forestsLacandon jungleTongassBosawas biosphere reserveAtlantic forestValdivian rainforest".split(/(?=[A-Z])/),
+    `Amazon rainforestSumatra rainforestTaigaGreat lakes st lawrenceSierra nevadaMiombo woodlandsCongo basinKinabaluSundarbansDaintree rainforestXishuangbannaBialowieza primeval forestBlack forestVirgin komi forestsLacandon jungleTongassBosawas biosphere reserveAtlantic forestValdivian rainforest`.split(/(?=[A-Z])/),
 
     L,                      // polygons for each country (array of strings, 2b + 1b per point)
     [...Array(19).keys()],  // questions not asked yet
     0,                      // how many bytes represent each item
-    "rgba(0,0,0,.1)",       // fill color
+    `rgba(0,0,0,.1)`,       // fill color
     0,                      // stroke color
     0,                      // start byte for the path
     1,                      // name group size
@@ -252,16 +252,16 @@ datasets = [
   
   // 6: lakes
   [
-    "LAKE",                 // dataset name
+    `LAKE`,                 // dataset name
     
     // names
-    "SuperiorLemanMichiganTiticacaVictoriaGreat bear lakeMalawiGreat slave lakeNicaraguaLoch nessTaal lakeBaikalOntarioPinatuboHuronTanganyikaErieWinnipegLadogaBalkhashOnegaCrater lakeReed flute caveEmerald lakeMirror lakeSpotted lake".split(/(?=[A-Z])/),
+    `SuperiorLemanMichiganTiticacaVictoriaGreat bear lakeMalawiGreat slave lakeNicaraguaLoch nessTaal lakeBaikalOntarioPinatuboHuronTanganyikaErieWinnipegLadogaBalkhashOnegaCrater lakeReed flute caveEmerald lakeMirror lakeSpotted lake`.split(/(?=[A-Z])/),
 
     G,                      // polygons for each country (array of strings, 2b + 1b per point)
     [...Array(26).keys()],  // questions not asked yet
     0,                      // how many bytes represent each item
-    "#0af",                 // fill color
-    "#000",                 // stroke color
+    `#0af`,                 // fill color
+    `#000`,                 // stroke color
     0,                      // start byte for the path
     1,                      // name group size
     0,                      // position in name group
@@ -270,16 +270,16 @@ datasets = [
   
   // 7: streams
   [
-    "STREAM",               // dataset name
+    `STREAM`,               // dataset name
     
     // names
-    "AmazoneNileCongoNigerLoireZambezeIndusMississippiColoradoColumbiaUruguayYangtzeYellow riverXiUralDanubeRhinElbeMeuseRhoneSeineOrangeSenegalVoltaChariGambiaDraaBandamaTanaParanaYukonSao franciscoJubbaLimpopoRio grandeTocantinsOrinocoBrazosMackenzieMagdalenaFraserParnaibaSaint-laurentRio negroEssequiboLenaAmourMekongIenisseiObBrahmapoutreSalouenEuphratesAmou-dariaGangeSyr-dariaIrrawaddyKolymaTigrisIndiguirkaKouraGodavariKrishnaNarmadaRed riverAnadyrVolgaDnieperDonPechoraDniestrTagusVistuleDaugavaMurraySepik".split(/(?=[A-Z])/),
+    `AmazoneNileCongoNigerLoireZambezeIndusMississippiColoradoColumbiaUruguayYangtzeYellow riverXiUralDanubeRhinElbeMeuseRhoneSeineOrangeSenegalVoltaChariGambiaDraaBandamaTanaParanaYukonSao franciscoJubbaLimpopoRio grandeTocantinsOrinocoBrazosMackenzieMagdalenaFraserParnaibaSaint-laurentRio negroEssequiboLenaAmourMekongIenisseiObBrahmapoutreSalouenEuphratesAmou-dariaGangeSyr-dariaIrrawaddyKolymaTigrisIndiguirkaKouraGodavariKrishnaNarmadaRed riverAnadyrVolgaDnieperDonPechoraDniestrTagusVistuleDaugavaMurraySepik`.split(/(?=[A-Z])/),
 
     H,                      // polygons for each country (array of strings, 2b + 1b per point)
     [...Array(76).keys()],  // questions not asked yet
     0,                      // how many bytes represent each item
     0,                      // fill color
-    "#0df",                 // stroke color
+    `#0df`,                 // stroke color
     0,                      // start byte for the path
     1,                      // name group size
     0,                      // position in name group
@@ -288,7 +288,7 @@ datasets = [
   
   // 8: capitals            
   [                         
-    "CAPITAL",              // dataset name
+    `CAPITAL`,              // dataset name
     A,                      // names
     C,                      // polygons for each country (array of strings, the first 2b represent the capital)
     [...Array(199).keys()], // questions not asked yet
@@ -303,7 +303,7 @@ datasets = [
   
   // 9: us capitals
   [
-    "US CAPITAL",           // dataset name
+    `US CAPITAL`,           // dataset name
     B,                      // names
     D,                      // polygons for each country (array of strings, the first 2b represent the capital)
     [...Array(50).keys()],  // questions not asked yet
@@ -319,10 +319,10 @@ datasets = [
 
   // 10: volcanoes
   [
-    "VOLCANO",              // dataset name
+    `VOLCANO`,              // dataset name
     
     // names
-    "EtnaVesuviusPiton de la fournaiseMount peleeEyjafjallajokullSt helensKilaueaStromboliSanta mariaPinatuboYasurTaalAmbrymMerapiErta alePacayaErebusSakurajimaNyiragongoUlawunMauna loaGalerasKrakatoaTamboraNevado del ruiz".split(/(?=[A-Z])/),
+    `EtnaVesuviusPiton de la fournaiseMount peleeEyjafjallajokullSt helensKilaueaStromboliSanta mariaPinatuboYasurTaalAmbrymMerapiErta alePacayaErebusSakurajimaNyiragongoUlawunMauna loaGalerasKrakatoaTamboraNevado del ruiz`.split(/(?=[A-Z])/),
 
     J,                      // polygons for each country (array of strings, the first 2b represent the capital)
     [...Array(25).keys()],  // questions not asked yet
@@ -337,10 +337,10 @@ datasets = [
 
   // 11: mountains
   [
-    "MOUNTAIN",             // dataset name
+    `MOUNTAIN`,             // dataset name
     
     // names
-    "Mount everestK2AnnapurnaFujiKilimanjaroMont blancPopocatepetlOlympusBroad peakCookLhotseMakaluCho oyuDhaulagiriManasluNanga parbatGasherbrum iGasherbrum iiShishapangmaKangchenjungaDenaliKirkjufellFitz royHuaElbrusMatterhornEl capitanGrand tetonLicancaburTre cime de lavaredoBen nevisRainierKinabaluHuangKailashBanff".split(/(?=[A-Z])/),
+    `Mount everestK2AnnapurnaFujiKilimanjaroMont blancPopocatepetlOlympusBroad peakCookLhotseMakaluCho oyuDhaulagiriManasluNanga parbatGasherbrum iGasherbrum iiShishapangmaKangchenjungaDenaliKirkjufellFitz royHuaElbrusMatterhornEl capitanGrand tetonLicancaburTre cime de lavaredoBen nevisRainierKinabaluHuangKailashBanff`.split(/(?=[A-Z])/),
 
     K,                      // polygons for each country (array of strings, the first 2b represent the capital)
     [...Array(36).keys()],  // questions not asked yet
@@ -355,10 +355,10 @@ datasets = [
 
   // 12: places
   [
-    "PLACE",                // dataset name
+    `PLACE`,                // dataset name
     
     // names
-    "Cape canaveralChrist the redeemerGreat chinese wallGreat sphinxEiffel towerTower of pisaSagrada familiaBig benStatue of libertyForbidden cityThe pyramids of gizaThe palace of versaillesAcropolisTrevi fountainKremlinAtomiumLascaux cavesMont st michelPiazza san marcoWashington dcGrand canyonMillau bridgeRock of gibraltarEmpire state buildingHollywood signTimes squareLouvre museumWhite houseFlorence cathedralLas vegasMadrid palaceCentral parkSistine chapelPiazza del campoMachu picchuBurj al arab hotelSt peter basilicaCapitol hillLuxor templeGolden gate bridgeBurj khalifaAlcatrazEphesusManneken pisMount eden craterNorth capeSt basil cathedralVictoria fallsGreat buddha of kamakuraLotus templeColosseumAbu simbelPetronas twin towersYellowstoneNiagara fallsTaj mahalMeccaAuschwitzStonehengeMount rushmorePentagonCape of good hopeOpera houseParc guellPompeiiWaterlooEaster islandEvergladesCloud gateRialto bridgeWillis towerLittle mermaidTower bridgeBlue mosqueNevado mismiTable mountainMinaret of jamAngkor watFaisal mosqueNeuschwanstein castleGolden temple of amritsarAl aqsa mosqueTemple of besakihChichen itzaBran castleHagia sophiaUluruBrandenburg gateBlue domed churchCheyenne mountainKiyomizu-deraPetraTombouctouKultury i nauki palaceNull island".split(/(?=[A-Z])/),
+    `Cape canaveralChrist redeemerGreat chinese wallGreat sphinxEiffel towerTower of pisaSagrada familiaBig benStatue of libertyForbidden cityPyramids of gizaPalace of versaillesAcropolisTrevi fountainKremlinAtomiumLascaux cavesMont st michelPiazza san marcoWashington dcGrand canyonMillau bridgeRock of gibraltarEmpire state buildingHollywood signTimes squareLouvre museumWhite houseFlorence cathedralLas vegasMadrid palaceCentral parkSistine chapelPiazza del campoMachu picchuBurj al arab hotelSt peter basilicaCapitol hillLuxor templeGolden gate bridgeBurj khalifaAlcatrazEphesusManneken pisMount eden craterNorth capeSt basil cathedralVictoria fallsGreat buddha of kamakuraLotus templeColosseumAbu simbelPetronas twin towersYellowstoneNiagara fallsTaj mahalMeccaAuschwitzStonehengeMount rushmorePentagonCape of good hopeOpera houseParc guellPompeiiWaterlooEaster islandEvergladesCloud gateRialto bridgeWillis towerLittle mermaidTower bridgeBlue mosqueNevado mismiTable mountainMinaret of jamAngkor watFaisal mosqueNeuschwanstein castleGolden temple of amritsarAl aqsa mosqueTemple of besakihChichen itzaBran castleHagia sophiaUluruBrandenburg gateBlue domed churchCheyenne mountainKiyomizu-deraPetraTombouctouKultury i nauki palaceNull island`.split(/(?=[A-Z])/),
     
     F,                      // polygons for each country (array of strings, the first 2b represent the capital)
     [...Array(95).keys()],  // questions not asked yet
@@ -373,9 +373,9 @@ datasets = [
   
   // 13: flags
   [
-    "COUNTRY",              // dataset name (not "flags" because the game will say "find this country:")
+    `COUNTRY`,              // dataset name (not `flags` because the game will say `find this country:`)
     A,                      // names
-    C,              // polygons for each country (array of strings, the first 2b represent the capital)
+    C,                      // polygons for each country (array of strings, the first 2b represent the capital)
     [...Array(199).keys()], // questions not asked yet
     0,                      // how many bytes represent each item
     0,                      // fill color
@@ -387,26 +387,30 @@ datasets = [
   ]
 ],
 
-c = a.getContext("2d"),                 // canvas context2d
+c = a.getContext`2d`,                 // canvas context2d
+flags = 1,                              // enable flags
+lastdataset = 3,                        // previous dataset
+scores = [],                            // scores for each question
+questions,                              // total questions (chosen by player)
+score,                                  // final score
+random,                                 // random()
+itemname,                               // current item name
+error,                                  // current error
+item,                                   // current item index
+items,                                  // current list of questions
+itemindex,                              // current item index
+nameparts,                              // current item name parts
+dataset,                                // current dataset
+ds,                                     // dataset being drawn
+us,                                     // USA question
+time,                                   // time to answer each question
+interval,                               // interval to load the flags
+tmp,                                    // array returned by traceitem(): [mindist, x, y]
+extraxoffset,                           // X adjustment for drawing polygons
 state = 0,                              // 0 = title screen
 question = 0,                           // current question number
-questions = 1123,                       // total questions (chosen by player)
-mode = 0,                               // 0 = highest score / 1 = "least errors"
-error = 0,                              // current error
+mode = 0,                               // 0 = highest score / 1 = `least errors`
 errorsum = 0,                           // error sum (in mode 1)
-flags = 1,                              // enable flags
-item = 0,                               // current item index
-items = 0,                              // current list of questions
-itemname = "",                          // current item name
-itemindex = 0,                          // current item index
-nameparts = 0,                          // current item name parts
-dataset = 0,                            // current dataset
-lastdataset = 3,                        // previous dataset
-ds = 0,                                 // dataset being drawn
-scores = [],                            // scores for each question
-score = 0,                              // final score
-time = 0,                               // time to answer each question
-interval = 0,                           // interval to load the flags
 
 // FUNCTIONS
 // =========
@@ -416,66 +420,61 @@ interval = 0,                           // interval to load the flags
 draw = function(){
 
   // Reset canvas, except for feedback state
-  a.width ^= 0;
+  a.width = 1020;
   
   // Black background except on map and feedback
   if(state != 3 && state != 4){
-    c.fillStyle = "#123";
-    c.fillRect(0, 0, 1024, 1024);
+    c.fillStyle = `#123`;
+    c.fillRect(0, 0, 1020, 1020);
   }
 
   // Title screen (0)
-  if(state == 0){
+  if(!state){
     
     // Stars
-    c.fillStyle = "#fff";
-    for(i = 500; i--;) c.beginPath(), c.arc(Math.random() * 1020, Math.random() * 600, Math.random() + .5, 0, 7), c.fill(); 
-
+    c.fillStyle = `#fff`;
+    for(i = 999; i--;){
+      c.beginPath();
+      c.arc(Math.random() * 1020, Math.random() * 1020, Math.random(), 0, 7);
+      c.fill(); 
+    }
+    
     // 2
-    c.font = "600px i";
-    c.fillStyle = "#07d";
-    c.fillText(2, 660, 550);
+    c.font = `600px i,f`;
+    c.fillStyle = `#07d`;
+    c.fillText(2, 680, 530);
+    
+    
+    c.font = `50px i,f`;
+    c.fillText(`\u{1f312}`, 720, 200);
     
     // Emoji
-    c.font = "260px i";
-    c.fillText("\u{1f30d}", 195, 410);
-    
-    c.font = "50px i";
-    c.fillText("\u{1f312}", 700, 220);
+    c.font = `230px i,f`;
+    c.fillText(`\u{1f30d}`, 225, 410);
     
     // GE ... QUIZ
-    c.fillStyle = "#fff";
-    c.font = "200px i";
-    c.fillText("GE       QUIZ", 50, 405);
-    c.lineWidth = 6;
-    c.strokeText("GE       QUIZ", 50, 405);
-    
-    // PLAY
-    c.fillStyle = "#000";
-    c.font = "70px i";
-    c.fillText("\u25b8PLAY\u25c2", 685, 540);
+    c.fillStyle = `#fff`;
+    c.fillText(`GE     QUIZ`, 50, 415);
   }
   
-  // Flags on Windows and Linux (10)
-  else if(state == 10){
+  // Propose to load flags on Windows and Linux (6)
+  else if(state == 6){
   
-    // Flag emoji polyfill
-    b.style.fontFamily = "f,i";
+    // Load flag emoji font
+    b.style.fontFamily = `f,i`;
   
-    c.fillStyle = "#fff";
-    c.font = "110px i,f";
+    c.fillStyle = `#fff`;
+    c.font = `110px i,f`;
     
-    c.fillText("Enable flags?", 200, 150);
-    c.fillText("\u25b8OK       \u25b8no", 210, 500);
-
-    c.font = "110px f";
-    c.fillText("\u{1f1fa}\u{1f1f8}", 450, 360);
+    c.fillText(`Loading flags`, 200, 150);
+    c.fillText(`\u25b8OK     \u25b8skip`, 210, 480);
+    c.fillText(`\u{1f1fa}\u{1f1f8}`, 450, 360);
     
-    c.font = "40px i";
-    c.fillText("Click OK when you see a flag below:", 220, 220);
+    c.font = `40px i,f`;
+    c.fillText(`Click OK when you see a flag below:`, 220, 220);
     
-    interval = setInterval(function(){
-      if(state == 10){
+    setInterval(function(){
+      if(state == 6){
         draw();
       }
     }, 100);
@@ -484,45 +483,38 @@ draw = function(){
   
   // Menu (1)
   else if(state == 1){
-  
-    if(interval){
-      clearInterval(interval);
-    }
     
-    c.fillStyle = "#fff";
-    c.font = "110px i";
+    c.fillStyle = `#fff`;
+    c.font = `110px i,f`;
     
-    c.fillText("Game mode", 60, 150);
+    c.fillText(`Game mode`, 60, 150);
     
-    c.font = "70px i,f";
+    c.font = `70px i,f`;
     
-    c.fillText("\u25b8High score", 50, 280);
-    c.fillText("\u25b8Endless", 50, 460);
+    c.fillText(`\u25b8High score`, 50, 280);
+    c.fillText(`\u25b8Endless`, 50, 460);
     
-    c.font = "35px i,f";
+    c.font = `35px i,f`;
     
-    c.fillText("Answer 25 to 1000 questions", 110, 330);
-    c.fillText("Play until you reach 50,000km of errors", 110, 510);
+    c.fillText(`Answer 25 to 1000 questions and get a grade`, 110, 330);
+    c.fillText(`Play until you reach 50,000km of errors`, 110, 510);
 
   }
   
-  // High score submenu (11)
-  else if(state == 11){
+  // High score submenu (7)
+  else if(state == 7){
   
-    c.fillStyle = "#fff";
-    c.font = "110px i,f";
+    c.fillStyle = `#fff`;
     
-    c.fillText("Highest score", 60, 150);
+    c.font = `60px i,f`;
     
-    c.font = "60px i,f";
+    c.fillText(`\u25b825 questions`, 50, 170);
+    c.fillText(`\u25b850 questions`, 50, 300);
+    c.fillText(`\u25b8100 questions`, 50, 430);
     
-    c.fillText("\u25b825 questions", 50, 270);
-    c.fillText("\u25b850 questions", 50, 400);
-    c.fillText("\u25b8100 questions", 50, 530);
-    
-    c.fillText("\u25b8250 questions", 550, 270);
-    c.fillText("\u25b8500 questions", 550, 400);
-    c.fillText("\u25b81000 questions", 530, 530);
+    c.fillText(`\u25b8250 questions`, 530, 170);
+    c.fillText(`\u25b8500 questions`, 530, 300);
+    c.fillText(`\u25b81000 questions`, 530, 430);
   }
   
   // Choose a question (2)
@@ -531,12 +523,11 @@ draw = function(){
     // Pick a dataset
     // --------------
       
-    // First 3 questions: country (1), capital (8), place (12)
-    if(question < 3){
-      dataset = [1,8,12][question];
+    // First 3 questions: country (1), capital (8), place (12), territory (3), sea (0)
+    if(question < 5){
+      lastdataset = dataset = [1,8,12,3,0][question];
     }
-    
-    
+
     // For all the other questions, the dataset is picked randomly
     else {
       dataset = lastdataset;
@@ -544,7 +535,7 @@ draw = function(){
       // Try 999 times to pick another dataset than the previous one, then abandon and take the same
       for(i = 0; i < 999; i++){
       
-        var random = Math.random();
+        random = Math.random();
       
         // 30% chance to choose country, capital or place (10% each)
         if(random < .1) dataset = 1;
@@ -561,28 +552,22 @@ draw = function(){
 
         // If we found a new dataset not empty: keep it
         // Also, avoid US capitals before question 20
-        if(dataset != lastdataset && datasets[dataset][3].length > 0 && !(question < 20 && dataset == 9)){
+        if(dataset != lastdataset && datasets[dataset][3].length && !(question < 20 && dataset == 9)){
           break;
         }
         
-        // Else, take the last one (it is for sure not empty but it was avoided until now)
+        // Else, take the previous one (it is for sure not empty but it was avoided until now)
         dataset = lastdataset;
       }
       
-      // Save this dataset
+      // Save this dataset to avoid picking it again
       lastdataset = dataset;
     }
     
-    //console.log(dataset);
-    //dataset = 2;
-    
     items = datasets[dataset][3];
     
-    //console.log(dataset, items);
-    //console.log(J);
-    
     // If no question left or 50000km attained in mode 1: go to score screen
-    if(question >= questions || items.length == 0 || errorsum > 50000){
+    if(question >= questions || !items.length || errorsum > 50000){
       state = 5;
       draw();
       return;
@@ -591,18 +576,17 @@ draw = function(){
     // Pick a question
     // ---------------
     
-    // Pick one of the first 10 available answers
-    // This ensures a progressive difficulty.
+    // Pick one of the first 10 questions not asked yet
+    // This ensures a progressive difficulty on the long run
     // For the first 3 questions, pick between the first 30 (they're all easy, and it makes the games less repetitive)
     item = ~~(Math.random() * Math.min(question < 3 ? 30 : 10, items.length)); 
-    //console.log(item);
     
     itemindex = items[item];
     
     // Save item's name
     itemname = 
       datasets[dataset][1] // names
-      [datasets[dataset][8] * itemindex + datasets[dataset][9]] // name index index
+      [datasets[dataset][8] * itemindex + datasets[dataset][9]] // name index
       .toUpperCase();
 
     // Remove that question from the array of available questions
@@ -611,95 +595,89 @@ draw = function(){
     // Display everything
     // ------------------
     
-    c.fillStyle = "#fff";
-    c.textAlign = "left";
+    c.fillStyle = `#fff`;
     
-    c.font = "40px i,f";
-    c.fillText("Question " + (question + 1) + (mode == 0 ? ("/" + questions) : ""), 30, 50);
+    // question number
+    c.font = `40px i,f`;
+    c.fillText(`Question ` + (question + 1) + (!mode ? (`/` + questions) : ``), 30, 50);
     
-    //console.log(mode);
-    if(mode == 1 && errorsum > 0){
-      c.fillText("Error: " + errorsum + "km", 30, 100);
+    // Errors so far
+    if(mode == 1 && errorsum){
+      c.fillText(`Errors: ` + errorsum + `km`, 30, 100);
     }
     
-    c.textAlign = "center";
-    c.font = "70px i,f";
+    c.textAlign = `center`;
+    c.font = `70px i,f`;
     
     // Find this ... :
-    c.fillText("FIND THIS " + datasets[dataset][0] + ":", 512, 280);
-
-    // Arrow
-    c.fillText("\u25b8", 970, 560);
+    c.fillText(`FIND THIS ` + datasets[dataset][0] + `:`, 512, 280);
     
     // Question
     
     // Flag
     if(dataset == 13){
-      c.font = "200px i,f";
-      c.fillText(itemname = String.fromCodePoint(0x1F1E6 + itemname.charCodeAt(0) - 65) + String.fromCodePoint(0x1F1E6 + itemname.charCodeAt(1) - 65), 512, 470);
+      c.font = `200px i,f`;
+      c.fillText(itemname = String.fromCodePoint(0x1F1E6 + itemname.charCodeAt() - 65, 0x1F1E6 + itemname.charCodeAt(1) - 65), 512, 470);
     }
     
     // Name
     else {
-      c.font = "100px i,f";
-      if(itemname.length > 15){
-        nameparts = itemname.match(/.{1,15}( |$)/g);
-      }
-      else {
-        nameparts = [itemname];
-      }
+      c.font = `99px i,f`;
+      nameparts = itemname.match(/.{1,15}( |$)/g);
       
-      c.fillText(nameparts[0], 512, 400);
-      if(nameparts[1]){
-        c.fillText(nameparts[1], 512, 500);
-      }
+      c.fillText([nameparts[0]], 510, 400);
+      c.fillText([nameparts[1]], 510, 500);
+      
     }
   }
   
   // Map (3)
   else if(state == 3){
   
-    // Trace datasets 1-7 (scaled if US state or US capital)
+    // Detect US question
     us = dataset == 2 || dataset == 9;
     
+    // Trace datasets 1-7 (scaled if US state or US capital)
     for(ds = 1; ds < 8; ds++){
     
-      // extra x offset for us items
+      // US polygons are 1.5px more to the left
       extraxoffset = ds == 2 ? 0 : -1.5;
       
-      us ? trace(ds, 3.9, -250 + extraxoffset * 3.9, -350) :  trace(ds, 1, -4 + extraxoffset, 0);
+      // Trace
+      trace(ds, us ? 3.9 : 1, us ? -250 + extraxoffset * 3.9 : -4 + extraxoffset, us ? -350 : 0);
     }
     
     // Repeat the question
-    c.fillStyle = "#000";
-    c.fillRect(0,0,1024,60);
+    c.fillStyle = `#000`;
+    c.fillRect(0, 0, 1020, 60);
     
-    c.fillStyle = "#fff";
-    c.font = "40px i,f";
-    c.fillText(datasets[dataset][0] + ": " + itemname, 10, 45);
+    c.fillStyle = `#fff`;
+    c.font = `40px i,f`;
+    c.fillText(datasets[dataset][0] + `: ` + itemname, 10, 45);
     
   }
   
   // Feedback (4)
   else if(state == 4){
     
-    // If the item is a sea, trace it highlighted in yellow before the rest of the map
-    if(dataset == 0){
+    // If the item is a sea (dataset 0), trace it highlighted in yellow before the rest of the map
+    if(!dataset){
       tmp = tracesea(M[itemindex]);
     }
     
-    // Trace the map
+    // Trace the datasets 1-7
     for(ds = 1; ds < 8; ds++){
-      // extra x offset for us items
+    
+      // US polygons are 1.5px more to the left
       extraxoffset = ds == 2 ? 0 : -1.5;
       
-      us ? trace(ds, 3.9, -250 + extraxoffset * 3.9, -350) :  trace(ds, 1, -4 + extraxoffset, 0);
+      // Trace
+      trace(ds, us ? 3.9 : 1, us ? -250 + extraxoffset * 3.9 : -4 + extraxoffset, us ? -350 : 0);
     }
     
     // If the item is a polygon, trace it highlighted on top of the map
-    if(dataset != 0){
+    if(dataset){
     
-      //console.log(items, item);
       extraxoffset = dataset == 2 ? -4 : -5.5;
     
       tmp = traceitem(
@@ -707,8 +685,8 @@ draw = function(){
         datasets[dataset][7],           // start byte
         datasets[dataset][4],           // bytes to draw
         datasets[dataset][10],          // diststep
-        dataset == 7 ? 0 : "#ff0",      // fill (except for streams)
-        "#db0",                         // stroke
+        dataset == 7 ? 0 : `#ff0`,      // fill (except for streams)
+        `#db0`,                         // stroke
         us ? 3.9 : 1,                   // scale
         us ? -250 + extraxoffset 
            : extraxoffset,              // x offset
@@ -718,16 +696,15 @@ draw = function(){
       
     }
     
-    // Trace the error distance (if any)
+    // Trace the error distance (if any), including offscreen (+/- 1020px)
     if(tmp[0] > 4){
       c.beginPath();
-      c.fillStyle = "red";
+      c.fillStyle = `red`;
       c.arc(X,Y,10,0,7);
       c.fill();
       c.beginPath();
       c.setLineDash([15, 5]);
-      c.strokeStyle = "red";
-      c.lineWidth = 5;
+      c.strokeStyle = `red`;
       c.moveTo(X,Y);
       c.lineTo(tmp[1],tmp[2]);
       
@@ -737,67 +714,50 @@ draw = function(){
       c.moveTo(X+1020,Y);
       c.lineTo(tmp[1]+1020,tmp[2]);
       
-      
       c.stroke();
       c.setLineDash([]);
     }
     
-    c.fillStyle = "#000";
-    c.font = "110px i,f";
-    c.strokeStyle = "#fff";
-    c.lineWidth = 2;
+    c.fillStyle = `#000`;
+    c.font = `110px i,f`;
   
     // Perfect
     if(tmp[0] < 5){
-      c.fillText("Perfect!", 350, 550);
-      c.strokeText("Perfect!", 350, 550);
+      c.fillText(`Perfect!`, 350, 550);
     }
     
     // Error
     else{
     
       // Scale: 100px = 3000km
-      // 1px = 30km
-      
-      //error = ~~((tmp[0] * 30)/100) * 100;
-      
+      // 1px = 30km      
       error = ~~(tmp[0] * .3) * 100;
       if(mode == 1){
         errorsum += error;
       }
       
-      //errortxt = error > 999 ? (error/1000).toFixed(3) : error;
-      
-      c.fillText(error + "km away!", 200, 550);
-      c.strokeText(error + "km away!", 200, 550);
+      c.fillText(error + `km away!`, 200, 550);
     }
     
-    // Arrow
-    c.fillText("\u25b8", 900, 560);
-    c.strokeText("\u25b8", 900, 560);
-    
     // Repeat the question + the country if the question was a capital or a flag
-    c.fillStyle = "#000";
-    c.fillRect(0,0,1024,60);
+    c.fillStyle = `#000`;
+    c.fillRect(0, 0, 1020, 60);
     
-    c.fillStyle = "#fff";
-    c.font = "40px i,f";
-    c.fillText(datasets[dataset][0] + ": " + itemname + (dataset == 8 || dataset == 13 ? " (" + A[itemindex * 3 + 1] + ")" : dataset == 9 ? " (" + B[itemindex * 2] + ")" : "").toUpperCase(), 10, 45);
+    c.fillStyle = `#fff`;
+    c.font = `40px i,f`;
+    c.fillText(datasets[dataset][0] + `: ` + itemname + (dataset == 8 || dataset == 13 ? ` (` + A[itemindex * 3 + 1] + `)` : dataset == 9 ? ` (` + B[itemindex * 2] + `)` : ``).toUpperCase(), 10, 45);
     
     // Score for each question: 100 - time (in seconds) - (error in km) / 50
-    
     scores[question] = Math.max(0, 100 - time - ~~(error / 50));
-    
-    //console.log(scores);
     
   }
   
-  // Score
+  // Score (5)
   else if(state == 5){
     
     // Max score
-    if(mode == 0){
-      score = ~~(scores.reduce((a,b) => a+b) / scores.length) + "%";
+    if(!mode){
+      score = ~~(scores.reduce((a,b)=>a+b) / scores.length) + `%`;
     }
     
     // Min errors
@@ -805,15 +765,15 @@ draw = function(){
       score = question;
     }
     
-    c.fillStyle = "#fff";
-    c.font = "110px i,f";
+    c.fillStyle = `#fff`;
+    c.font = `110px i,f`;
     
-    c.fillText("Score: " + score, 280, 250);
+    c.fillText(`Score: ` + score, 280, 250);
     
 
-    c.font = "40px i,f";
-    c.fillText("\u25b8share", 400, 400);
-    c.fillText("\u25b8replay", 400, 500);
+    c.font = `40px i,f`;
+    c.fillText(`\u25b8share`, 400, 400);
+    c.fillText(`\u25b8replay`, 400, 500);
 
   }
 },
@@ -823,41 +783,31 @@ draw = function(){
 latin2int = function(i){
   if(i){
     J = i.charCodeAt();
-    J = (6E4 < J ? 0 : 255 < J ? "€‚ƒ„…†‡ˆ‰Š‹ŒŽ‘’“”•–—˜™š›œžŸ".indexOf(i) + 128 : J);
-    return J;
+    return (6E4 < J ? 0 : 255 < J ? `€‚ƒ„…†‡ˆ‰Š‹ŒŽ‘’“”•–—˜™š›œžŸ`.indexOf(i) + 128 : J);
   }
 },
 
 // Draw an item (point / polygon)
 // and return an array containing the distance and x/y coordinates of the point that's the closest to the click coordinates (X/Y)
 traceitem = function(polygon, startbyte, bytes, diststep, fill, stroke, scale, xoffset, yoffset, linewidth){
-  
-  //console.log(scale);
-  var j, k, x, y, tmpx, tmpy, x0, y0, J, A, D, dist, ret=[0], mindist = 9999;
-  
-  //console.log(startbyte, bytes, diststep, fill, stroke, scale, xoffset, yoffset, linewidth);
+
+  var j, k, x, y, tmpx, tmpy, x0, y0, J, A, D, dist, ret = [0], mindist = 6E4;
   
   // Separate the islands of the polygon (using char U+127)
-  polygon = polygon.slice(startbyte).split("");
+  polygon = polygon.slice(startbyte).split``;
   
-  //console.log(polygon);
-  
-  // For each island
-  for(k = 0; k < (bytes ? 1 : polygon.length); k++){
-  
-    //console.log("k", k, polygon[k], polygon[k].length);
+  // For each island (or just the first island if a number of bytes is specified)
+  for(k = bytes ? 1 : polygon.length; k--;){
     
-    // For each point of the island (or the number of points specified in bytes)
+    // For each point of the island (or the number of bytes specified)
     for(j = 0; j < (bytes ? bytes : polygon[k].length); j++){
-    
-      //console.log("j", j, polygon[k][j], latin2int(polygon[k][j]));
-      
+
       // Begin the path with the start coordinates (X/Y, encoded in 1 char each)
-      if(j == 0){
+      if(!j){
         c.beginPath();
-        x0 = x = (latin2int(polygon[k][j])*diststep);
-        y0 = y = (latin2int(polygon[k][j+1])*diststep/2);
-        c.moveTo(tmpx = x/2 * scale + xoffset, tmpy = y/2 * scale + yoffset + 65);
+        x0 = x = (latin2int(polygon[k][j]) * diststep);
+        y0 = y = (latin2int(polygon[k][j + 1]) * diststep / 2);
+        c.moveTo(tmpx = x / 2 * scale + xoffset, tmpy = y / 2 * scale + yoffset + 65);
         
         // Save the point if it's the closest to the click coordinates
         dist = Math.hypot(X - tmpx, Y - tmpy);
@@ -865,32 +815,28 @@ traceitem = function(polygon, startbyte, bytes, diststep, fill, stroke, scale, x
           ret = [mindist = dist, tmpx, tmpy];
         }
         
-        // Also, try offscreen paths (except in US)
+        // Also, try offscreen polygons (except for US) to see if they're closer
         if(scale == 1){
           dist = Math.hypot(X - (tmpx - 1020), Y - tmpy);
-          
           if(dist < mindist){
             ret = [mindist = dist, tmpx - 1020, tmpy];
           }
           
           dist = Math.hypot(X - (tmpx + 1020), Y - tmpy);
-          
           if(dist < mindist){
             ret = [mindist = dist, tmpx + 1020, tmpy];
           }
         }
         
-        //console.log("start", latin2int(polygon[k][j]),latin2int(polygon[k][j+1]));
-        
         // Trace a little black square at the start coordinates, to make the little islands visible
         c.fillStyle = stroke;
         if(stroke && fill){
-          c.fillRect(x/2 * scale + xoffset, y/2 * scale + yoffset + 65, 1, 1);
+          c.fillRect(x / 2 * scale + xoffset, y / 2 * scale + yoffset + 65, 1, 1);
         }
         
         // Highlight (linewidth = 5) if the target is a point: circle the point in yellow
         if(linewidth == 5 && ((polygon.length == 1 && polygon[0].length < 5) || bytes == 2)){
-          c.arc(x/2 * scale + xoffset, y/2 * scale + yoffset + 65, 10, 0, 7);
+          c.arc(x/2 * scale + xoffset, y/2 * scale + yoffset + 65, 8, 0, 7);
         }
         
         j++;
@@ -899,12 +845,11 @@ traceitem = function(polygon, startbyte, bytes, diststep, fill, stroke, scale, x
       // Continue the path with a distance and an angle encoded together in 1 char
       else {
         J = latin2int(polygon[k][j]);
-        //console.log(J);
-        A = -((J>>3)-1)* Math.PI/8,
-        D = (J&7)*diststep+diststep,
-        x = Math.floor(x+D*Math.cos(A))
-        y = Math.floor(y+D*Math.sin(A))
-        c.lineTo(tmpx = x/2 * scale + xoffset, tmpy = y/2 * scale + yoffset + 65);
+        A = -((J >> 3) - 1) * Math.PI / 8,
+        D = (J & 7) * diststep + diststep,
+        x = Math.floor(x + D * Math.cos(A))
+        y = Math.floor(y + D * Math.sin(A))
+        c.lineTo(tmpx = x / 2 * scale + xoffset, tmpy = y / 2 * scale + yoffset + 65);
 
         // Save the center if it's the closest to the click coordinates
         dist = Math.hypot(X - tmpx, Y - tmpy);
@@ -916,21 +861,16 @@ traceitem = function(polygon, startbyte, bytes, diststep, fill, stroke, scale, x
         // Also, try offscreen paths
         if(scale == 1){
           dist = Math.hypot(X - (tmpx - 1020), Y - tmpy);
-          
           if(dist < mindist){
             ret = [mindist = dist, tmpx - 1020, tmpy];
           }
           
           dist = Math.hypot(X - (tmpx + 1020), Y - tmpy);
-          
           if(dist < mindist){
             ret = [mindist = dist, tmpx + 1020, tmpy];
           }
         }
-        
-        
       }
-      
     }
     
     // If the polygon is filled (i.e. not a stream), close the path
@@ -938,47 +878,40 @@ traceitem = function(polygon, startbyte, bytes, diststep, fill, stroke, scale, x
       c.lineTo(x0/2 * scale + xoffset, y0/2 * scale + yoffset + 65);
     }
     
-    // Stroke the path (0.5px wide for the streams);
+    // Stroke the path (0.5px wide for the streams, 5px if highlighted);
     c.strokeStyle = stroke;
     c.lineWidth = linewidth == 5 ? 5 : fill ? scale > 1 ? 4 : linewidth : .5;
-    //console.log(c.lineWidth)
     if(stroke){
       c.stroke();
     }
     
-    // Fill the path (poles are colored in white sxept during highlight)
+    // Fill the path (poles are colored in white sxcept during highlight)
     if(fill){
-      c.fillStyle = (linewidth != 5 && (y0 < 75 || y0 > 900)) ? "#fff" : fill;
-    }
-    if(fill){
+      c.fillStyle = (linewidth < 5 && (y0 < 75 || y0 > 900)) ? `#fff` : fill;
       c.fill();
     }
     
     // Check if the last click was inside the polygon
-    //c.closePath();
     if(c.isPointInPath(X, Y)){
       ret = [mindist = 0];
     }
   }
   
   // Adjust the error distance according to the scale
-  if(ret[0]){
-    ret[0] /= scale;
-  }
+  ret[0] /= scale;
   
   return ret;
 },
 
 tracesea = function(sea){
-  //console.log(sea);
-  var x, y, tmpx, tmpy, r, dist, mindist = 99999, ret;
-  x = latin2int(sea[0])*16;
-  y = latin2int(sea[1])*16/2;
-  r = latin2int(sea[2])*16;
+  var x, y, tmpx, tmpy, r, dist, mindist = 6E4, ret;
+  x = latin2int(sea[0]) * 16;
+  y = latin2int(sea[1]) * 16 / 2;
+  r = latin2int(sea[2]) * 16;
   c.beginPath();
-  c.arc(tmpx = x/2, tmpy = y/2 + 65, r/2, 0, 7);
-  c.arc(x/2-1020, y/2 + 65, r/2, 0, 7);
-  c.arc(x/2+1020, y/2 + 65, r/2, 0, 7);
+  c.arc(tmpx = x / 2, tmpy = y / 2 + 65, r / 2, 0, 7);
+  c.arc(x / 2 - 1020, y / 2 + 65, r / 2, 0, 7);
+  c.arc(x /2 + 1020, y / 2 + 65, r / 2, 0, 7);
   
   // Save the center if it's the closest to the click coordinates
   dist = Math.hypot(X - tmpx, Y - tmpy);
@@ -988,21 +921,17 @@ tracesea = function(sea){
   
   // Also, try offscreen seas
   dist = Math.hypot(X - (tmpx - 1020), Y - tmpy);
-  
   if(dist < mindist){
     ret = [mindist = dist - r/2, tmpx - 1020, tmpy];
   }
   
   dist = Math.hypot(X - (tmpx + 1020), Y - tmpy);
-  
   if(dist < mindist){
     ret = [mindist = dist - r/2, tmpx + 1020, tmpy];
   }
   
-  
-  c.fillStyle = "yellow";
+  c.fillStyle = `#ff0`;
   c.fill();
-  //c.closePath();
   if(c.isPointInPath(X,Y)){
     ret = [mindist = 0];
   }
@@ -1017,11 +946,7 @@ trace = function(ds, scale, xoffset, yoffset){
   
   // Trace each item with the right params
   for(i in ds[2]){
-  
-    //if(F[i] == "Loire")
-    ///console.log("i", i, ds[2][i]);
     traceitem(ds[2][i], ds[7], ds[4], ds[10], ds[5], ds[6], scale, xoffset, yoffset, 2);
-    //break;
   }
 },
 
@@ -1033,158 +958,24 @@ xy = function(e){
   
   // Mobile
   if(e.changedTouches){
-    X = e.changedTouches[0].pageX * 1024 / w;
-    Y = e.changedTouches[0].pageY * 1024 / w;
+    X = e.changedTouches[0].pageX * 1020 / w;
+    Y = e.changedTouches[0].pageY * 1020 / w;
   }
   
   // Desktop
   else{
-    X = e.pageX * 1024 / w;
-    Y = e.pageY * 1024 / w;
+    X = e.pageX * 1020 / w;
+    Y = e.pageY * 1020 / w;
   }
-};
-  
-// EVENTS
-// ======
+},
 
-// mousemove, touchmove
-/*onmousemove = ontouchmove = function(e){
-  xy(e);
-  document.title = "move " + ~~X + " " + ~~Y;
-};*/
-  
-// Mouseup, touchend
-//onmouseup = ontouchend = function(e){
-onclick = function(e){
-
-  xy(e);
-  
-  // On title screen (0)
-  if(state == 0){
-
-    // detect OS with bad flag support (Win / Linux)
-    if(/W|L/.exec(navigator.platform)){
-      state = 10;
-    }
-    else {
-      state = 1;
-    }
-    draw();
-  }
-  
-  // On flags screen (10)
-  else if(state == 10){
-    if(X > 510){
-      flags = 0;
-    }
-    state = 1;
-    draw();
-  }
-  
-  // On mode screen (1)
-  else if(state == 1){
-  
-    // Least errors
-    if(Y > 370) {
-      questions = flags ? 1123 : 925;
-      mode = 1;
-      state = 2;
-    }
-    
-    else {
-      state = 11;
-    }
-    
-    draw();
-  }
-  
-  // On Highest score submenu (11)
-  else if(state == 11){
-    if(Y > 450){
-      questions = 100;
-    }
-    else if(Y > 310){
-      questions = 50;
-    }
-    else{
-      questions = 25;
-    }
-    
-    if(X > 500){
-      questions *= 10;
-    }
-    
-    state = 2;
-    
-    draw();
-  }
-  
-  // On question screen (2)
-  else if(state == 2){
-    
-    // Start timer
-    time = new Date;
-    
-    // Go to map
-    state = 3;
-    draw();
-  }
-  
-  // On map (3)
-  else if(state == 3){
-  
-    // Stop timer
-    time = ~~((new Date - time)/1000);
-    // Go to feedback
-    state = 4;
-    draw();
-  }
-  
-  // On feedback (4)
-  else if(state == 4){
-    question++;
-    state = 2;
-    draw();
-  }
-  
-  // On score screen (5)
-  else if(state == 5){
-    
-    if(Y < 430){
-    
-      // Share
-      window.open("//twitter.com/home?status=" + encodeURIComponent("I played #Geoquiz2 by @maximeeuziere\n"+ (mode ? "endless mode" : "high score mode, " + questions + "questions") + "\nMy score: " + score + "!\nPlay here: " + window.location + "\n#js13k"));
-    }
-    
-    // Reload
-    location = location;
-    
-  }
-  
-};
-
-
-// INIT
-// ====
-
-// Font polyfill
-b.style.fontFamily = "i";
-
-// Remove Kosovo flag, because it can't be displayed properly on many browsers, even with a Web font.
-datasets[13][3].splice(102, 1);
-
-// Draw title state
-draw();
-
-}
-
-// MUSIC
-// =====
-
+// Music
 music = function(){
-audio=new AudioContext;
-gain=audio.createGain();
-for(note in notes=`
+var audio = new AudioContext,
+gain = audio.createGain(),
+note,
+oscillator;
+for(note of`
 
 
 
@@ -1214,18 +1005,145 @@ ccc
 \r
 ccc
 c\rcc`){
-oscillator=audio.createOscillator(),
-oscillator.connect(gain),
-gain.connect(audio.destination);
-oscillator.start(note*.2);
-oscillator.frequency.setValueAtTime(415*1.06**(13-notes.charCodeAt(note)),note*.2),
-gain.gain.setValueAtTime(.5, note*.2); 
-gain.gain.setTargetAtTime(.001, note*.2+.18,.005)
-oscillator.stop(note*.2+.19);
+  oscillator = audio.createOscillator(),
+  oscillator.connect(gain),
+  gain.connect(audio.destination);
+  oscillator.start(note * .2);
+  oscillator.frequency.setValueAtTime(415 * 1.06 ** (13 - notes.charCodeAt(note)), note * .2),
+  gain.gain.setValueAtTime(.5, note * .2); 
+  gain.gain.setTargetAtTime(.001, note * .2 + .18, .005)
+  oscillator.stop(note * .2 + .19);
 }
+};
+  
+// EVENTS
+// ======
+
+// mousemove, touchmove
+/*onmousemove = ontouchmove = function(e){
+  xy(e);
+  document.title = `move ` + ~~X + ` ` + ~~Y;
+};*/
+  
+// Mouseup, touchend
+onmouseup = ontouchend = function(e){
+
+  xy(e);
+  
+  // On title screen (0)
+  if(!state){
+
+    // detect OS with bad flag support (Win / Linux)
+    state = navigator.platform.match(/W|L/) ? 6 : 1;
+  }
+  
+  // On flags screen (6)
+  else if(state == 6){
+    if(X > 510){
+      flags = 0;
+    }
+    state = 1;
+  }
+  
+  // On mode screen (1)
+  else if(state == 1){
+  
+    // Least errors
+    if(Y > 370) {
+      questions = flags ? 1123 : 925;
+      mode = 1;
+      state = 2;
+    }
+    
+    // High score
+    else {
+      state = 7;
+    }
+  }
+  
+  // On High score submenu (7)
+  else if(state == 7){
+    if(Y > 350){
+      questions = 100;
+    }
+    else if(Y > 210){
+      questions = 50;
+    }
+    else{
+      questions = 25;
+    }
+    
+    if(X > 500){
+      questions *= 10;
+    }
+    
+    state = 2;
+  }
+  
+  // On question screen (2)
+  else if(state == 2){
+    
+    // Start timer
+    time = new Date;
+    
+    // Go to map
+    state = 3;
+  }
+  
+  // On map (3)
+  else if(state == 3){
+  
+    // Stop timer, save time elapsed in seconds
+    time = ~~((new Date - time) / 1000);
+    
+    // Go to feedback
+    state = 4;
+  }
+  
+  // On feedback (4)
+  else if(state == 4){
+    question++;
+    state = 2;
+  }
+  
+  // On score screen (5)
+  else if(state == 5){
+    
+    if(Y < 430){
+    
+      // Share
+      open`/\/twitter.com/home?status=` + encodeURIComponent(`I played #Geoquiz2 by @maximeeuziere\n`+ (mode ? `endless mode` : `high score mode, ` + questions + `questions`) + `\nMy score: ` + score + `!\nPlay here: ` + location + `\n#js13k`);
+    }
+    
+    // Reload
+    location = location;
+    
+  }
+  
+  setTimeout(draw, 9);
+  
+};
+
+
+// INIT
+// ====
+
+// Font polyfill
+b.style.fontFamily = `i`;
+
+// Remove Kosovo flag, because it can't be displayed properly on many browsers, even with a Web font.
+datasets[13][3].splice(102, 1);
+
+// Draw title screen
+draw();
+
 }
+
+// MUSIC
+// =====
 music();
-//setInterval(music, 30500);
+setInterval(music, 30500);
+
 </script>
 <style>
 
