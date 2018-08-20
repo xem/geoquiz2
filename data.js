@@ -398,5 +398,10 @@ O.stop(i*.2+.19);
 // Palau
 // Sierra leone
 // Jan Mayen / Svalbard separately
+// USA
+// new mex
+// louisiane
+// mississippi
+// canada
 
 // Loire

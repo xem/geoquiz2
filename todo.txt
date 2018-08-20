@@ -1,7 +1,4 @@
 Todo
-- zoom US
-- No wrap in US
-- score (100% - 1% per second - 1% every 150km of error - minimum 0)
 - share
 - music loop
 - 13k

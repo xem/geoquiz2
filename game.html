@@ -24,8 +24,9 @@ badOS = /W|L/.exec(navigator.platform), // detect OS with bad flag support (Win 
 state = 2,                              // 0 = title screen
 question = 0,                           // current question number
 questions = 1123,                       // total questions (chosen by player)
-mode = 0,                               // 0 = highest score / 1 = "least errors"
-error = 0,                              // error counter (in mode 1)
+mode = 1,                               // 0 = highest score / 1 = "least errors"
+error = 0,                              // current error
+errorsum = 0,                           // error sum (in mode 1)
 flags = 1,                              // enable flags
 item = 0,                               // current item index
 items = 0,                              // current list of questions
@@ -35,6 +36,9 @@ nameparts = 0,                          // current item name parts
 dataset = 0,                            // current dataset
 lastdataset = 3,                        // previous dataset
 ds = 0,                                 // dataset being drawn
+scores = [],                            // scores for each question
+score = 0,                              // final score
+time = 0,                               // time to answer each question
 
 // FUNCTIONS
 // =========
@@ -181,16 +185,16 @@ draw = function(){
     }
     
     //console.log(dataset);
-    dataset = 0;
+    //dataset = 2;
     
     items = datasets[dataset][3];
     
     //console.log(dataset, items);
     //console.log(J);
     
-    // If no question left: go to score screen
-    if(question > questions || items.length == 0){
-      screen = 4;
+    // If no question left or 50000km attained in mode 1: go to score screen
+    if(question >= questions || items.length == 0 || errorsum > 50000){
+      state = 5;
       draw();
       return;
     }
@@ -223,8 +227,8 @@ draw = function(){
     
     c.font = "40px impact";
     c.fillText("Question " + (question + 1) + (mode == 0 ? ("/" + questions) : ""), 30, 50);
-    if(mode == 1 && error > 0){
-      c.fillText("Error: " + error + "km", 30, 100);
+    if(mode == 1 && errorsum > 0){
+      c.fillText("Error: " + errorsum + "km", 30, 100);
     }
     
     c.textAlign = "center";
@@ -264,7 +268,18 @@ draw = function(){
   // Map (3)
   else if(state == 3){
   
-    // Repeat the question + the country if the question was a capital or a flag
+    // Trace datasets 1-7 (scaled if US state or US capital)
+    us = dataset == 2 || dataset == 9;
+    
+    for(ds = 1; ds < 8; ds++){
+    
+      // extra x offset for us items
+      extraxoffset = ds == 2 ? 0 : -1.5;
+      
+      us ? trace(ds, 3.9, -250 + extraxoffset * 3.9, -350) :  trace(ds, 1, -4 + extraxoffset, 0);
+    }
+    
+    // Repeat the question
     c.fillStyle = "#000";
     c.fillRect(0,0,1024,60);
     
@@ -272,25 +287,10 @@ draw = function(){
     c.font = "40px impact,f";
     c.fillText(datasets[dataset][0] + ": " + itemname, 10, 45);
     
-    // Trace datasets 1-7
-    for(ds = 1; ds < 8; ds++){
-      trace(ds, 1, 0, 0);
-    }
-    
-    //trace(1, 1, 0, 0);
-    
   }
   
   // Feedback (4)
   else if(state == 4){
-  
-    // Repeat the question
-    c.fillStyle = "#000";
-    c.fillRect(0,0,1024,60);
-    
-    c.fillStyle = "#fff";
-    c.font = "40px impact,f";
-    c.fillText(datasets[dataset][0] + ": " + itemname + (dataset == 8 || dataset == 13 ? " (" + A[itemindex * 3 + 1] + ")" : dataset == 9 ? " (" + B[itemindex * 2] + ")" : ""), 10, 45);
     
     // If the item is a sea, trace it highlighted in yellow before the rest of the map
     if(dataset == 0){
@@ -299,13 +299,17 @@ draw = function(){
     
     // Trace the map
     for(ds = 1; ds < 8; ds++){
-      trace(ds, 1, 0, 0);
+      // extra x offset for us items
+      extraxoffset = ds == 2 ? 0 : -1.5;
+      
+      us ? trace(ds, 3.9, -250 + extraxoffset * 3.9, -350) :  trace(ds, 1, -4 + extraxoffset, 0);
     }
     
     // If the item is a polygon, trace it highlighted on top of the map
     if(dataset != 0){
     
       //console.log(items, item);
+      extraxoffset = dataset == 2 ? -4 : -5.5;
     
       tmp = traceitem(
         datasets[dataset][2][itemindex],// polygon
@@ -314,9 +318,10 @@ draw = function(){
         datasets[dataset][10],          // diststep
         dataset == 7 ? 0 : "yellow",    // fill (except for streams)
         "gold",                         // stroke
-        1,                              // scale
-        0,                              // x offset
-        0,                              // y offset
+        us ? 3.9 : 1,                   // scale
+        us ? -250 + extraxoffset 
+           : extraxoffset,              // x offset
+        us ? -350 : 0,                  // y offset
         5,                              // line width
       );
       
@@ -366,6 +371,9 @@ draw = function(){
       //error = ~~((tmp[0] * 30)/100) * 100;
       
       error = ~~(tmp[0] * .3) * 100;
+      if(mode == 1){
+        errorsum += error;
+      }
       
       //errortxt = error > 999 ? (error/1000).toFixed(3) : error;
       
@@ -376,6 +384,46 @@ draw = function(){
     // Arrow
     c.fillText("\u25b8", 900, 560);
     c.strokeText("\u25b8", 900, 560);
+    
+    // Repeat the question + the country if the question was a capital or a flag
+    c.fillStyle = "#000";
+    c.fillRect(0,0,1024,60);
+    
+    c.fillStyle = "#fff";
+    c.font = "40px impact,f";
+    c.fillText(datasets[dataset][0] + ": " + itemname + (dataset == 8 || dataset == 13 ? " (" + A[itemindex * 3 + 1] + ")" : dataset == 9 ? " (" + B[itemindex * 2] + ")" : ""), 10, 45);
+    
+    // Score for each question: 100 - time (in seconds) - (error in km) / 50
+    
+    scores[question] = Math.max(0, 100 - time - ~~(error / 50));
+    
+    console.log(scores);
+    
+  }
+  
+  // Score
+  else if(state == 5){
+    
+    // Max score
+    if(mode == 0){
+      score = ~~(scores.reduce((a,b) => a+b) / scores.length) + "%";
+    }
+    
+    // Min errors
+    else {
+      score = question;
+    }
+    
+    c.fillStyle = "#fff";
+    c.font = "110px impact";
+    
+    c.fillText("Score: " + score, 280, 300);
+    
+
+    c.font = "40px impact";
+    c.fillText("share?", 400, 400);
+    
+    
     
   }
 },
@@ -394,7 +442,8 @@ latin2int = function(i){
 // and return an array containing the distance and x/y coordinates of the point that's the closest to the click coordinates (X/Y)
 traceitem = function(polygon, startbyte, bytes, diststep, fill, stroke, scale, xoffset, yoffset, linewidth){
   
-  var j, k, x, y, tmpx, tmpy, x0, y0, J, A, D, dist, ret, mindist = 9999;
+  //console.log(scale);
+  var j, k, x, y, tmpx, tmpy, x0, y0, J, A, D, dist, ret=[0], mindist = 9999;
   
   //console.log(startbyte, bytes, diststep, fill, stroke, scale, xoffset, yoffset, linewidth);
   
@@ -418,7 +467,7 @@ traceitem = function(polygon, startbyte, bytes, diststep, fill, stroke, scale, x
         c.beginPath();
         x0 = x = (latin2int(polygon[k][j])*diststep);
         y0 = y = (latin2int(polygon[k][j+1])*diststep/2);
-        c.moveTo(tmpx = x/2 + xoffset, tmpy = y/2 + yoffset + 65);
+        c.moveTo(tmpx = x/2 * scale + xoffset, tmpy = y/2 * scale + yoffset + 65);
         
         // Save the point if it's the closest to the click coordinates
         dist = Math.hypot(X - tmpx, Y - tmpy);
@@ -426,17 +475,19 @@ traceitem = function(polygon, startbyte, bytes, diststep, fill, stroke, scale, x
           ret = [mindist = dist, tmpx, tmpy];
         }
         
-        // Also, try offscreen paths
-        dist = Math.hypot(X - (tmpx - 1020), Y - tmpy);
-        
-        if(dist < mindist){
-          ret = [mindist = dist, tmpx - 1020, tmpy];
-        }
-        
-        dist = Math.hypot(X - (tmpx + 1020), Y - tmpy);
-        
-        if(dist < mindist){
-          ret = [mindist = dist, tmpx + 1020, tmpy];
+        // Also, try offscreen paths (except in US)
+        if(scale == 1){
+          dist = Math.hypot(X - (tmpx - 1020), Y - tmpy);
+          
+          if(dist < mindist){
+            ret = [mindist = dist, tmpx - 1020, tmpy];
+          }
+          
+          dist = Math.hypot(X - (tmpx + 1020), Y - tmpy);
+          
+          if(dist < mindist){
+            ret = [mindist = dist, tmpx + 1020, tmpy];
+          }
         }
         
         //console.log("start", latin2int(polygon[k][j]),latin2int(polygon[k][j+1]));
@@ -444,12 +495,12 @@ traceitem = function(polygon, startbyte, bytes, diststep, fill, stroke, scale, x
         // Trace a little black square at the start coordinates, to make the little islands visible
         c.fillStyle = stroke;
         if(stroke && fill){
-          c.fillRect(x/2 + xoffset, y/2 + yoffset + 65, 1, 1);
+          c.fillRect(x/2 * scale + xoffset, y/2 * scale + yoffset + 65, 1, 1);
         }
         
         // Highlight (linewidth = 5) if the target is a point: circle the point in yellow
         if(linewidth == 5 && ((polygon.length == 1 && polygon[0].length < 5) || bytes == 2)){
-          c.arc(x/2 + xoffset, y/2 + yoffset + 65, 10, 0, 7);
+          c.arc(x/2 * scale + xoffset, y/2 * scale + yoffset + 65, 10, 0, 7);
         }
         
         j++;
@@ -463,7 +514,7 @@ traceitem = function(polygon, startbyte, bytes, diststep, fill, stroke, scale, x
         D = (J&7)*diststep+diststep,
         x = Math.floor(x+D*Math.cos(A))
         y = Math.floor(y+D*Math.sin(A))
-        c.lineTo(tmpx = x/2 + xoffset, tmpy = y/2 + yoffset + 65);
+        c.lineTo(tmpx = x/2 * scale + xoffset, tmpy = y/2 * scale + yoffset + 65);
 
         // Save the center if it's the closest to the click coordinates
         dist = Math.hypot(X - tmpx, Y - tmpy);
@@ -473,16 +524,18 @@ traceitem = function(polygon, startbyte, bytes, diststep, fill, stroke, scale, x
         }
         
         // Also, try offscreen paths
-        dist = Math.hypot(X - (tmpx - 1020), Y - tmpy);
-        
-        if(dist < mindist){
-          ret = [mindist = dist, tmpx - 1020, tmpy];
-        }
-        
-        dist = Math.hypot(X - (tmpx + 1020), Y - tmpy);
-        
-        if(dist < mindist){
-          ret = [mindist = dist, tmpx + 1020, tmpy];
+        if(scale == 1){
+          dist = Math.hypot(X - (tmpx - 1020), Y - tmpy);
+          
+          if(dist < mindist){
+            ret = [mindist = dist, tmpx - 1020, tmpy];
+          }
+          
+          dist = Math.hypot(X - (tmpx + 1020), Y - tmpy);
+          
+          if(dist < mindist){
+            ret = [mindist = dist, tmpx + 1020, tmpy];
+          }
         }
         
         
@@ -492,12 +545,13 @@ traceitem = function(polygon, startbyte, bytes, diststep, fill, stroke, scale, x
     
     // If the polygon is filled (i.e. not a stream), close the path
     if(fill){
-      c.lineTo(x0/2 + xoffset, y0/2 + yoffset + 65);
+      c.lineTo(x0/2 * scale + xoffset, y0/2 * scale + yoffset + 65);
     }
     
     // Stroke the path (0.5px wide for the streams);
     c.strokeStyle = stroke;
-    c.lineWidth = linewidth == 5 ? 5 : fill ? linewidth : .5;
+    c.lineWidth = linewidth == 5 ? 5 : fill ? scale > 1 ? 4 : linewidth : .5;
+    //console.log(c.lineWidth)
     if(stroke){
       c.stroke();
     }
@@ -512,16 +566,21 @@ traceitem = function(polygon, startbyte, bytes, diststep, fill, stroke, scale, x
     
     // Check if the last click was inside the polygon
     c.closePath();
-    if(c.isPointInPath(X,Y)){
+    if(c.isPointInPath(X, Y)){
       ret = [mindist = 0];
     }
+  }
+  
+  // Adjust the error distance according to the scale
+  if(ret[0]){
+    ret[0] /= scale;
   }
   
   return ret;
 },
 
 tracesea = function(sea){
-  console.log(sea);
+  //console.log(sea);
   var x, y, tmpx, tmpy, r, dist, mindist = 99999, ret;
   x = latin2int(sea[0])*16;
   y = latin2int(sea[1])*16/2;
@@ -669,13 +728,21 @@ onmouseup = ontouchend = function(e){
   
   // On question screen (2)
   else if(state == 2){
-        
+    
+    // Start timer
+    time = new Date;
+    
+    // Go to map
     state = 3;
     draw();
   }
   
   // On map (3)
   else if(state == 3){
+  
+    // Stop timer
+    time = ~~((new Date - time)/1000);
+    // Go to feedback
     state = 4;
     draw();
   }
@@ -689,7 +756,9 @@ onmouseup = ontouchend = function(e){
   
   // On score screen (5)
   else if(state == 5){
-  
+    
+    // Share
+    window.open("//twitter.com/home?status=" + encodeURIComponent("I played #Geoquiz2 by @maximeeuziere. ("+ (mode ? "minimum error" : "high score") + " mode). \nMy score: " + score + "!\nPlay here:" + window.location + "\n#js13k"));
   }
   
 };
