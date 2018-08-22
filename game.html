@@ -77,15 +77,16 @@ jJh@~±M±MSi@=R*zy~¯§¯§˜†h0~ï†ì§I1)	(2j\\~©©\rù~	•	•
 ß~ó∞ó∞Px`.split("~"),
 
 // us states 
-D = `èèhëq~,<0G!@1<XAI/+MAKBWQLRZIbzraT[8Qi0		zqzML
-KJ~7W6[+MhI~:k?t!-Mk~GrDom
-(
-,~ebf]lBJ!
-!~\\}\\}Y9(
-yra:~WiWo:#
-ak~]i[k*iZ~hghg Ph~^v[t[1~O}G{{zh1+AK)JkJ~ckbj	j~\`r_tK!qR~AgBdJm,I~bnbjyiN~^m]maQ~ch_i)qQI~hchcIh
-~gffea ~Yw[y2Il(	~9n:dKjyt	)?~HjDp,N~[v[y2qa0J~[_Ye$R:qzk~LYP[N+~AYISlMR5~PgPbNi	i~AwDpmIB*!~TtRw*xbJ~hah]jH~ehek!AqPy~dkdki!~OsRpOh
-i~>aBdL/u~7^6d,l~Zi[ejYH+~SeQg!AL~QkKjjN~L^I[k+~[m[kYRp0~YrVqYL~VVÅB+	b	x~i_hc*jx~g\`f]	bP~S]Pa.	Rjy~VyVs	lP0I~WaXc"H:Ijy~TmRq+8azh~HdIf,MXk`.split("~"),
+D = `èè0XìP)~+=&OOWMrUsbW
+a})>K9;Zx/PAHS8p~7X5Ur+~9l:eKjzs	+X=~:k:k},M~GrJpMm
+ 
+~\\}X}sa:2Q~WhYclY;0~]i[k*ia~hghg(~_v]t
+S~O}JplK}!}"+KA*~ckaj
+qP(~ardpiQAQI~Bh@e
+ykK~bndp1AaS~\`m_ic~chajI*rP~gfheIh	~Zy[}J+
+~PgIf)sN(~HjDp,N~\\w_}K+	z~\\bYe2IY~LYITk+~AYITlO<(~Aw?y+mI~TtRw*cJ~g\`f^	bH~fhfh:rXq~fb\`dz,H~hbgc#k~hchcIh
+~ekekh~OsRw+Mj~>a=e/i{	k~7^=\\lN-~ZjYek	+~SeUaLs~QkKijN~M_I\\jN~[nWq	 a~ZrWqZM~U}Uxi	iIA*~j^l^2Qk~S]PTn2"C~VyU|)	kP8~WaVc
+*8R0Kar~UmRq;K~HeI^kN+~`.split("~"),
 
 // territories 
 E=`_UOS{}w$*KC~Lˇy#[||ˇ~{biJbJ"~}U~Us~—j~Vu~®®~Áw~Gn~Tp~°¢¶§~}°~Tp~˜™P9~RpPSq~öõû~ZÇi
@@ -204,7 +205,7 @@ datasets = [
     `US STATE`,             // dataset name
     
     // names
-    B=`HawaiiHonoluluAlaskaJuneauWashingtonOlympiaNevadaCarson cityNew mexicoSanta feNew yorkAlbanyFloridaTallahasseeIllinoisSpringfieldOhioColumbusRhode islandProvidenceSouth carolinaColumbiaTexasAustinMarylandAnnapolisNorth carolinaRaleighUtahSalt lake cityVirginiaRichmondWest virginiaCharlestonPennsylvaniaHarrisburgMassachusettsBostonConnecticutHartfordAlabamaMontgomeryCaliforniaSacramentoColoradoDenverGeorgiaAtlantaMichiganLansingNorth dakotaBismarckMontanaHelenaNebraskaLincolnArizonaPhoenixArkansasLittle rockNew hampshireConcordNew jerseyTrentonDelawareDoverOklahomaOklahoma cityIdahoBoiseOregonSalemIndianaIndianapolisIowaDes moinesKansasTopekaSouth dakotaPierreKentuckyFrankfortTennesseeNashvilleLouisianaBaton rougeMaineAugustaVermontMontpelierMinnesotaSt paulMississippiJacksonWisconsinMadisonMissouriJefferson cityWyomingCheyenne`.split(/(?=[A-Z])/),
+    B=`HawaiiHonoluluAlaskaJuneauWashingtonOlympiaCaliforniaSacramentoNevadaCarson cityNew mexicoSanta feFloridaTallahasseeIllinoisSpringfieldOhioColumbusRhode islandProvidenceSouth carolinaColumbiaTexasAustinMarylandAnnapolisNorth carolinaRaleighUtahSalt lake cityVirginiaRichmondWest virginiaCharlestonPennsylvaniaHarrisburgConnecticutHartfordAlabamaMontgomeryNebraskaLincolnColoradoDenverGeorgiaAtlantaMichiganLansingNorth dakotaBismarckMontanaHelenaArizonaPhoenixArkansasLittle rockVermontMontpelierNew jerseyTrentonNew yorkAlbanyNew hampshireConcordMassachusettsBostonDelawareDoverOklahomaOklahoma cityIdahoBoiseOregonSalemIndianaIndianapolisIowaDes moinesKansasTopekaSouth dakotaPierreKentuckyFrankfortTennesseeNashvilleLouisianaBaton rougeMaineAugustaMinnesotaSt paulMississippiJacksonWisconsinMadisonMissouriJefferson cityWyomingCheyenne`.split(/(?=[A-Z])/),
     
     D,                      // polygons for each country (array of strings, 2b for capital + 2b + 1b per point)
     [...Array(50).keys()],  // questions not asked yet
@@ -589,6 +590,8 @@ draw = function(){
     }
     
     items = datasets[dataset][3];
+    
+    //dataset = 2;
     
     // If no question left or 50000km attained in mode 1: go to score screen
     if(question >= questions || !items.length || errorsum > 50000){

@@ -15,7 +15,7 @@ x = 0;
 y = 0;
 points = [];
 
-capital = 0;
+capital = 1;
 
 count = 0;
 
@@ -225,7 +225,7 @@ points_old = {
 
 
 
-
+/*
 "Sahara":[119,115,51,31,23,12,7,26,6,119,87,79,79,79],
 "Colorado plateau":[48,87,42,17,122,106],
 "Arabian desert":[154,97,23,118,5,91,85,51],
@@ -250,7 +250,7 @@ points_old = {
 "Mojave":[48,87,66,41,2],
 "Dasht-e kavir":[172,89,74,49,11],
 "Dasht-e loot":[170,95,50,10,114],
-
+*/
 
 
 
@@ -307,20 +307,68 @@ points_old = {
 "Turks & caicos islands":[78,107],
 "Svalbard":[140,11,67,18,15,82,2,74,65],
 
-
-
+"HawaiiHonolulu":[23,143,23,143,48,88,127,25,147,80,41],
+"AlaskaJuneau":[43,61,38,29,79,79,87,5,77,114,12,85,115,4,18,98,87,10,23,29,97,21,7,125,3,41,62,75,57,127,28,59,90,120,127,12,47,80,65,127,15,72,83,25,127,14,56,16,112],
+"WashingtonOlympia":[55,88,53,85,114,2,12,43],
+"CaliforniaSacramento":[57,108,58,101,75,106,122,115,3,9,43,88,61],
+"NevadaCarson city":[58,107,58,107,125,26,44,77],
+"New mexicoSanta fe":[71,114,74,112,77,109,10,32,10],
+"FloridaTallahassee":[92,125,88,125,14,115,97,58,50,81],
+"IllinoisSpringfield":[87,104,89,99,108,89,59,26,48],
+"OhioColumbus":[93,105,91,107,42,11,105,97],
+"Rhode islandProvidence":[104,103,104,103,40,8],
+"South carolinaColumbia":[95,118,93,116,10,2,83],
+"TexasAustin":[79,125,74,112,108,75,125,33,125,34,18,43,75,65,42],
+"MarylandAnnapolis":[99,107,97,106,10,113,80,40],
+"North carolinaRaleigh":[97,114,100,112,105,81,65,81,73,26],
+"UtahSalt lake city":[66,104,64,101,10,121,107,75],
+"VirginiaRichmond":[98,110,100,112,49,65,97,83],
+"West virginiaCharleston":[96,109,95,105,99,18,25],
+"PennsylvaniaHarrisburg":[99,104,97,106,73,42,12,114,80],
+"ConnecticutHartford":[103,102,104,101,73,104,9],
+"AlabamaMontgomery":[90,121,91,125,74,43,10],
+"NebraskaLincoln":[80,103,73,102,41,14,115,78,40],
+"ColoradoDenver":[72,106,68,112,14,44,78],
+"GeorgiaAtlanta":[92,119,95,125,75,43,9,122],
+"MichiganLansing":[92,98,89,101,11,25,50,73,89],
+"North dakotaBismarck":[76,89,73,84,107,14,43],
+"MontanaHelena":[65,89,73,84,108,79,60,40],
+"ArizonaPhoenix":[65,119,63,121,43,24,12,109,73],
+"ArkansasLittle rock":[84,116,82,119,42,12,99,74],
+"VermontMontpelier":[103,96,102,94,9,98,72],
+"New jerseyTrenton":[102,104,102,104,58,114,88,113],
+"New yorkAlbany":[102,98,96,100,11,122,44,72],
+"New hampshireConcord":[104,98,103,99,35,107],
+"MassachusettsBoston":[104,99,104,99,73,104,10],
+"DelawareDover":[101,107,101,107,104,24],
+"OklahomaOklahoma city":[79,115,82,119,43,77,106,2],
+"IdahoBoise":[62,97,61,101,47,16,105,123,9,107],
+"OregonSalem":[55,94,61,92,108,78,45,2],
+"IndianaIndianapolis":[90,106,89,101,107,9,43],
+"IowaDes moines":[83,101,85,97,76,115,11,25],
+"KansasTopeka":[81,107,75,105,14,106,78],
+"South dakotaPierre":[77,95,73,92,14,106,78],
+"KentuckyFrankfort":[91,110,87,113,26,9,32,2,97],
+"TennesseeNashville":[90,114,87,113,14,90,77],
+"LouisianaBaton rouge":[85,125,85,120,105,9,105,73,65,42],
+"MaineAugusta":[106,94,108,94,50,81,107],
+"MinnesotaSt paul":[83,93,80,84,110,12,50,34,67],
+"MississippiJackson":[86,121,85,124,41,25,9,107,80,56],
+"WisconsinMadison":[87,97,86,99,10,42,19,56,82,48,75,97,114],
+"MissouriJefferson city":[85,109,82,113,12,24,59,24,75],
+"WyomingCheyenne":[72,101,73,94,107,78,43],
 }
 
 
 paths = { };
 
 data = 
-`GreenlandGibraltarGuadeloupeHong kongGuamCayman islandsMartiniqueSt martinFrench polynesiaSt helenaSt barthelemyReunionNew caledoniaPuerto ricoWallis & futunaFrench guianaGuernseyBritish indian ocean territoryMayotteSt pierre & miquelonAnguillaAmerican samoaFaroe islandsBermudaUs minor outlying islandsFrench southern territoriesBritish virgin islandsUs virgin islandsNetherlands antillesArubaAland islandsSouth georgiaBonaireBouvet islandCocos islandsCuracaoChristmas islandWestern saharaFalkland islandsHeard & mcdonald islandsIsle of manJerseyMacauNorthern marianasMontserratNorfolk islandPitcairn islandsJan mayen islandTokelauAntarticaTurks & caicos islandsSvalbard`.split(/(?=[A-Z])/),
+`HawaiiHonolulu;AlaskaJuneau;WashingtonOlympia;NevadaCarson city;New mexicoSanta fe;New yorkAlbany;FloridaTallahassee;IllinoisSpringfield;OhioColumbus;Rhode islandProvidence;South carolinaColumbia;TexasAustin;MarylandAnnapolis;North carolinaRaleigh;UtahSalt lake city;VirginiaRichmond;West virginiaCharleston;PennsylvaniaHarrisburg;MassachusettsBoston;ConnecticutHartford;AlabamaMontgomery;CaliforniaSacramento;ColoradoDenver;GeorgiaAtlanta;MichiganLansing;North dakotaBismarck;MontanaHelena;NebraskaLincoln;ArizonaPhoenix;ArkansasLittle rock;New hampshireConcord;New jerseyTrenton;DelawareDover;OklahomaOklahoma city;IdahoBoise;OregonSalem;IndianaIndianapolis;IowaDes moines;KansasTopeka;South dakotaPierre;KentuckyFrankfort;TennesseeNashville;LouisianaBaton rouge;MaineAugusta;VermontMontpelier;MinnesotaSt paul;MississippiJackson;WisconsinMadison;MissouriJefferson city;WyomingCheyenne`.split(/;/),
 
 
 
 
-diststep = 8;
+diststep = 6;
 
 // Avoided chars:
 // \0 (0)
@@ -403,7 +451,7 @@ a.onmousemove = function(e){
   
   for(j in points_old){
     
-    if(j == "HawaiiHonolulu") { diststep=6; fill=0; color="black";  }
+    if(j == "HawaiiHonolulu") { diststep=6; capital = 1; fill=0; color="black";  }
     if(j == "Ru,Russia,Moscow") { diststep=8; fill=0; color="black";  }
     if(j == "Greenland") { line="black"; capital=0; }
     if(j == "Sahara") { fill=0; capital = 0; close = 1; line="red"; color = "yellow" }
@@ -414,7 +462,6 @@ a.onmousemove = function(e){
     if(j == "Mount everest") { emoji = 2 }
     if(j == "Etna") { emoji = 3 }
     
-    diststep = 8;
     console.log(diststep);
     
     
@@ -439,11 +486,11 @@ a.onmousemove = function(e){
             if(close)c.lineTo(x0,y0);
             c.lineWidth = 2
             c.strokeStyle=line;
-            //c.strokeStyle="#fff";
+            c.strokeStyle="#fff";
             c.stroke();
             if(fill)c.fillStyle=color;
             if(fill)c.fill();
-            //c.fill()
+            c.fill()
           }
           c.beginPath();
           c.moveTo(x0=x=points_old[j][i+1]*diststep-diststep, y0=y=points_old[j][i+2]*diststep/2);
@@ -462,11 +509,11 @@ a.onmousemove = function(e){
       if(close) c.lineTo(x0,y0);
       c.lineWidth = 2
       c.strokeStyle=line;
-      //c.strokeStyle = "#fff";
+      c.strokeStyle = "#fff";
       c.stroke();
       if(fill)c.fillStyle=color;
       if(fill)c.fill();
-      //c.fill()
+      c.fill()
     }
   }
   
