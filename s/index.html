@@ -1,5 +1,31 @@
-﻿<h1>Hi</h1>
+﻿<style>
+body { max-width: 800px; margin: 50px auto; text-align:center; background: black; color: white; font-family: arial }
 
-<script>alert(location.hash);</script>
+button { font-weight: bold; fint-size: 25px; color: #fff; }
 
-<div class="sharethis-inline-share-buttons"></div><script async src="//platform-api.sharethis.com/js/sharethis.js#property=5b7d55bd3280b10011e38539&product="inline-share-buttons"></script>
+a { color: #5AE }
+
+h2 { background: #333; border-radius: 5px; padding: 20px; }
+
+</style>
+
+<h2 id=h></h2>
+
+<button id=b1 style="background:#5AE">TWEET</button>
+
+<script>
+
+
+game = location.hash.slice(1).split(",");
+
+text = "I played #geoquiz2 by @maximeeuziere<br>" + (game[1] == "0" ? "(High score mode, " + game[2] + " questions)" : "(Endless mode)" ) + "<br>Play here: <a href='http://js13kgames.com/entries/geoquiz2'>http://js13kgames.com/entries/geoquiz2</a><br>My score: " + game[0] + "<br>#js13k";
+
+message = "I played #geoquiz2 by @maximeeuziere\n" + (game[1] == "0" ? "(High score mode, " + game[2] + " questions)" : "(Endless mode)" ) + "\nPlay here: http://js13kgames.com/entries/geoquiz2\nMy score: " + game[0] + "\n#js13k";
+
+h.innerHTML = text
+
+b1.onclick = function(){
+  location = "//twitter.com/intent/tweet?text=" + encodeURIComponent(message);
+}
+
+</script>
