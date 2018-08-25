@@ -86,14 +86,14 @@ qP(~ardpiQAQI~Bh@e
 ykK~bndp1AaS~\`m_ic~chajI*rP~gfheIh	~Zy[}J+
 ~PgIf)sN(~HjDp,N~\\w_}K+	z~\\bYe2IY~LYITk+~AYITlO<(~Aw?y+mI~TtRw*cJ~g\`f^	bH~fhfh:rXq~fb\`dz,H~hbgc#k~hchcIh
 ~ekekh~OsRw+Mj~>a=e/i{	k~7^=\\lN-~ZjYek	+~SeUaLs~QkKijN~M_I\\jN~[nWq	 a~ZrWqZM~U}Uxi	iIA*~j^l^2Qk~S]PTn2"C~VyU|)	kP8~WaVc
-*8R0Kar~UmRq;K~HeI^kN+~`.split("~"),
+*8R0Kar~UmRq;K~HeI^kN+`.split("~"),
 
 // territories 
 E = `_UOS{}w$*KC~Lÿy#[||ÿ~{biJbJ"~}U~Us~Ñj~Vu~¨¨~çw~Gn~Tp~¡¢¦¤~}¡~Tp~÷ªP9~RpPSq~š›ž~Z‚i
 9~=~´’´•~¡œ~YC~Tp~Ÿ~|&~S[~‹Š‰‚	rb~³ÖXH p~Sp~Sq~OxPx~Ox~)~fßpnçné~Qy~ƒà~Åœ~Px~Ë™~WÚYVÛ h~µÝ~}5~>~Ðl~èr~Tr~÷´~%¯&®)®~{X~—~Nk~ŒCRJA`.split("~"),
 
 // places
-F = `HacªÓN—]‚?ˆG‚K€9LMÓN—]‚?’QŠK›1„;‚E€?ˆF??1UƒG}TLM-XMM‚?KQˆF/S~NMLŠKˆGN§fŠK+?˜d*R§f*R”P„;üÀ’›1•¡âW·\`ŠK˜hÉ…3FIH·\`kŽ;€:8FKQŽ»ë»‚K‹M„;4±GdCJ‰ECJŠ1€9•KMŸŽ»®XÊwˆ?µ[Ó–Bl’D•LÝ­Š8“S6OáVš]rŠ`.match(/.{2}/g),
+F = `HacªÓN—]‚?ˆG‚K€9LMÓN—]‚?’QŠK›1„;‚E€?ˆFJQ1UƒG}TLM-XMM‚?KQˆF/S~NMLŠKˆGN§fŠK+?˜d*R§f*R”P„;üÀ’›1•¡âW·\`ŠK˜hÉ…3FIH·\`kŽ;€:8FKQŽ»ë»‚K‹M„;4±GdCJ‰ECJŠ1€9•KMŸŽ»®XÊwˆ?µ[Ó–Bl’D•LÝ­Š8“S6OáVš]rŠ`.match(/.{2}/g),
 
 // lakes
 G = `ECQ0K~…D~CFbpI~P¢8~—Ša	)~(
@@ -162,7 +162,7 @@ onload = () => {
 // 13: flags
 
 var
-datasets = [
+datasets = window.dat = [
 
   // 0: seas
   [
@@ -380,10 +380,10 @@ datasets = [
     `PLACE`,                // dataset name
     
     // names
-    `Cape canaveralChrist redeemerGreat chinese wallSphinxEiffel towerPisa towerSagrada familiaBig benLiberty statueForbidden cityGiza pyramidsVersailles palaceAcropolisTrevi fountainKremlinAtomiumLascaux cavesMont st michelPiazza san marcoWashington dcGrand canyonMillau bridgeGibraltar rockEmpire state buildingHollywood signTimes squareLouvre museumWhite houseFlorence cathedralLas vegasMadrid palaceCentral parkSistine chapelPiazza del campoMachu picchuBurj al arab hotelSt peter basilicaCapitol hillLuxor templeGolden gate bridgeBurj khalifaAlcatrazEphesusManneken pisMount eden craterNorth capeSt basil cathedralVictoria fallsGreat buddha of kamakuraLotus templeColosseumAbu simbelPetronas twin towersYellowstoneNiagara fallsTaj mahalMeccaAuschwitzStonehengeMount rushmorePentagonCape of good hopeOpera houseParc guellPompeiiWaterlooEaster islandEvergladesCloud gateRialto bridgeWillis towerLittle mermaidTower bridgeBlue mosqueNevado mismiTable mountainMinaret of jamAngkor watNeuschwanstein castleAmritsar golden templeAl aqsa mosqueBesakih templeChichen itzaBran castleHagia sophiaUluruBrandenburg gateBlue domed churchCheyenne mountainKiyomizu-deraPetraTombouctouNull island`.split(/(?=[A-Z])/),
+    `Cape canaveralChrist redeemerGreat wall of chinaSphinxEiffel towerPisa towerSagrada familiaBig benLiberty statueForbidden cityGiza pyramidsVersailles palaceAcropolisTrevi fountainKremlinAtomiumLascaux cavesMont st michelPiazza san marcoWashington dcGrand canyonMillau bridgeGibraltar rockEmpire state buildingHollywood signTimes squareLouvre museumWhite houseFlorence cathedralLas vegasMadrid palaceCentral parkSistine chapelPiazza del campoMachu picchuBurj al arab hotelSt peter basilicaCapitol hillLuxor templeGolden gate bridgeBurj khalifaAlcatrazEphesusManneken pisMount eden craterNorth capeSt basil cathedralVictoria fallsGreat buddha of kamakuraLotus templeColosseumAbu simbelPetronas twin towersYellowstoneNiagara fallsTaj mahalMeccaAuschwitzStonehengeMount rushmorePentagonCape of good hopeOpera houseParc guellPompeiiWaterlooEaster islandEvergladesCloud gateRialto bridgeWillis towerLittle mermaidTower bridgeBlue mosqueNevado mismiTable mountainMinaret of jamAngkor watNeuschwanstein castleAmritsar golden templeBesakih templeChichen itzaBran castleHagia sophiaUluruBrandenburg gateBlue domed churchCheyenne mountainKiyomizu-deraPetraTombouctouNull island`.split(/(?=[A-Z])/),
     
     F,                      // polygons for each country (array of strings, the first 2b represent the capital)
-    [...Array(95).keys()],  // questions not asked yet
+    [...Array(92).keys()],  // questions not asked yet
     2,                      // how many bytes represent each item
     0,                      // fill color
     0,                      // stroke color
@@ -583,7 +583,9 @@ draw = e => {
       // Save this dataset to avoid picking it again
       lastdataset = dataset;
     }
-    dataset = 7;
+    
+    // Debug
+    //dataset = 12;
     
     items = datasets[dataset][3];
     
